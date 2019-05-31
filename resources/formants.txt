@@ -1,0 +1,149 @@
+Table C.1. alto A
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	800 	1150 	2800 	3500 	4950
+amp (dB) 	0 	-4 	-20 	-36 	-60
+bw (Hz) 	80 	90 	120 	130 	140
+
+Table C.2. alto E 
+Values  	f1  	f2  	f3  	f4  	f5
+freq (Hz) 	400 	1600 	2700 	3300 	4950
+amp (dB) 	0 	-24 	-30 	-35 	-60
+bw (Hz) 	60 	80 	120 	150 	200
+
+Table C.3. alto I
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	350 	1700 	2700 	3700 	4950
+amp (dB) 	0 	-20 	-30 	-36 	-60
+bw (Hz) 	50 	100 	120 	150 	200
+
+Table C.4. alto O
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	450 	800 	2830 	3500 	4950
+amp (dB) 	0 	-9 	-16 	-28 	-55
+bw (Hz) 	70 	80 	100 	130 	135
+
+Table C.5. alto U
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	325 	700 	2530 	3500 	4950
+amp (dB) 	0 	-12 	-30 	-40 	-64
+bw (Hz) 	50 	60 	170 	180 	200
+
+Table C.6. bass A
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	600 	1040 	2250 	2450 	2750
+amp (dB) 	0 	-7 	-9 	-9 	-20
+bw (Hz) 	60 	70 	110 	120 	130
+
+Table C.7. bass E
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	400 	1620 	2400 	2800 	3100
+amp (dB) 	0 	-12 	-9 	-12 	-18
+bw (Hz) 	40 	80 	100 	120 	120
+
+Table C.8. bass I
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	250 	1750 	2600 	3050 	3340
+amp (dB) 	0 	-30 	-16 	-22 	-28
+bw (Hz) 	60 	90 	100 	120 	120
+
+Table C.9. bass O
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	400 	750 	2400 	2600 	2900
+amp (dB) 	0 	-11 	-21 	-20 	-40
+bw (Hz) 	40 	80 	100 	120 	120
+
+Table C.10. bass U
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	350 	600 	2400 	2675 	2950
+amp (dB) 	0 	-20 	-32 	-28 	-36
+bw (Hz) 	40 	80 	100 	120 	120
+
+Table C.11. countertenor A
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	660 	1120 	2750 	3000 	3350
+amp (dB) 	0 	-6 	-23 	-24 	-38
+bw (Hz) 	80 	90 	120 	130 	140
+
+Table C.12. countertenor E
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	440 	1800 	2700 	3000 	3300
+amp (dB) 	0 	-14 	-18 	-20 	-20
+bw (Hz) 	70 	80 	100 	120 	120
+
+Table C.13. countertenor I
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	270 	1850 	2900 	3350 	3590
+amp (dB) 	0 	-24 	-24 	-36 	-36
+bw (Hz) 	40 	90 	100 	120 	120
+
+Table C.14. countertenor O
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	430 	820 	2700 	3000 	3300
+amp (dB) 	0 	-10 	-26 	-22 	-34
+bw (Hz) 	40 	80 	100 	120 	120
+
+Table C.15. countertenor U
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	370 	630 	2750 	3000 	3400
+amp (dB) 	0 	-20 	-23 	-30 	-34
+bw (Hz) 	40 	60 	100 	120 	120
+
+Table C.16. soprano A
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	800 	1150 	2900 	3900 	4950
+amp (dB) 	0 	-6 	-32 	-20 	-50
+bw (Hz) 	80 	90 	120 	130 	140
+
+Table C.17. soprano E
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	350 	2000 	2800 	3600 	4950
+amp (dB) 	0 	-20 	-15 	-40 	-56
+bw (Hz) 	60 	100 	120 	150 	200
+
+Table C.18. soprano I
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	270 	2140 	2950 	3900 	4950
+amp (dB) 	0 	-12 	-26 	-26 	-44
+bw (Hz) 	60 	90 	100 	120 	120
+
+Table C.19. soprano O
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	450 	800 	2830 	3800 	4950
+amp (dB) 	0 	-11 	-22 	-22 	-50
+bw (Hz) 	40 	80 	100 	120 	120
+
+Table C.20. soprano U
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	325 	700 	2700 	3800 	4950
+amp (dB) 	0 	-16 	-35 	-40 	-60
+bw (Hz) 	50 	60 	170 	180 	200
+
+Table C.21. tenor A
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	650 	1080 	2650 	2900 	3250
+amp (dB) 	0 	-6 	-7 	-8 	-22
+bw (Hz) 	80 	90 	120 	130 	140
+
+Table C.22. tenor E
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	400 	1700 	2600 	3200 	3580
+amp (dB) 	0 	-14 	-12 	-14 	-20
+bw (Hz) 	70 	80 	100 	120 	120
+
+Table C.23. tenor I
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	290 	1870 	2800 	3250 	3540
+amp (dB) 	0 	-15 	-18 	-20 	-30
+bw (Hz) 	40 	90 	100 	120 	120
+
+Table C.24. tenor O
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	400 	800 	2600 	2800 	3000
+amp (dB) 	0 	-10 	-12 	-12 	-26
+bw (Hz) 	70 	80 	100 	130 	135
+
+Table C.25. tenor U
+Values 	f1 	f2 	f3 	f4 	f5
+freq (Hz) 	350 	600 	2700 	2900 	3300
+amp (dB) 	0 	-20 	-17 	-14 	-26
+bw (Hz) 	40 	60 	100 	120 	120
