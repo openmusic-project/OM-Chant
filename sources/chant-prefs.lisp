@@ -26,7 +26,6 @@
 
 
 (defmethod get-external-name ((module (eql 'chant))) "CHANT")
-(defmethod get-external-icon ((module (eql 'chant))) (list 600 (find-library "OM-Chant")))
 
 (defmethod get-external-module-vals ((module (eql 'chant)) modulepref) (get-pref modulepref :chant-options))
 (defmethod get-external-module-path ((module (eql 'chant)) modulepref) (get-pref modulepref :chant-path))
