@@ -6,15 +6,17 @@ OM-Chant is an OpenMusic library for the control of the Chant synthesizer. The C
 
 ### Documentation
 
-A complete documentation is available here: http://support.ircam.fr/docs/om-libraries/om-chant/
-
+A complete documentation is available here: http://support.ircam.fr/docs/om-libraries/om-chant/   
 The OM-Chant library also contains a full set on tutorial patches.
+
+See also more information on the [projet wiki pages](https://github.com/openmusic-project/OM-Chant/wiki/OM-Chant-project/)
+
 
 ### Release / Downloads
 
 This program is free software. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 
-_This library does NOT include Spat sources or binaries, which must be installed separately and located in the Spat section of OM Preferences/Libraries tab._
+_This library does NOT include **Chant** sources or binaries, which must be purchased and installed separately. 
 
-Get it the full package (including binaries) here: http://forumnet.ircam.fr/shop/fr/forumnet/57-libraries-openmusic.html
+Get it the full OM-Chant package (including Chant binaries) here: http://forumnet.ircam.fr/shop/fr/forumnet/57-libraries-openmusic.html
 
