@@ -16,7 +16,7 @@ See also more information on the [projet wiki pages](https://github.com/openmusi
 
 This program is free software. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 
-_This library does NOT include **Chant** sources or binaries, which must be purchased and installed separately. 
+_This library does NOT include **Chant** sources or binaries, which must be installed separately._
 
 Get it the full OM-Chant package (including Chant binaries) here: http://forumnet.ircam.fr/shop/fr/forumnet/57-libraries-openmusic.html
 
