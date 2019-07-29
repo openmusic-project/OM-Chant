@@ -201,7 +201,7 @@ Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 
    :outdoc '("formant values" "frequency" "amplitude" "bandwidth")
    :numouts 4
    :indoc '("list of formants' frequencies" "list of formants' bandwidths" "amplitude scaler" "complement formant frequency" "complement formant bandwidth")
-   :doc "FCOMP calculates the amplitude a complement formant to be added to the spectrum. 
+   :doc "FCOMP calculates the amplitude of a complement formant to be added to the spectrum. 
 The 'complement' formant can be added to reinforce the first formant of a spectrum, the fundamental partial and the low register.
 
 The result is a list with (<frcomp> calculated-amplitude <bwcomp>)
