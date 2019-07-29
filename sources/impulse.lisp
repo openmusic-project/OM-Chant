@@ -143,7 +143,8 @@ Return the list of times and values.
 ; correct atk and dec if they are bigger than 1.0
 ; if the value is < epsilon, set it to epsilon to avoid having the same x value (if below the resolution of the bpf)
   (let ((sum (+ atk dec))
-        (dureps (- durpulse epsilon)))
+        ;; (dureps (- durpulse epsilon))
+        )
     (cond
 ; atk+dec beyond the duration of the pulse, set them to the maximum possible duration respecting the proportions
       ((> sum 1.0) (list (* atk (/ 1.0 sum) durpulse) (* dec (/ 1.0 sum) durpulse)))
@@ -163,15 +164,15 @@ Return the list of times and values.
    :indoc '("Absolute bpf [bpf]" "Duration to clip [sec]")
    :icon 314
    :doc
-"Generate a new bpf whose duration is clipped to dur.
-"
+"Generate a new bpf whose duration is clipped to dur."
    (let* ((x (x-points bpf))
           (y (y-points bpf))
           (first-x (first x))
           (second-x (second x))
           (last-x (last-elem x))
           (first-y (first y))
-          (second-y (second y)))
+          ;; (second-y (second y))
+          )
 
 
      (cond

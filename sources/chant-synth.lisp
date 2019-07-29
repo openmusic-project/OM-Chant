@@ -10,23 +10,11 @@
 (in-package :om)
 
 
-(defmethod! chant-synth ((self t) &key outfile resolution normalize-level out-format)
-    (om-beep-msg "ERROR: Invalid input to CHANT-SYNTH !"))
-
-
-(defmethod! chant-synth ((self sdiffile) &key outfile resolution normalize-level out-format)
-   (chant-synth (filepathname self) :outfile outfile :resolution resolution :normalize-level normalize-level))
-
-(defmethod! chant-synth ((self string) &key outfile resolution normalize-level out-format)
-   (if (probe-file (pathname self))
-       (chant-synth (pathname self) :outfile outfile :resolution resolution :normalize-level normalize-level)
-     (om-beep-msg (string+ "File " self " not found!"))))
-
-
 (defmethod! chant-synth ((self pathname) &key outfile resolution normalize-level out-format)
-  :icon '(410)
+  :icon 600
   :indoc '("SDIFfile object or file pathname" "output file pathname" "output sample resolution")
-  :initvals '(nil nil nil nil nil)
+  :initvals '(nil nil nil nil :aiff)
+  :menuins '((4 (("aiff" :aiff) ("wav" :wav))))
   :doc "Calls CHANT to synthesize a sound from <self>.
 
 <self> is and SDIF file formatted for the control of CHANT (see MAKE-CHANT-SDIF-FILE).
@@ -47,16 +35,19 @@ Some normalization modules may be required (check messages in the OM Listener!)
 
   (let* ((path-sdif self)
          (CHANT-PATH (get-chant-exec-path))
-         (format (or out-format *def-snd-format*))
-         (outpath (handle-new-file-exists 
-                   (corrige-sound-filename (if outfile outfile (string+ (pathname-name self) "." (string-downcase format))) *om-outfiles-folder*)))
-         ;(tmppath1 (handle-new-file-exists
+         (format (or out-format (chant-get-default-audio-format)))
+         (out (if outfile outfile (string+ (pathname-name self) "." (string-downcase format))))
+         (outpath (handle-new-file-exists (if (pathname-directory (pathname out)) out (om::outfile out))))
+         
+;(tmppath1 (handle-new-file-exists
          ;           (make-pathname :device (pathname-device outpath) :directory (pathname-directory outpath)
          ;                          :name (pathname-name outpath) :type "tmp1")))
          ;(tmppath2 (handle-new-file-exists
          ;           (make-pathname :device (pathname-device outpath) :directory (pathname-directory outpath)
          ;                         :name (pathname-name outpath) :type "sf")))
-         (res (or resolution *audio-res*)))
+         (res (or resolution (chant-get-default-audio-res)))
+         (normalization (or normalize-level
+                            (and (chant-get-default-audio-normalization) 0.0))))
   (if (not (probe-file CHANT-PATH))
       (om-beep-msg "CHANT not found !!")
     (when (chant-forum-protec CHANT-PATH (find-library "OM-Chant"))
@@ -69,7 +60,7 @@ Some normalization modules may be required (check messages in the OM Listener!)
           (om-print "==========================" "OM-Chant ::")
           (om-print (format nil "Running CHANT with ~D" (namestring path-sdif)) "OM-Chant ::")
           (setf nch (or (and nch (read-from-string nch)) 1)
-                sr (or (and sr (read-from-string sr)) *audio-sr*))
+                sr (or (and sr (read-from-string sr)) (chant-get-default-audio-sr)))
           (om-print (format nil "Number of channels= ~D" nch) "OM-Chant ::")
           (om-cmd-line  
            ;(string+ ;(format nil "PATH=$PATH:~s; " (namestring (make-pathname :directory (pathname-directory CHANT-PATH))))
@@ -82,18 +73,12 @@ Some normalization modules may be required (check messages in the OM Listener!)
                     (if (or (equal format :aiff) (equal format :wav))
                         (format nil "-s~A~D" (if (equal format :aiff) "a" "w") res)
                       "")
-                    (if (and (or (equal format :aiff) (equal format :wav)) normalize-level) 
-                        (format nil "-n~D" (- (if (plusp normalize-level) (lin->db normalize-level) normalize-level)))
+                    (if (and (or (equal format :aiff) (equal format :wav)) normalization) 
+                        (format nil "-n~D" (- (if (plusp normalization) (lin->db normalization) normalization)))
                       "")
-                    (if *sys-console* "-v" "")
-                    )
-            ;)
-           
-           *sys-console* 
-           T
-           ;(om-make-pathname :directory CHANT-PATH)
-           )
-           
+                    "" ;; (if *sys-console* "-v" "")
+                    ))
+          
           (if (not (probe-file outpath))
               (om-beep-msg "!! ERROR in CHANT synthesis !!")
             outpath)
@@ -102,11 +87,27 @@ Some normalization modules may be required (check messages in the OM Listener!)
 
 
 
+(defmethod! chant-synth ((self sdiffile) &key outfile resolution normalize-level out-format)
+   (chant-synth (filepathname self) 
+                :outfile outfile 
+                :resolution resolution 
+                :normalize-level normalize-level
+                :out-format out-format))
 
 
-;=================================================
+(defmethod! chant-synth ((self string) &key outfile resolution normalize-level out-format)
+   (if (probe-file (pathname self))
+       (chant-synth (pathname self) 
+                    :outfile outfile 
+                    :resolution resolution 
+                    :normalize-level normalize-level
+                    :out-format out-format)
+     (om-beep-msg (string+ "File " self " not found!"))))
 
 
+(defmethod! chant-synth ((self t) &key outfile resolution normalize-level out-format)
+  (declare (ignore outfile resolution normalize-level out-format))
+  (om-beep-msg "ERROR: Invalid input to CHANT-SYNTH !"))
 
   
 

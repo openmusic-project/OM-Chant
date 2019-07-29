@@ -392,18 +392,6 @@ Instanciates a sound file player in the interval determined by <action-time> and
 ;        array)))
       
 
-(defmethod extra-channels ((self chant-matrix-Evt))
-   (let (rep)
-     (loop for item in (Lcontrols self) do
-           (let ((ctlname (string (car item))))
-           (when (and (> (length ctlname) 4)
-                      (string-equal "chan" (subseq ctlname 0 4)))
-             (push (label2index self ctlname) rep))))
-     (reverse rep)))
-
-(defmethod get-channels-num ((self chant-matrix-Evt)) 
-   (max 1 (length (extra-channels self))))
-
 (defmethod continuous-event-p ((self chant-matrix-Evt))
   (let ((continuous nil))
     (loop for i from 0 to (1- (numrows self))
@@ -459,6 +447,25 @@ Instanciates a sound file player in the interval determined by <action-time> and
                                      val2
                                      )))))))
     (values times (append data (car (last data))))))
+
+
+;=================================
+; CHANNELS INSIDE CH-EVENTS
+;=================================
+
+
+(defmethod extra-channels ((self chant-matrix-Evt))
+   (let (rep)
+     (loop for item in (Lcontrols self) do
+           (let ((ctlname (string (car item))))
+           (when (and (> (length ctlname) 4)
+                      (string-equal "chan" (subseq ctlname 0 4)))
+             (push (label2index self ctlname) rep))))
+     (reverse rep)))
+
+(defmethod get-channels-num ((self chant-matrix-Evt)) 
+   (max 1 (length (extra-channels self))))
+
 
 (defvar *channel-events* nil)
 

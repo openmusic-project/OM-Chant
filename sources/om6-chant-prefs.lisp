@@ -10,12 +10,6 @@
 (in-package :om)
 
 
-;; no real need to make CHANT-PATH A user preference...
-;; (pushr 'chant *external-prefs*)
-
-
-(defvar *chant-path* nil)
-
 (defun get-chant-exec-path ()
   (let ((libpath (lib-pathname (find-library "OM-Chant"))))
     (om-make-pathname :directory (append (pathname-directory libpath) 
@@ -24,6 +18,17 @@
                       :name "chant" #+win32 :type #+win32  "exe")
     ))
 
+
+(defun chant-get-default-audio-format () *def-snd-format*)
+(defun chant-get-default-audio-res () *audio-res*)
+(defun chant-get-default-audio-sr () *audio-sr*)
+(defun chant-get-default-audio-normalization () (and *normalize* *normalize-level*))
+
+#|
+;; no real need to make CHANT-PATH A user preference...
+;; (pushr 'chant *external-prefs*)
+
+(defvar *chant-path* nil)
 
 (defmethod get-external-name ((module (eql 'chant))) "CHANT")
 
@@ -45,9 +50,6 @@
     (when (get-pref moduleprefs :chant-path)
       (setf *chant-path* (find-true-external (get-pref moduleprefs :chant-path))))
     ))
-
-;(when (find-pref-module :externals)
-;  (put-external-preferences 'chant (find-pref-module :externals)))
-
+|#
 
 

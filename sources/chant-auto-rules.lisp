@@ -58,27 +58,29 @@
 
 The result is a list of calculated formant bandwidths.
 
-<freqlist> can also be a BPF-lib containing the evolution every formant frequencies. In this case all BPFs must be sampled identically.
-The result will be a list of bandwidth BPFs.
+<freqlist> can also be a list of lists containing the evolution every formant frequencies.
+The result will be a list of list of bandwidth.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) ('atb' flag) and in the chant_autobw object for Max by F. Iovino and, G. Eckel (1994).
 Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
 "
-   (let* ((ref-params (mat-trans ref-curve))
-          (cpol (GetPolCoefs (car ref-params) (cadr ref-params))))
-     (when cpol
-       (loop for f in freqlist collect
-             (let ((LogFreq (log f)))
-               (+ (nth 0 cpol) 
-                  (* (nth 1 cpol) LogFreq)
-                  (* (nth 2 cpol) LogFreq LogFreq))))
-       )))
+    
+    (if (listp (car freqlist))
 
+        (let* ((states (mat-trans freqlist)))
+          (mat-trans (loop for st in states collect (autobw st ref-curve))))
+               
+    (let* ((ref-params (mat-trans ref-curve))
+           (cpol (GetPolCoefs (car ref-params) (cadr ref-params))))
+      (when cpol
+        (loop for f in freqlist collect
+              (let ((LogFreq (log f)))
+                (+ (nth 0 cpol) 
+                   (* (nth 1 cpol) LogFreq)
+                   (* (nth 2 cpol) LogFreq LogFreq))))
+        ))
+    ))
 
-(defmethod! autobw ((freqlist BPF-lib) &optional (ref-curve '((200 75) (500 75) (4000 150))))
-   (let ((bws (mat-trans (mapcar #'(lambda (freqs) (autobw freqs ref-curve)) (mat-trans (mapcar 'y-points (bpf-list freqlist)))))))
-     (loop for bwlist in bws collect 
-           (om-make-bpf 'bpf (x-points (car (bpf-list freqlist))) bwlist (decimals (car (bpf-list freqlist)))))))
 
 
 
@@ -141,46 +143,36 @@ It also scales the formant amplitudes with a function that varies as 1/f (approx
 
 The result is a list of calculated formant amplitudes.
 
-<freqlist> and <bwlist> can also be BPF-libs containing the evolution every formant frequencies and bandwidths. In this case all BPFs must be sampled identically.
-The result will be a list of amplitude BPFs.
+<freqlist> and <bwlist> can also be lists of lists containing the evolution every formant frequencies and bandwidths.
+The result will be a list of lists of amplitudes.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) ('ata' flag) and in the chant_autoamp object for Max by F. Iovino and, G. Eckel (1994).
 Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
 "
-   (let ((chp (InitChp)))
-     (loop for f in freqlist collect
-           (let* ((Ind (GetIndex f))
-                  (ChpCont (+ (nth Ind chp) 
-                              (* (- (nth (1+ Ind) chp) (nth Ind chp)) 
-                                 (/ (- f (* Ind 500.0)) 500.0)))))
-             (* scaler (ContFactor f freqlist bwlist) (/ ChpCont f)))
-           )))
+   (cond ((and (listp (car freqlist)) (listp (car bwlist)))
+          (mat-trans (loop for lfr in (mat-trans freqlist)
+                           for lbw in (mat-trans bwlist)
+                           collect (autoamp lfr lbw scaler))))
+         
+         ((listp (car freqlist))
+          (mat-trans (loop for lfr in (mat-trans freqlist)
+                           collect (autoamp lfr bwlist scaler))))
+         
+         ((listp (car bwlist))
+          (mat-trans (loop for lbw in (mat-trans bwlist)
+                           collect (autoamp freqlist lbw scaler))))
+   
+         (t 
+          (let ((chp (InitChp)))
+            (loop for f in freqlist collect
+                  (let* ((Ind (GetIndex f))
+                         (ChpCont (+ (nth Ind chp) 
+                                     (* (- (nth (1+ Ind) chp) (nth Ind chp)) 
+                                        (/ (- f (* Ind 500.0)) 500.0)))))
+                    (* scaler (ContFactor f freqlist bwlist) (/ ChpCont f)))
+                  )))
+         ))
 
-
-(defmethod! autoamp ((freqlist BPF-lib) (bwlist BPF-lib) &optional (scaler 1.0))
-  (let* ((freqs (mat-trans (mapcar 'y-points (bpf-list freqlist))))
-        (bws (mat-trans (mapcar 'y-points (bpf-list bwlist))))
-        (amps (mat-trans (mapcar #'(lambda (fr bw) (autoamp fr bw scaler)) freqs bws))))
-    (loop for a in amps collect 
-          (om-make-bpf 'bpf (x-points (car (bpf-list freqlist))) a 6))))
-        
-(defmethod! autoamp ((freqlist BPF-lib) (bwlist list) &optional (scaler 1.0))
-            (let* ((xpts (x-points (car (bpf-list freqlist))))
-                   (size (length xpts)))
-              (autoamp freqlist 
-                       (make-instance 'bpf-lib
-                                      :bpf-list (loop for bw in bwlist collect 
-                                                      (om-make-bpf 'bpf xpts (make-list size :initial-element bw) 5)))
-                       scaler)))   
-
-(defmethod! autoamp ((freqlist list) (bwlist BPF-lib) &optional (scaler 1.0))
-            (let* ((xpts (x-points (car (bpf-list bwlist))))
-                   (size (length xpts)))
-              (autoamp (make-instance 'bpf-lib
-                                      :bpf-list (loop for f in freqlist collect 
-                                                      (om-make-bpf 'bpf xpts (make-list size :initial-element f) 5)))
-                       bwlist
-                       scaler)))
 
 
 ;;;==============================================================
@@ -199,7 +191,7 @@ Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 
 ;   :initvals '((609. 1000. 2450. 2700. 3240.) 
 ;               (77.64382 88.43109 122.9401 127.8438 137.6589) 80.0 200.0)
 
-; If <merge-output> it T (default), the returned values are those of the complement foprmant merged with the rest of the formants. Else, FCOMP returns only the complement formant.
+; If <merge-output> it T (default), the returned values are those of the complement formant merged with the rest of the formants. Else, FCOMP returns only the complement formant.
 
 ;ms_1111
 (defmethod! fcomp (freqlist bwlist &optional (ampscaler 1.0) (frcomp 80.0) (bwcomp 200.0))
@@ -213,9 +205,6 @@ Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 
 The 'complement' formant can be added to reinforce the first formant of a spectrum, the fundamental partial and the low register.
 
 The result is a list with (<frcomp> calculated-amplitude <bwcomp>)
-
-<freqlist> and <bwlist> can also be BPF-libs containing the evolution every formant frequencies and bandwidths. In this case all BPFs must be sampled identically.
-The result will also be a list of BPFs.
 
 Note: the amplitude is computed following the rules in AUTOAMP.
 
@@ -233,23 +222,8 @@ Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 
      (values (list frcomp AMP bwcomp) frcomp AMP bwcomp)))
 
 
-;(defmethod! fcomp ((freqlist BPF-lib) (bwlist BPF-lib) &optional (ampscaler 1.0) (frcomp 80.0) (bwcomp 200.0))
-;  (let* ((freqs (mat-trans (mapcar 'y-points (bpf-list freqlist))))
-;        (bws (mat-trans (mapcar 'y-points (bpf-list bwlist))))
-;        (amps (mat-trans (mapcar #'(lambda (fr bw) (autoamp fr bw scaler)) freqs bws))))
-;    (loop for a in amps collect 
-;          (om-make-bpf 'bpf (x-points (car (bpf-list freqlist))) a 6))))
-        
-;(defmethod! fcomp ((freqlist BPF-lib) (bwlist BPF-lib) &optional (ampscaler 1.0) (frcomp 80.0) (bwcomp 200.0))
-;            )   
-
-;(defmethod! fcomp ((freqlist BPF-lib) (bwlist BPF-lib) &optional (ampscaler 1.0) (frcomp 80.0) (bwcomp 200.0))
-;            )
-
-
-
-
 ; (fcomp '(609. 1000. 2450. 2700. 3240.) '(77.64382 88.43109 122.9401 127.8438 137.6589))
+
 
 ;ms_1111, ms_1205 (replaced optional with key), added lin
 (defmethod! comp-formants (lformants &key (frcomp 80.0) (amp 'lin) (ampscaler 1.0) (bwcomp 200.0))

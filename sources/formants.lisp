@@ -148,32 +148,32 @@ If it is not nil, add-formants will be called and a larger amount of formants wi
     :numouts 4
     :indoc '("a sung vowel" "amplitude scale: 'lin or 'db")
     :outdoc '("formants values" "frequencies" "amplitudes" "bandwidths")
-    :menuins '((0 (("Alto A" '(a a))
-                   ("Alto E" '(a e))
-                   ("Alto I" '(a i))
-                   ("Alto O" '(a o))
-                   ("Alto U" '(a u))
-                   ("Bass A" '(b a))
-                   ("Bass E" '(b e))
-                   ("Bass I" '(b i))
-                   ("Bass O" '(b o))
-                   ("Bass U" '(b u))
-                   ("Countertenor A" '(c a))
-                   ("Countertenor E" '(c e))
-                   ("Countertenor I" '(c i))
-                   ("Countertenor O" '(c o))
-                   ("Countertenor U" '(c u))
-                   ("Soprano A" '(s a))
-                   ("Soprano E" '(s e))
-                   ("Soprano I" '(s i))
-                   ("Soprano O" '(s o))
-                   ("Soprano U" '(s u))
-                   ("Tenor A" '(t a))
-                   ("Tenor E" '(t e))
-                   ("Tenor I" '(t i))
-                   ("Tenor O" '(t o))
-                   ("Tenor U" '(t u))))
-               (1 (("dB" 'db) ("linear" 'lin))))
+    :menuins '((0 (("Alto A" (a a))
+                   ("Alto E" (a e))
+                   ("Alto I" (a i))
+                   ("Alto O" (a o))
+                   ("Alto U" (a u))
+                   ("Bass A" (b a))
+                   ("Bass E" (b e))
+                   ("Bass I" (b i))
+                   ("Bass O" (b o))
+                   ("Bass U" (b u))
+                   ("Countertenor A" (c a))
+                   ("Countertenor E" (c e))
+                   ("Countertenor I" (c i))
+                   ("Countertenor O" (c o))
+                   ("Countertenor U" (c u))
+                   ("Soprano A" (s a))
+                   ("Soprano E" (s e))
+                   ("Soprano I" (s i))
+                   ("Soprano O" (s o))
+                   ("Soprano U" (s u))
+                   ("Tenor A" (t a))
+                   ("Tenor E" (t e))
+                   ("Tenor I" (t i))
+                   ("Tenor O" (t o))
+                   ("Tenor U" (t u))))
+               (1 (("dB" db) ("linear" lin))))
     :doc "Returns the values of the main formants in the spectral envelope of <vowel> (click to select from the input menu).
 
 If <vowel> is a number, returns the nth vowel in the list. If the formant is not found in the database, nil is returned.
@@ -340,7 +340,7 @@ If needed, formants are added by calling add-formants (see the documentation of 
            (add-formants formant-list (- n (length formant-list)) delta-fq delta-amp delta-bw)))
          ((listp (caar formant-list)) ; it is a list of formants or the key is a list
           (if (numberp (caaar formant-list)) ; it is a list of formants
-              (loop for form in formant-list do
+              (loop for form in formant-list
                     collect (if (<= n (length form))
                                 (firstn form n)
                               (add-formants form (- n (length form)) delta-fq delta-amp delta-bw)))
@@ -359,12 +359,12 @@ If needed, formants are added by calling add-formants (see the documentation of 
     :outdoc '("formants" "frequencies" "amplitudes" "bandwidths" "rest")
     :doc "Return the main formants from whose <formant-list>.
 
-If <n-trsh> is a positive integer, returns tge <n-trsh> loudest formants.
+If <n-trsh> is a positive integer, returns the <n-trsh> loudest formants.
 Else, return the formants with amplitude value > <n-trsh>."
     (let ((result
            (if (and (integerp n-trsh) (>= n-trsh 0))
                (first-n (sort-list formant-list :test '> :key 'cadr) n-trsh)
-             (remove n-trsh vals :test '> :key 'cadr))))
+             (remove n-trsh formant-list :test '> :key 'cadr))))
       (let ((matres (mat-trans result)))
         (values result (first matres) (second matres) (third matres) (cdddr matres)))))
 
@@ -661,23 +661,23 @@ Else, return the formants with amplitude value > <n-trsh>."
   :doc "Compute an intermediate formant between two given ones, according to the value of the scaler (0=1st formant, 1=2nd formant).
 If the formants do not have the same amount ofr data, the morphing will apply only to the common data.
 "
-  (let ((scaler (cond ((> scaler 1.0) 1.0) ((< scaler 0.0) 0.0) (t scaler)))
-        (result))
-    (setf result
-          (mapcar #'(lambda (f1 f2)
-                      (let ((fq1 (first f1))
-                            (fq2 (first f2))
-                            (a1 (second f1))
-                            (a2 (second f2))
-                            (b1 (third f1))
-                            (b2 (third f2))
-                            (f3) (a3) (b3))
-                        (setf f3 (+ (* fq1 (- 1.0 scaler)) (* fq2 scaler)))
-                        (setf a3 (+ (* a1 (- 1.0 scaler)) (* a2 scaler)))
-                        (setf b3 (+ (* b1 (- 1.0 scaler)) (* b2 scaler)))
-                        (list f3 a3 b3)))
-                  fmt1 fmt2))
-    (values result (first (mat-trans result)) (second (mat-trans result)) (third (mat-trans result)))))
+  (let* ((scaler (cond ((> scaler 1.0) 1.0) ((< scaler 0.0) 0.0) (t scaler)))
+         (result (mapcar #'(lambda (f1 f2)
+                            (let ((fq1 (first f1))
+                                  (fq2 (first f2))
+                                  (a1 (second f1))
+                                  (a2 (second f2))
+                                  (b1 (third f1))
+                                  (b2 (third f2))
+                                  (f3) (a3) (b3))
+                              (setf f3 (+ (* fq1 (- 1.0 scaler)) (* fq2 scaler)))
+                              (setf a3 (+ (* a1 (- 1.0 scaler)) (* a2 scaler)))
+                              (setf b3 (+ (* b1 (- 1.0 scaler)) (* b2 scaler)))
+                              (list f3 a3 b3)))
+                        fmt1 fmt2)))
+    
+    (values-list (cons result (mat-trans result)))
+    ))
 
 
 (defmethod! 3d-morph (fmt1 fmt2 fmt3 scaler1 scaler2)
@@ -700,14 +700,13 @@ Hence:
 1.0 1.0 = thrid formant (only)
 If the formants do not have the same amount ofr data, the morphing will apply only to the common data.
 "
-  (let ((scaler1 (cond ((> scaler1 1.0) 1.0) ((< scaler1 0.0) 0.0) (t scaler1)))
-        (scaler2 (cond ((> scaler2 1.0) 1.0) ((< scaler2 0.0) 0.0) (t scaler2)))
-        (result1) (result2))
+  (let* ((scaler1 (cond ((> scaler1 1.0) 1.0) ((< scaler1 0.0) 0.0) (t scaler1)))
+         (scaler2 (cond ((> scaler2 1.0) 1.0) ((< scaler2 0.0) 0.0) (t scaler2)))
+         (result1 (2d-morph fmt1 fmt2 scaler1))
+         (result2 (2d-morph result1 fmt3 scaler2)))
+    
+    (values-list (cons result2 (mat-trans result2)))))
 
-    (setf result1 (2d-morph fmt1 fmt2 scaler1))
-    (setf result2 (2d-morph result1 fmt3 scaler2))
-    (values result2 (first (mat-trans result2)) (second (mat-trans result2)) (third (mat-trans result2)))))
 
-(setf result (2d-morph '((800 1.0 80) (1150 0.63095737 90) (2800 0.1 120) (3500 0.015848933 130) (4950 0.001 140))
-                       '((270 1.0 60) (2140 0.25118864 90) (2950 0.05011873 100) (3900 0.05011873 120) (4950 0.0063095726 120))
-                       0.0))
+
+

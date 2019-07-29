@@ -1,0 +1,63 @@
+;;;===========================================================================
+;;; OM-CHANT
+;;; Control CHANT synthesis from OpenMusic
+;;; J. Bresson, M. Stroppa (2010-2019)
+;;;===========================================================================
+
+(:om-lib
+ 
+ (:version 3.0)
+
+ (:doc "OM-CHANT is a library for the control of CHANT synthesis from OpenMusic.
+
+The CHANT synthesizer (X. Rodet, Y. Potard, IRCAM - 1984) is set up according to one of 11 available patches, corresponding to different configurations of a FOF generator, a NOISE generator, a SOUND file player and a resonant FILTER.
+
+Each of these modules is controlled by a continuous sequence of states. The synthesizer automatically interpolates between two successive states specified for each modules.
+The CHANT synthesizer can be controlled by a file in the SDIF format. 
+
+OM-CHANT provides tools for creating this control file and for calling the CHANT synthesizer in OM visual programs.
+Some automatic calculation andc orrection rules adapted from previous Chant implementations are also available.
+
+OM-CHANT also provides higher-level control structures under the form of matrices, representing 'CHANT events'.
+")
+
+ (:author "J. Bresson, M. Stroppa, IRCAM (2010-2019)")
+
+;;; SOURCE FILES TO LOAD
+(:source-files
+ "sources/om7-chant-prefs" 
+ "sources/chant-sdif" 
+ "sources/chant-synth"
+ "sources/formants"
+ "sources/chant-auto-rules"
+ "sources/impulse"
+ "sources/chant-evts-om7"
+ ;"sources/transitions"
+ ;"sources/morphing"
+ ;"sources/chant-maquette"
+ )
+
+;;; SYMBOLS VISIBLE AND ACCESSIBLE THROUGH THE OM PACKAGE TREE
+(:symbols
+ (:packages
+  (:package 
+   (:name "Synthesize")
+   (:functions chant-synth synthesize))
+  (:package 
+   (:name "SDIF")
+   (:functions chant-patch write-chant-sdif-file gen-chant-sdif-frames))
+  (:package 
+   (:name "Formants")
+   (:functions vowel-formants database-formants get-database-ids random-vowel add-formants main-formants))
+  (:package 
+   (:name "Rules")
+   (:functions autoamp fcomp autobw cslope autobend autotex spcor))
+  (:package 
+   (:name "Events")
+   (:classes ch-f0 ch-noise ch-snd ch-fof ch-flt ch-channels phoneme)
+   (:functions ch-transitions gen-chant-channels gen-inter-event gen-inter-fofs fof-morph))
+))
+
+)
+
+

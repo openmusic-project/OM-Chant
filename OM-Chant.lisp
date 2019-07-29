@@ -9,24 +9,25 @@
 
 (in-package :om)
 
-(defparameter *chant-files* '("forum-protec" 
+(defparameter *chant-files* '("om6-chant-prefs"
+                              "forum-protec" 
                               "chant-sdif" 
                               "chant-synth"
                               "formants"
                               "chant-auto-rules"
 			      "impulse"
-			      "chant-evts"
+			      "chant-evts-om6"
 			      "transitions"
 			      "morphing"
                               "chant-maquette"
-                              "chant-prefs"))
+                              ))
 
 (mapc #'(lambda (file) (compile&load (om-relative-path '("sources") file))) *chant-files*)
 
 
 
 (fill-library '(("Synthesize" nil nil (chant-synth synthesize) nil)
-                ("SDIF" nil nil (chant-patch write-chant-sdif-file gen-chant-sdif-buffer) nil)
+                ("SDIF" nil nil (chant-patch write-chant-sdif-file gen-chant-sdif-frames) nil)
                 ("Formants" nil nil (vowel-formants database-formants get-database-ids random-vowel add-formants main-formants))
                 ("Chant Control Rules" nil nil (autoamp fcomp autobw cslope autobend autotex spcor) nil)
                 ("Chant Events" 
@@ -58,12 +59,12 @@ See the <a href=\"../OM-Chant-2.0-UserManual.pdf\">OM-Chant User Manual</a>
 (unless (fboundp 'om::set-lib-release) (defmethod om::set-lib-release (version &optional lib) nil))
 
 
-(om::set-lib-release 2.3)
+(om::set-lib-release 3.0)
 
 
 (om::om-print "
 =======================================
- OM-CHANT 2.3 (c) IRCAM 2010-2017
+ OM-CHANT 3.0 (c) IRCAM 2010-2019
  Control of CHANT in OpenMusic
 =======================================
 ")
@@ -89,3 +90,6 @@ See the <a href=\"../OM-Chant-2.0-UserManual.pdf\">OM-Chant User Manual</a>
 ;;; - fix in complete-formants function
 ;;; 2.3 
 ;;; - fix audio format issues
+;;; 3.0
+;;; - Compatibility OM7
+;;; - Chant synth included
