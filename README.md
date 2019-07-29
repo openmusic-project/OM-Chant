@@ -20,3 +20,6 @@ _This library does NOT include **Chant** sources or binaries, which must be inst
 
 Get it the full OM-Chant package (including Chant binaries) here: http://forumnet.ircam.fr/shop/fr/forumnet/57-libraries-openmusic.html
 
+### Credits
+
+Design and developments: J. Bresson, M. Stroppa, R. Foulon (c) IRCAM 2010-2019
