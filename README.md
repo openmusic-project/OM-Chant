@@ -22,5 +22,6 @@ Get the full OM-Chant package (including Chant binaries) via [Ircam ForumNet](ht
 
 ### Credits
 
-OM-Chant design and developments: Jean Bresson, Marco Stroppa, Raphaël Foulon (c) IRCAM 2010-2019
-Chant by IRCAM Sound Analysis/Synthesis Team: Special thanks to Xavier Rodet, Frédéric Cornu, Charles Picasso, Axel Röbel. 
+OM-Chant design and developments: Jean Bresson, Marco Stroppa, Raphaël Foulon (c) IRCAM 2010-2019.
+
+Chant by IRCAM Sound Analysis/Synthesis Team — Special thanks to Xavier Rodet, Frédéric Cornu, Charles Picasso, Axel Röbel. 
