@@ -48,7 +48,7 @@ OM-CHANT also provides higher-level control structures under the form of matrice
    (:functions chant-patch write-chant-sdif-file gen-chant-sdif-frames))
   (:package 
    (:name "Formants")
-   (:functions vowel-formants database-formants get-database-ids random-vowel add-formants main-formants))
+   (:functions vowel-formants database-formants get-database-ids random-vowel add-formants complete-formants main-formants))
   (:package 
    (:name "Rules")
    (:functions autoamp fcomp autobw cslope autobend autotex spcor))

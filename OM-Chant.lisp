@@ -28,7 +28,7 @@
 
 (fill-library '(("Synthesize" nil nil (chant-synth synthesize) nil)
                 ("SDIF" nil nil (chant-patch write-chant-sdif-file gen-chant-sdif-frames) nil)
-                ("Formants" nil nil (vowel-formants database-formants get-database-ids random-vowel add-formants main-formants))
+                ("Formants" nil nil (vowel-formants database-formants get-database-ids random-vowel add-formants complete-formants main-formants))
                 ("Chant Control Rules" nil nil (autoamp fcomp autobw cslope autobend autotex spcor) nil)
                 ("Chant Events" 
                  (("Maquette" nil nil (maq-fof maq-fof-transition maq-fof-morph maq-f0 maq-f0-vib maq-f0-jit maq-f0-bpf maq-f0-transition) nil))
