@@ -1100,6 +1100,80 @@ Each speakerN is a value between 0.0 aand 1.0.
 
 
 ;=================================
+; GEN-INTER-EVENTS
+;=================================
+
+;;; ev1 et ev2 should be chant-matrix-evt
+(defmethod! gen-inter-event ((ev1 t) (ev2 t) rules &optional (delta *min-delta-frames*))
+  :indoc '("event 1" "event 2" "rules (list)")
+  :outdoc '("an new transition event")
+  :icon 645
+  :doc "Generates an event between <ev1> and <ev2> (which must be of the same type) following transition rules.
+
+<rules> can be one or several lists formatted as (PARAM VALUE)
+where PARAM can be one of the slot or a specific element in this slot (e.g. :freq or (:freq 2))
+and VALUE is either av constant value or a function (patch) of 2 arguments specifying the transition from the end value of ev1 to the start of ev2.
+
+All non-specified transitions are linear.
+"
+  (let* ((start (+ (get-absolute-time ev1) (event-dur ev1) delta))
+         (dur (- (get-absolute-time ev2) start delta))
+         (args (loop for slot in (mapcar 'intern-k (mapcar #'array-field-name (data ev1))) append
+                     ;;; ex. for each slot in '(freq amp bw ...)
+                     (let ((slotrules (loop for rule in rules 
+                                            when (if (listp (car rule))
+                                                    (equal (intern-k (car (car rule))) slot)
+                                                   (equal (intern-k (car rule)) slot))
+                                            collect rule))
+                           ;;; slot rules = (freq 400) or (freq 'my-freq-fun) or ((freq 1) ...)
+                           (slotvals (loop for v1 in (get-array-field-data ev1 slot) 
+                                           for v2 in (get-array-field-data ev2 slot) collect
+                                           (list (if (bpf-p v1) (last-elem (y-points v1)) v1)
+                                                 (if (bpf-p v2) (car (y-points v2)) v2)
+                                                 nil ;;; HERE WILL BE STORED THE RESULT OF THE RULE
+                                                 ))))
+                       (print (format nil "RULE(S) for ~A:" (string slot)))
+                       (loop for r in slotrules do (print r))
+                       ;;; at this point slotvals = ((f1a f1b) (f2a f2b) ...)
+                       (loop for slotrule in slotrules do
+                             (if (listp (car slotrule)) ;;; Ex. ((:freq 2) ...) 
+                                 (setf (third (nth (cadr (car slotrule)) slotvals))
+                                       (if (or (functionp (cadr slotrule))
+                                               (and (symbolp (cadr slotrule)) (fboundp (cadr slotrule))))
+                                           (apply (cadr slotrule) (list (car (nth (cadr (car slotrule)) slotvals))
+                                                                        (cadr (nth (cadr (car slotrule)) slotvals))))
+                                      
+                                         (cadr slotrule)))
+                               (setf slotvals (loop for element in slotvals collect
+                                                    (list (car element) (cadr element)
+                                                          (if (or (functionp (cadr slotrule))
+                                                                  (and (symbolp (cadr slotrule)) (fboundp (cadr slotrule))))
+                                                              (apply (cadr slotrule) 
+                                                                     (list (car element) (cadr element)))
+                                                            (cadr slotrule)))))))
+                       ;;; this is what is actually collected :
+                       (list slot
+                             (if (listp slotvals) 
+                                 (loop for item in slotvals collect 
+                                       (if (third item)
+                                           (cond ((bpf-p (third item))
+                                                  (bpf-scale (third item) :x1 0 :x2 dur))
+                                                 (t (third item)))
+                                                                  
+                                         (om-make-bpf 'bpf (list 0 dur) (list (car item) (cadr item)) 5))
+                                       )
+                               slotvals))))))
+     (om-init-instance (make-instance (type-of ev1)
+                                      :elts (elts ev1) 
+                                      :action-time start
+                                      :dur dur)
+                       args)
+     ))
+                      
+
+
+
+;=================================
 ; SYNTHESIS
 ;=================================
 

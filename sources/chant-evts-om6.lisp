@@ -14,7 +14,6 @@
 ; J. Bresson, M. Stroppa (2010-2019)
 ;============================================================================
 
-
 (in-package :om)
 
 (defclass chant-evt () ((id :accessor id :initform 0)))
@@ -466,154 +465,6 @@ Instanciates a sound file player in the interval determined by <action-time> and
 
 
 ;=================================
-; CHANNELS INSIDE CH-EVENTS
-;=================================
-
-
-(defmethod extra-channels ((self chant-matrix-Evt))
-   (let (rep)
-     (loop for item in (Lcontrols self) do
-           (let ((ctlname (string (car item))))
-           (when (and (> (length ctlname) 4)
-                      (string-equal "chan" (subseq ctlname 0 4)))
-             (push (label2index self ctlname) rep))))
-     (reverse rep)))
-
-(defmethod get-channels-num ((self chant-matrix-Evt)) 
-   (max 1 (length (extra-channels self))))
-
-
-(defvar *channel-events* nil)
-
-(defmethod continuous-channel-panning-matrix ((self chant-matrix-Evt) framevalues)
-  (let ((chans (extra-channels self)))
-    (if chans 
-        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields (length chans)
-                       :data (loop for i from 0 to (1- (numcols self)) append 
-                                   (loop for ch in chans collect (or (nth ch (nth i framevalues)) 1))))
-      (unless *channel-events*
-        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields 1
-                       :data (make-list (numcols self) :initial-element 1))
-        ))))
-
-(defmethod static-channel-panning-matrix ((self chant-matrix-Evt))
-  (let ((chans (extra-channels self)))
-    (if chans 
-        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields (length chans)
-                       :data (loop for i from 0 to (1- (numcols self)) append 
-                                   (loop for ch in chans collect (or (nth ch (get-array-col self i)) 1))))
-      (unless *channel-events*
-        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields 1
-                       :data (make-list (numcols self) :initial-element 1))
-        ))))
-
-
-;=================================
-; CHANT SPECIAL MODULE : CHANNELS
-;=================================
-
-(defclass! ch-channels (chant-matrix-Evt) ()
-   (:icon 610)
-   (:documentation "CH-CHANNEL is a special Chant event allowing to control the distribution of the chant modules' output on a given time interval, and independently of these modules.
-
-Add :chanX (e.g. :channel1, :channel2,...) keyword controls for the different channels and determine the distribution of the different components on these channels (using constant alues of BPFs)."))
-
-(defmethod get-slot-in-out-names ((self ch-channels))
-   (values '("self" "numcols" "action-time" "dur" "kt" "user-fun") 
-           '(nil 1 0 0 nil nil)
-           '("synthesis event" "number of components" "start time [sec]" "duration [sec]" "control period [sec]" "lambda function applied to each component")
-           '(nil nil nil nil nil nil)))
-
-
-(defmethod evt-to-sdif ((self ch-channels))
-  (let ((chans (extra-channels self))
-        (frametypes (remove '(2 3) (patch-ev-types *chant-patch*) :test #'(lambda (test item) (find item test)))))  ;;; we don't want noise or snd frames for channels
-    (if (continuous-event-p self)
-        (multiple-value-bind (times array-lists) 
-            (continuous-values self)
-          (loop for time in times
-                for framevalues in array-lists 
-                append
-                (loop for sid in frametypes collect
-                      (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (action-time self) (/ (offset self) 1000.0) time) :streamid sid 
-                                     :lmatrix (list (continuous-channel-panning-matrix self framevalues))))
-                ))
-
-      (remove nil
-              (loop for sid in frametypes append
-                    (append
-                     (if (ch-evt-fade-in self) 
-                         (list 
-                          (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (get-absolute-time self) :streamid sid 
-                                         :lmatrix (list (static-channel-panning-matrix self)))
-                          (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (get-absolute-time self) (ch-evt-fade-in self)) :streamid sid 
-                                         :lmatrix (list (static-channel-panning-matrix self)))
-                          )
-                       (list
-                        (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (get-absolute-time self) :streamid sid 
-                                       :lmatrix (list (static-channel-panning-matrix self)
-                                                      ))))
-                     
-                     (if (plusp (ch-evt-duration self))
-                         (if (ch-evt-fade-out self) 
-                             (list 
-                              (make-instance 'sdifframe :signature (type-to-frame-signature sid) 
-                                             :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self)) :streamid sid 
-                                             :lmatrix (list (static-channel-panning-matrix self)))
-                              (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid sid 
-                                             :lmatrix (list (static-channel-panning-matrix self)))
-                              )
-
-                           (list (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid sid 
-                                                :lmatrix (list (static-channel-panning-matrix self)))
-                                 )
-                           )
-                       ))))
-      )))
-
-
-
-(defmethod! gen-chant-channels (list &optional nc)
-  :icon 610
-  :initvals '((((0 (1 1))) ((0 (1 1)))) nil)
-  :indoc '("formatted list of formant distribution" "number of components (formants)")
-  :outdoc '("a CH-CHANNEL instance")
-  :doc "Generates a CH-CHANNELS instance starting from a list of formants' distribution over a number of speakers.
-
-Each formant's distribution is itself formatted as a list of timed distributions.
-
-E.G.:
-'(
- ; formant 1
- ((t0 (speaker1 speaker2 speaker3 speaker4))
-  (t1 (speaker1 speaker2 speaker3 speaker4))
- ; ...
-  (tn (speaker1 speaker2 speaker3 speaker4)))
- ; formant 2
- ((t0 (speaker1 speaker2 speaker3 speaker4))
-  (t1 (speaker1 speaker2 speaker3 speaker4))
- ; ...
-  (tn (speaker1 speaker2 speaker3 speaker4)))
- ; ...
- )
-
-Each speakerN is a value between 0.0 aand 1.0.
-"
-
-  (let ((channels (cons-array 
-                   (make-instance 'ch-channels)
-                   (list nil (or nc (length list)) 0 (car (last (car list))) nil nil)
-                   (loop for i from 1 to (length (cadr (caar list))) append
-                         (list (intern (format nil "chan~D" i) :keyword)
-                               (loop for formant in list collect
-                                     (simple-bpf-from-list (mapcar 'car formant) 
-                                                           (mapcar #'(lambda (state) (nth (1- i) (cadr state))) formant)  
-                                                           'bpf 3)))))))
-    (set-data channels)
-    channels))
-                  
-
-;=================================
 ; CHANT MODULE : FOB
 ;=================================
 
@@ -919,10 +770,8 @@ Add keyword controls and name them ':channelX' (x = 1, 2,... n) in order to add 
 
 
 
-                             
-
 ;=================================
-;Synthesize
+; CHANT PATCH
 ;=================================
 
 (defvar *chant-patch* nil)
@@ -1073,6 +922,231 @@ Add keyword controls and name them ':channelX' (x = 1, 2,... n) in order to add 
                                               )))
      )))
 
+
+;=================================
+; CHANNELS INSIDE CH-EVENTS
+;=================================
+
+
+(defmethod extra-channels ((self chant-matrix-Evt))
+   (let (rep)
+     (loop for item in (Lcontrols self) do
+           (let ((ctlname (string (car item))))
+           (when (and (> (length ctlname) 4)
+                      (string-equal "chan" (subseq ctlname 0 4)))
+             (push (label2index self ctlname) rep))))
+     (reverse rep)))
+
+(defmethod get-channels-num ((self chant-matrix-Evt)) 
+   (max 1 (length (extra-channels self))))
+
+
+(defvar *channel-events* nil)
+
+(defmethod continuous-channel-panning-matrix ((self chant-matrix-Evt) framevalues)
+  (let ((chans (extra-channels self)))
+    (if chans 
+        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields (length chans)
+                       :data (loop for i from 0 to (1- (numcols self)) append 
+                                   (loop for ch in chans collect (or (nth ch (nth i framevalues)) 1))))
+      (unless *channel-events*
+        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields 1
+                       :data (make-list (numcols self) :initial-element 1))
+        ))))
+
+(defmethod static-channel-panning-matrix ((self chant-matrix-Evt))
+  (let ((chans (extra-channels self)))
+    (if chans 
+        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields (length chans)
+                       :data (loop for i from 0 to (1- (numcols self)) append 
+                                   (loop for ch in chans collect (or (nth ch (get-array-col self i)) 1))))
+      (unless *channel-events*
+        (make-instance 'raw-sdifmatrix :signature "1CHA" :num-elts (numcols self) :num-fields 1
+                       :data (make-list (numcols self) :initial-element 1))
+        ))))
+
+
+;=================================
+; CHANT SPECIAL MODULE : CHANNELS
+;=================================
+
+(defclass! ch-channels (chant-matrix-Evt) ()
+   (:icon 610)
+   (:documentation "CH-CHANNEL is a special Chant event allowing to control the distribution of the chant modules' output on a given time interval, and independently of these modules.
+
+Add :chanX (e.g. :channel1, :channel2,...) keyword controls for the different channels and determine the distribution of the different components on these channels (using constant alues of BPFs)."))
+
+(defmethod get-slot-in-out-names ((self ch-channels))
+   (values '("self" "numcols" "action-time" "dur" "kt" "user-fun") 
+           '(nil 1 0 0 nil nil)
+           '("synthesis event" "number of components" "start time [sec]" "duration [sec]" "control period [sec]" "lambda function applied to each component")
+           '(nil nil nil nil nil nil)))
+
+
+(defmethod evt-to-sdif ((self ch-channels))
+  (let ((chans (extra-channels self))
+        (frametypes (remove '(2 3) (patch-ev-types *chant-patch*) :test #'(lambda (test item) (find item test)))))  ;;; we don't want noise or snd frames for channels
+    (if (continuous-event-p self)
+        (multiple-value-bind (times array-lists) 
+            (continuous-values self)
+          (loop for time in times
+                for framevalues in array-lists 
+                append
+                (loop for sid in frametypes collect
+                      (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (action-time self) (/ (offset self) 1000.0) time) :streamid sid 
+                                     :lmatrix (list (continuous-channel-panning-matrix self framevalues))))
+                ))
+
+      (remove nil
+              (loop for sid in frametypes append
+                    (append
+                     (if (ch-evt-fade-in self) 
+                         (list 
+                          (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (get-absolute-time self) :streamid sid 
+                                         :lmatrix (list (static-channel-panning-matrix self)))
+                          (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (get-absolute-time self) (ch-evt-fade-in self)) :streamid sid 
+                                         :lmatrix (list (static-channel-panning-matrix self)))
+                          )
+                       (list
+                        (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (get-absolute-time self) :streamid sid 
+                                       :lmatrix (list (static-channel-panning-matrix self)
+                                                      ))))
+                     
+                     (if (plusp (ch-evt-duration self))
+                         (if (ch-evt-fade-out self) 
+                             (list 
+                              (make-instance 'sdifframe :signature (type-to-frame-signature sid) 
+                                             :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self)) :streamid sid 
+                                             :lmatrix (list (static-channel-panning-matrix self)))
+                              (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid sid 
+                                             :lmatrix (list (static-channel-panning-matrix self)))
+                              )
+
+                           (list (make-instance 'sdifframe :signature (type-to-frame-signature sid) :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid sid 
+                                                :lmatrix (list (static-channel-panning-matrix self)))
+                                 )
+                           )
+                       ))))
+      )))
+
+
+
+(defmethod! gen-chant-channels (list &optional nc)
+  :icon 610
+  :initvals '((((0 (1 1))) ((0 (1 1)))) nil)
+  :indoc '("formatted list of formant distribution" "number of components (formants)")
+  :outdoc '("a CH-CHANNEL instance")
+  :doc "Generates a CH-CHANNELS instance starting from a list of formants' distribution over a number of speakers.
+
+Each formant's distribution is itself formatted as a list of timed distributions.
+
+E.G.:
+'(
+ ; formant 1
+ ((t0 (speaker1 speaker2 speaker3 speaker4))
+  (t1 (speaker1 speaker2 speaker3 speaker4))
+ ; ...
+  (tn (speaker1 speaker2 speaker3 speaker4)))
+ ; formant 2
+ ((t0 (speaker1 speaker2 speaker3 speaker4))
+  (t1 (speaker1 speaker2 speaker3 speaker4))
+ ; ...
+  (tn (speaker1 speaker2 speaker3 speaker4)))
+ ; ...
+ )
+
+Each speakerN is a value between 0.0 aand 1.0.
+"
+
+  (let ((channels (cons-array 
+                   (make-instance 'ch-channels)
+                   (list nil (or nc (length list)) 0 (car (last (car list))) nil nil)
+                   (loop for i from 1 to (length (cadr (caar list))) append
+                         (list (intern (format nil "chan~D" i) :keyword)
+                               (loop for formant in list collect
+                                     (simple-bpf-from-list (mapcar 'car formant) 
+                                                           (mapcar #'(lambda (state) (nth (1- i) (cadr state))) formant)  
+                                                           'bpf 3)))))))
+    (set-data channels)
+    channels))
+                  
+
+;=================================
+; GEN-INTER-EVENTS
+;=================================
+
+;;; ev1 et ev2 should be chant-matrix-evt
+(defmethod! gen-inter-event ((ev1 t) (ev2 t) rules &optional (delta *min-delta-frames*))
+  :indoc '("event 1" "event 2" "rules (list)")
+  :outdoc '("an new transition event")
+  :icon 645
+  :doc "Generates an event between <ev1> and <ev2> (which must be of the same type) following transition rules.
+
+<rules> can be one or several lists formatted as (PARAM VALUE)
+where PARAM can be one of the slot or a specific element in this slot (e.g. :freq or (:freq 2))
+and VALUE is either av constant value or a function (patch) of 2 arguments specifying the transition from the end value of ev1 to the start of ev2.
+
+All non-specified transitions are linear.
+"
+  (let* ((inter-evt (make-instance (type-of ev1)))
+         (start (+ (get-absolute-time ev1) (event-dur ev1) delta))
+         (dur (- (get-absolute-time ev2) start delta))
+         (args (loop for slot in (mapcar 'internk (mapcar 'name (get-all-initargs-of-class 'ch-fof))) append
+                     ;;; ex. for each slot in '(freq amp bw ...)
+                     (let ((slotrules (loop for rule in rules 
+                                            when (if (listp (car rule))
+                                                    (equal (internk (car (car rule))) slot)
+                                                   (equal (internk (car rule)) slot))
+                                            collect rule))
+                           ;;; slot rules = (freq 400) or (freq 'my-freq-fun) or ((freq 1) ...)
+                           (slotvals (loop for v1 in (get-array-row ev1 slot) 
+                                           for v2 in (get-array-row ev2 slot) collect
+                                           (list (if (bpf-p v1) (last-elem (y-points v1)) v1)
+                                                 (if (bpf-p v2) (car (y-points v2)) v2)
+                                                 nil ;;; HERE WILL BE STORED THE RESULT OF THE RULE
+                                                 ))))
+                       (print (format nil "RULE(S) for ~A:" (string slot)))
+                       (loop for r in slotrules do (print r))
+                       ;;; at this point slotvals = ((f1a f1b) (f2a f2b) ...)
+                       (loop for slotrule in slotrules do
+                             (if (listp (car slotrule)) ;;; Ex. ((:freq 2) ...) 
+                                 (setf (third (nth (cadr (car slotrule)) slotvals))
+                                       (if (or (functionp (cadr slotrule))
+                                               (and (symbolp (cadr slotrule)) (fboundp (cadr slotrule))))
+                                           (apply (cadr slotrule) (list (car (nth (cadr (car slotrule)) slotvals))
+                                                                        (cadr (nth (cadr (car slotrule)) slotvals))))
+                                      
+                                         (cadr slotrule)))
+                               (setf slotvals (loop for element in slotvals collect
+                                                    (list (car element) (cadr element)
+                                                          (if (or (functionp (cadr slotrule))
+                                                                  (and (symbolp (cadr slotrule)) (fboundp (cadr slotrule))))
+                                                              (apply (cadr slotrule) 
+                                                                     (list (car element) (cadr element)))
+                                                            (cadr slotrule)))))))
+                       ;;; this is what is actually collected :
+                       (list slot
+                             (if (listp slotvals) 
+                                 (loop for item in slotvals collect 
+                                       (if (third item)
+                                           (cond ((bpf-p (third item))
+                                                  (bpf-scale (third item) :x1 0 :x2 dur))
+                                                 (t (third item)))
+                                                                  
+                                         (simple-bpf-from-list (list 0 dur) (list (car item) (cadr item)) 'bpf 5))
+                                       )
+                               slotvals))))))
+    (setf inter-evt (cons-array inter-evt (list nil (numcols ev1) start dur nil nil) args))
+    (set-data inter-evt)
+    inter-evt))
+                      
+
+                             
+
+;=================================
+; SYNTHESIS
+;=================================
+
 (defparameter *auto-delta-frames* t)
 (defparameter *min-delta-frames* 0.001)
 
@@ -1142,27 +1216,27 @@ Add keyword controls and name them ':channelX' (x = 1, 2,... n) in order to add 
 ;                 ) list))
 
 (defmethod filter-ch-ids ((elts list))
-            (let* ((fofs nil) (f0s nil) (others nil))
-              (loop for elt in elts do
-                    (cond ((subtypep (type-of elt) 'ch-fof) (push elt fofs))
-                          ((typep elt 'ch-f0) (push elt f0s))
-                          (t (push elt others))))
-                ;; elimine une fof si son id est inclus dans l'id d'une autre fof (morphing ou trajectoire)
+  (let* ((fofs nil) (f0s nil) (others nil))
+    (loop for elt in elts do
+          (cond ((subtypep (type-of elt) 'ch-fof) (push elt fofs))
+                ((typep elt 'ch-f0) (push elt f0s))
+                (t (push elt others))))
+    ;; elimine une fof si son id est inclus dans l'id d'une autre fof (morphing ou trajectoire)
                 ;(print (mapcar 'id fofs))
 
-                (setf fofs (remove-if #'(lambda (x) 
-                                        (find x fofs 
-                                              :test #'(lambda (x y) (and (search (id x) (id y)) 
-                                                                         (not (string-equal (id x) (id y))))))
-                                        ) fofs))
-              ;; elimine une f0 si son id est inclus dans l'id d'une autre f0 
-              (setf f0s (remove-if #'(lambda (x) 
-                                        (find x f0s 
-                                              :test #'(lambda (x y) (and (search (id x) (id y)) 
-                                                                         (not (string-equal (id x) (id y))))))
-                                        ) f0s))
-              (sort (append fofs f0s others) '< :key 'get-absolute-time)
-              ))
+    (setf fofs (remove-if #'(lambda (x) 
+                              (find x fofs 
+                                    :test #'(lambda (x y) (and (search (id x) (id y)) 
+                                                               (not (string-equal (id x) (id y))))))
+                              ) fofs))
+    ;; elimine une f0 si son id est inclus dans l'id d'une autre f0 
+    (setf f0s (remove-if #'(lambda (x) 
+                             (find x f0s 
+                                   :test #'(lambda (x y) (and (search (id x) (id y)) 
+                                                              (not (string-equal (id x) (id y))))))
+                             ) f0s))
+    (sort (append fofs f0s others) '< :key 'get-absolute-time)
+    ))
 
 
 
@@ -1172,64 +1246,67 @@ Add keyword controls and name them ':channelX' (x = 1, 2,... n) in order to add 
                            (rescale  0.0) (sr nil) (run t) duration
                            &allow-other-keys)
   
-            (setf events (filter-ch-ids (collect-chant-events (remove nil (list! events)) patch)))
+  (setf events (filter-ch-ids (collect-chant-events (remove nil (list! events)) patch)))
 
-            (let* ((path-sdif (handle-new-file-exists (tmpfile (string+ (if (pathnamep name) (pathname-name name) name) ".sdif"))))
-                   (path-aiff (if (pathnamep name) name (corrige-sound-filename (string+ name "." (string-downcase *def-snd-format*)) *om-outfiles-folder*))))
-              (unless events (om-beep-msg "No synthesis events !"))      
+  (let* ((path-sdif (handle-new-file-exists (tmpfile (string+ (if (pathnamep name) (pathname-name name) name) ".sdif"))))
+         (path-aiff (if (pathnamep name) name (corrige-sound-filename (string+ name "." (string-downcase *def-snd-format*)) *om-outfiles-folder*))))
+    (unless events (om-beep-msg "No synthesis events !"))      
               
-              (when events
+    (when events
                 
-                (let* ((thefile (sdif::sdif-open-file (om-namestring path-sdif) :eWriteFile))
-                       (ch-num (loop for item in events maximize (get-channels-num item)))
-                       (samplerate (or sr *audio-sr* 44100))
-                       (resol (or resolution *audio-res* 16))
-                       (sortedevents (split-list events))
+      (let* ((thefile (sdif::sdif-open-file (om-namestring path-sdif) :eWriteFile))
+             (ch-num (loop for item in events maximize (get-channels-num item)))
+             (samplerate (or sr *audio-sr* 44100))
+             (resol (or resolution *audio-res* 16))
+             (sortedevents (split-list events))
                        
-                       (*chant-patch* (or patch (deduce-patch-from-evts sortedevents) 0))
-                       (*channel-events* (find 'ch-channels events :key 'type-of))
-                       (total-dur  (or duration
-                                       (loop for item in events maximize
-                                             (+ (get-absolute-time item) (synth-dur item))
+             (*chant-patch* (or patch (deduce-patch-from-evts sortedevents) 0))
+             (*channel-events* (find 'ch-channels events :key 'type-of))
+             (total-dur  (or duration
+                             (loop for item in events maximize
+                                   (+ (get-absolute-time item) (synth-dur item))
                                              ;(/ (get-obj-dur item) 1000.0)
-                                             )))
-                       (nvt  (mat-trans (list (list "BufferSize" "512")
-                                              (list "NumberOfChannels" (integer-to-string ch-num))
-                                              (list "EndTime" (format nil "~D" total-dur))
-                                              (list "Author" (string+ "OM " *version-string*))
-                                              (list "SamplingRate" (format nil "~F" samplerate))
-                                              )))
+                                   )))
+             (nvt  (mat-trans (list (list "BufferSize" "512")
+                                    (list "NumberOfChannels" (integer-to-string ch-num))
+                                    (list "EndTime" (format nil "~D" total-dur))
+                                    (list "Author" (string+ "OM " *version-string*))
+                                    (list "SamplingRate" (format nil "~F" samplerate))
+                                    )))
                        ;(sortedevents (split-list events))
                        ;(events-and-silence (handle-inter-events sorted-events))
-                       (sdifframes (pack-frames (loop for item in events append (evt-to-sdif (apply-user-fun item))))))
+             (sdifframes (pack-frames (loop for item in events append (evt-to-sdif (apply-user-fun item))))))
                 
-                  (om-print "==========================" "OM-Chant ::")
-                  (om-print (format nil "CHANT synthesis patch: ~D" *chant-patch*) "OM-Chant ::")
+        (om-print "==========================" "OM-Chant ::")
+        (om-print (format nil "CHANT synthesis patch: ~D" *chant-patch*) "OM-Chant ::")
                        
-                  (sdif::SdifFWriteGeneralHeader thefile)
-                  (when (> ch-num 2)
-                    (let ((typedef-str "{ 1MTD 1CHA {"))
-                      (loop for c = 3 then (+ c 1) while (<= c ch-num) do
-                            (setf typedef-str (string+ typedef-str " Channel" (number-to-string c) ",")))
-                      (setf typedef-str (string+ typedef-str " } }"))
-                      (write-sdif-types thefile typedef-str)))
-                  (write-1nvt-table thefile (car nvt) (cadr nvt))
-                  (write-CHANT-IDStables thefile *chant-patch* sortedevents total-dur)
-                  (sdif::SdifFWriteAllASCIIChunks thefile)
-                  (save-sdif sdifframes thefile)
-                  (sdif::sdif-close-file thefile)
+        (sdif::SdifFWriteGeneralHeader thefile)
+        (when (> ch-num 2)
+          (let ((typedef-str "{ 1MTD 1CHA {"))
+            (loop for c = 3 then (+ c 1) while (<= c ch-num) do
+                  (setf typedef-str (string+ typedef-str " Channel" (number-to-string c) ",")))
+            (setf typedef-str (string+ typedef-str " } }"))
+            (write-sdif-types thefile typedef-str)))
+        (write-1nvt-table thefile (car nvt) (cadr nvt))
+        (write-CHANT-IDStables thefile *chant-patch* sortedevents total-dur)
+        (sdif::SdifFWriteAllASCIIChunks thefile)
+        (save-sdif sdifframes thefile)
+        (sdif::sdif-close-file thefile)
                   
-                  (if run
-                      (progn
-                        (when *delete-inter-file* (add-tmp-file path-sdif))
-                        (setf path-aiff (chant-synth path-sdif :outfile path-aiff :resolution resol :normalize-level rescale))
-                        (when *delete-inter-file* (clean-tmp-files))
-                        path-aiff
-                        )
-                    (probe-file path-sdif)
-                    )
-                  ))))
+        (if run
+            (progn
+              (when *delete-inter-file* (add-tmp-file path-sdif))
+              (setf path-aiff (chant-synth path-sdif :outfile path-aiff :resolution resol :normalize-level rescale))
+              (when *delete-inter-file* (clean-tmp-files))
+              path-aiff
+              )
+          (probe-file path-sdif)
+          )
+        ))))
 
+;;;==========================
+;;; OM-SYNTHESIZE INTERFACE
+;;;==========================
 
 (defmethod! synthesize ((elements chant-evt) &key (name "my_synt") sr (rescale nil) (run t) (evt-test nil) resolution 
                         kr tables (nchnls nil) inits ;For Csound
