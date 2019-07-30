@@ -16,10 +16,11 @@ The OM-Chant library also contains a full set on tutorial patches.
 
 This program is free software. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 
-_This library does NOT include **Chant** sources or binaries, which must be installed separately._
+_This repository does not include Chant sources or binaries._
 
-Get it the full OM-Chant package (including Chant binaries) here: http://forumnet.ircam.fr/shop/fr/forumnet/57-libraries-openmusic.html
+Get the full OM-Chant package (including Chant binaries) via [Ircam ForumNet](http://forumnet.ircam.fr/shop/fr/forumnet/57-libraries-openmusic.html) or on the **[releases](https://github.com/openmusic-project/OM-Chant/releases)** tab of this project.
 
 ### Credits
 
-Design and developments: J. Bresson, M. Stroppa, R. Foulon (c) IRCAM 2010-2019
+OM-Chant design and developments: Jean Bresson, Marco Stroppa, Raphaël Foulon (c) IRCAM 2010-2019
+Chant by IRCAM Sound Analysis/Synthesis Team: Special thanks to Xavier Rodet, Frédéric Cornu, Charles Picasso, Axel Röbel. 
