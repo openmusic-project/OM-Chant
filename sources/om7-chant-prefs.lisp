@@ -1,7 +1,16 @@
-;;;===================================================
-;;; OM-CHANT
-;;; Control CHANT synthesis from OpenMusic
-;;;
+;============================================================================
+; OM-Chant
+; Control CHANT synthesis from OpenMusic
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
 ;;; CHANT path / OM7 preferences
 ;;; Jean Bresson, IRCAM 2019
 ;;;===================================================
@@ -12,7 +21,7 @@
 (defmethod default-chant-path () 
   (let ((libpath (mypathname (find-library "OM-Chant"))))
     (om-make-pathname :directory (append (pathname-directory libpath) 
-                                     '("resources" "bin" #+macosx "macos" #+win32 "win"))
+                                     '("resources" "bin" #+macosx "macos" #+win32 "win" #+linux "linux"))
                       :host (pathname-host libpath) :device (pathname-device libpath)
                       :name "chant" #+win32 :type #+win32 "exe")))
 
@@ -41,7 +50,3 @@
   (and (get-pref-value :audio :normalize)
        ; (get-pref-value :audio :normalize-level)
        t))
-  
-
-;;; temp
-(defun chant-forum-protec (path lib) t)

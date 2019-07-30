@@ -1,10 +1,19 @@
-;;;===================================================
-;;; OM-CHANT
-;;; Control CHANT synthesis from OpenMusic
-;;;
-;;; CHANT path / OM preferences
-;;; Jean Bresson, IRCAM 2010
-;;;===================================================
+;============================================================================
+; OM-Chant
+; Control CHANT synthesis from OpenMusic
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
+; CHANT path / OM preferences
+; Jean Bresson, IRCAM 2010
+;===================================================
 
 
 (in-package :om)
@@ -13,7 +22,7 @@
 (defun get-chant-exec-path ()
   (let ((libpath (lib-pathname (find-library "OM-Chant"))))
     (om-make-pathname :directory (append (pathname-directory libpath) 
-                                         '("resources" "bin" #+macosx "macos" #+win32 "win"))
+                                         '("resources" "bin" #+macosx "macos" #+win32 "win" #+linux "linux"))
                       :host (pathname-host libpath) :device (pathname-device libpath)
                       :name "chant" #+win32 :type #+win32  "exe")
     ))
