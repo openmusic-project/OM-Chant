@@ -58,28 +58,35 @@
 
 The result is a list of calculated formant bandwidths.
 
-<freqlist> can also be a list of lists containing the evolution every formant frequencies.
+<freqlist> can also be a list of lists of a list of equally-sampled BPFs containing the evolution of every formant frequencies.
 The result will be a list of list of bandwidth.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) ('atb' flag) and in the chant_autobw object for Max by F. Iovino and, G. Eckel (1994).
 Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
 "
     
-    (if (listp (car freqlist))
+    (cond ((listp (car freqlist))
 
-        (let* ((states (mat-trans freqlist)))
-          (mat-trans (loop for st in states collect (autobw st ref-curve))))
-               
-    (let* ((ref-params (mat-trans ref-curve))
-           (cpol (GetPolCoefs (car ref-params) (cadr ref-params))))
-      (when cpol
-        (loop for f in freqlist collect
-              (let ((LogFreq (log f)))
-                (+ (nth 0 cpol) 
-                   (* (nth 1 cpol) LogFreq)
-                   (* (nth 2 cpol) LogFreq LogFreq))))
-        ))
-    ))
+           (let* ((states (mat-trans freqlist)))
+             (mat-trans (loop for st in states collect (autobw st ref-curve)))))
+
+          ((bpf-p (car freqlist)) ;;; we assume all other elements are BPFs!
+           (let ((xpts (x-points (car freqlist))))
+             (loop for bwlist in (autobw (mapcar #'y-points freqlist) ref-curve)
+                   collect (om-make-bpf 'bpf xpts bwlist (decimals (car freqlist))))
+             ))
+          
+          (t 
+           (let* ((ref-params (mat-trans ref-curve))
+                  (cpol (GetPolCoefs (car ref-params) (cadr ref-params))))
+             (when cpol
+               (loop for f in freqlist collect
+                     (let ((LogFreq (log f)))
+                       (+ (nth 0 cpol) 
+                          (* (nth 1 cpol) LogFreq)
+                          (* (nth 2 cpol) LogFreq LogFreq))))
+               ))
+           )))
 
 
 
@@ -143,26 +150,47 @@ It also scales the formant amplitudes with a function that varies as 1/f (approx
 
 The result is a list of calculated formant amplitudes.
 
-<freqlist> and <bwlist> can also be lists of lists containing the evolution every formant frequencies and bandwidths.
-The result will be a list of lists of amplitudes.
+<freqlist> and/or <bwlist> can also be lists of lists or a list of equally-samples BPFs containing the evolution of every formant frequencies and bandwidths.
+The result will be a list of lists of amplitudes or of BPFs.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) ('ata' flag) and in the chant_autoamp object for Max by F. Iovino and, G. Eckel (1994).
 Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
 "
-   (cond ((and (listp (car freqlist)) (listp (car bwlist)))
-          (mat-trans (loop for lfr in (mat-trans freqlist)
-                           for lbw in (mat-trans bwlist)
-                           collect (autoamp lfr lbw scaler))))
-         
-         ((listp (car freqlist))
-          (mat-trans (loop for lfr in (mat-trans freqlist)
-                           collect (autoamp lfr bwlist scaler))))
-         
-         ((listp (car bwlist))
-          (mat-trans (loop for lbw in (mat-trans bwlist)
-                           collect (autoamp freqlist lbw scaler))))
-   
-         (t 
+   (cond 
+    ((and (bpf-p (car freqlist)) (bpf-p (car bwlist)))
+     (let ((xpts (x-points (car freqlist))))
+       (loop for amplist in (autoamp (mapcar #'y-points freqlist) 
+                                     (mapcar #'y-points bwlist)
+                                     scaler)
+             collect (om-make-bpf 'bpf xpts amplist 6))
+       ))
+    
+    ((bpf-p (car freqlist))
+     (let ((xpts (x-points (car freqlist))))
+       (loop for amplist in (autoamp (mapcar #'y-points freqlist) bwlist scaler)
+             collect (om-make-bpf 'bpf xpts amplist 6))
+       ))
+    
+    ((bpf-p (car bwlist))
+     (let ((xpts (x-points (car bwlist))))
+       (loop for amplist in (autoamp freqlist (mapcar #'y-points bwlist) scaler)
+             collect (om-make-bpf 'bpf xpts amplist 6))
+       ))
+    
+    ((and (listp (car freqlist)) (listp (car bwlist)))
+     (mat-trans (loop for lfr in (mat-trans freqlist)
+                      for lbw in (mat-trans bwlist)
+                      collect (autoamp lfr lbw scaler))))
+    
+    ((listp (car freqlist))
+     (mat-trans (loop for lfr in (mat-trans freqlist)
+                      collect (autoamp lfr bwlist scaler))))
+    
+    ((listp (car bwlist))
+     (mat-trans (loop for lbw in (mat-trans bwlist)
+                      collect (autoamp freqlist lbw scaler))))
+    
+    (t 
           (let ((chp (InitChp)))
             (loop for f in freqlist collect
                   (let* ((Ind (GetIndex f))
