@@ -1,13 +1,13 @@
 # OM-Chant
 
-OM-Chant is an OpenMusic library for the control of the Chant synthesizer. The Chant synthesiser allows to simulate and reproduce sung voice sounds, but also in order to create more abstract sounds using the same production model.
+OM-Chant is an OpenMusic library for the control of the Chant synthesizer. The Chant synthesiser allows to simulate and reproduce sung voice sounds, but also to create more abstract sounds using the FOF synthesis technique.
 
 <img src="docs/images/om-chant.png">
 
 ### Documentation
 
 A complete documentation is available here: http://support.ircam.fr/docs/om-libraries/om-chant/   
-The OM-Chant library also contains a full set on tutorial patches.
+The OM-Chant library also contains a full set of tutorial patches.
 
 ***See also more information on the [projet wiki pages](https://github.com/openmusic-project/OM-Chant/wiki/), including a set of [sound examples](https://github.com/openmusic-project/OM-Chant/wiki/Examples).***
 
@@ -24,4 +24,4 @@ Get the full OM-Chant package (including Chant binaries) via [Ircam ForumNet](ht
 
 OM-Chant design and developments: Jean Bresson, Marco Stroppa, Raphaël Foulon (c) IRCAM 2010-2019.
 
-Chant by IRCAM Sound Analysis/Synthesis Team — Special thanks to Xavier Rodet, Frédéric Cornu, Charles Picasso, Axel Röbel. 
+Chant by IRCAM Sound Analysis/Synthesis Team: special thanks to Xavier Rodet, Frédéric Cornu, Charles Picasso, Axel Röbel. 
