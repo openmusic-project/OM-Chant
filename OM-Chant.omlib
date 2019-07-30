@@ -1,8 +1,18 @@
-;;;===========================================================================
-;;; OM-CHANT
-;;; Control CHANT synthesis from OpenMusic
-;;; J. Bresson, M. Stroppa (2010-2019)
-;;;===========================================================================
+;============================================================================
+; OM-Chant
+; Control CHANT synthesis from OpenMusic
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
+; J. Bresson, M. Stroppa (2010-2019)
+;============================================================================
 
 (:om-lib
  
@@ -32,7 +42,7 @@ OM-CHANT also provides higher-level control structures under the form of matrice
  "sources/chant-auto-rules"
  "sources/impulse"
  "sources/chant-evts-om7"
- ;"sources/transitions"
+ "sources/transitions"
  ;"sources/morphing"
  ;"sources/chant-maquette"
  )

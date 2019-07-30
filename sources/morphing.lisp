@@ -1,10 +1,21 @@
-;;;===================================================
-;;; OM-CHANT
-;;; Control CHANT synthesis from OpenMusic
-;;;
-;;; Phonemes and Morphing
-;;; Raphael Foulon, IRCAM 2012
-;;;===================================================
+;============================================================================
+; OM-Chant
+; Control CHANT synthesis from OpenMusic
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
+
+;============================================================================
+; Phonemes and Morphing
+; Raphael Foulon, IRCAM 2012
+;============================================================================
 
 
 (in-package :om)

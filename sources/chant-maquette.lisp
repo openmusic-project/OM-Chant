@@ -1,3 +1,20 @@
+;============================================================================
+; OM-Chant
+; Control CHANT synthesis from OpenMusic
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
+; J. Bresson, M. Stroppa (2010-2019)
+;============================================================================
+
+
 (in-package :om)
 
 (defun load-def-maq-patch (name)

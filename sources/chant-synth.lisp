@@ -1,10 +1,19 @@
-;;;===================================================
-;;; OM-CHANT
-;;; Control CHANT synthesis from OpenMusic
-;;;
-;;; CHANT Synthesis / Normalization
-;;; Jean Bresson, IRCAM 2010
-;;;===================================================
+;============================================================================
+; OM-Chant
+; Control CHANT synthesis from OpenMusic
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
+; CHANT Synthesis / Normalization
+; Jean Bresson, IRCAM 2010
+;===================================================
 
 
 (in-package :om)
@@ -38,19 +47,11 @@ Some normalization modules may be required (check messages in the OM Listener!)
          (format (or out-format (chant-get-default-audio-format)))
          (out (if outfile outfile (string+ (pathname-name self) "." (string-downcase format))))
          (outpath (handle-new-file-exists (if (pathname-directory (pathname out)) out (om::outfile out))))
-         
-;(tmppath1 (handle-new-file-exists
-         ;           (make-pathname :device (pathname-device outpath) :directory (pathname-directory outpath)
-         ;                          :name (pathname-name outpath) :type "tmp1")))
-         ;(tmppath2 (handle-new-file-exists
-         ;           (make-pathname :device (pathname-device outpath) :directory (pathname-directory outpath)
-         ;                         :name (pathname-name outpath) :type "sf")))
          (res (or resolution (chant-get-default-audio-res)))
          (normalization (or normalize-level
                             (and (chant-get-default-audio-normalization) 0.0))))
-  (if (not (probe-file CHANT-PATH))
-      (om-beep-msg "CHANT not found !!")
-    (when (chant-forum-protec CHANT-PATH (find-library "OM-Chant"))
+    (if (not (probe-file CHANT-PATH))
+        (om-beep-msg "CHANT not found !!")
       (if (not (probe-file path-sdif))
           (om-beep-msg "ERROR : bad INPUT file pathname for CHANT-SYNTH !!")
         (let ((nch (find-in-nvtlist (getnvtlist path-sdif) "NumberOfChannels"))
@@ -63,27 +64,24 @@ Some normalization modules may be required (check messages in the OM Listener!)
                 sr (or (and sr (read-from-string sr)) (chant-get-default-audio-sr)))
           (om-print (format nil "Number of channels= ~D" nch) "OM-Chant ::")
           (om-cmd-line  
-           ;(string+ ;(format nil "PATH=$PATH:~s; " (namestring (make-pathname :directory (pathname-directory CHANT-PATH))))
-            (format nil "~s -i~s -o~s ~A ~A ~A" 
-                    ;#+macosx (string+ "./" (pathname-name CHANT-PATH))
-                    ;#+win32 (string+ (pathname-name CHANT-PATH) "." (pathname-type CHANT-PATH))
-                    (namestring CHANT-PATH)
-                    (namestring path-sdif) 
-                    (namestring outpath)
-                    (if (or (equal format :aiff) (equal format :wav))
-                        (format nil "-s~A~D" (if (equal format :aiff) "a" "w") res)
-                      "")
-                    (if (and (or (equal format :aiff) (equal format :wav)) normalization) 
-                        (format nil "-n~D" (- (if (plusp normalization) (lin->db normalization) normalization)))
-                      "")
-                    "" ;; (if *sys-console* "-v" "")
-                    ))
+           (format nil "~s -i~s -o~s ~A ~A ~A" 
+                   (namestring CHANT-PATH)
+                   (namestring path-sdif) 
+                   (namestring outpath)
+                   (if (or (equal format :aiff) (equal format :wav))
+                       (format nil "-s~A~D" (if (equal format :aiff) "a" "w") res)
+                     "")
+                   (if (and (or (equal format :aiff) (equal format :wav)) normalization) 
+                       (format nil "-n~D" (- (if (plusp normalization) (lin->db normalization) normalization)))
+                     "")
+                   "-v" ;;; verbose (always)
+                   ))
           
           (if (not (probe-file outpath))
               (om-beep-msg "!! ERROR in CHANT synthesis !!")
             outpath)
           
-          ))))))
+          )))))
 
 
 

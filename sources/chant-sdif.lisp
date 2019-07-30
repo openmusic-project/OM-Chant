@@ -1,10 +1,18 @@
-;;;===================================================
-;;; OM-CHANT
-;;; Control CHANT synthesis from OpenMusic
-;;;
-;;; SDIF file generation
-;;; Jean Bresson, IRCAM 2010
-;;;===================================================
+;============================================================================
+; OM-Chant
+; Control CHANT synthesis from OpenMusic
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
+; Jean Bresson, IRCAM 2010
+;===================================================
 
 
 (in-package :om)
@@ -230,8 +238,8 @@ The returned value is a list of SDIFFrames suitable to connect to WRITE-CHANT-SD
                                                     collect (complete-reb-data elt)))
                                              (om-make-sdifmatrix 
                                               "1CHA" 
-                                              (loop for elt in (cadr item) 
-                                                    collect (make-list nch :initial-element 1))))
+                                              (make-list (length (cadr item))
+                                                         :initial-element (make-list nch :initial-element 1))))
                                    )))
          
          (NOI (loop for item in noise collect 
@@ -249,8 +257,8 @@ The returned value is a list of SDIFFrames suitable to connect to WRITE-CHANT-SD
                                     collect (complete-fof-data elt))))
                  (chan-matrix (om-make-sdifmatrix 
                                "1CHA" 
-                               (loop for elt in (cadr item) 
-                                     collect (make-list nch :initial-element 1)))))
+                               (make-list (length (cadr item))
+                                          :initial-element (make-list nch :initial-element 1)))))
              
              (if frame-at-t
                  (setf (lmatrix frame-at-t) (append (lmatrix frame-at-t) (list new-matrix chan-matrix)))
@@ -261,7 +269,7 @@ The returned value is a list of SDIFFrames suitable to connect to WRITE-CHANT-SD
 
 
 
-;;; Compatibility...
+;;; Compatibility.
 (defmethod! gen-chant-sdif-buffer (f0 fof filt noise &optional (nch 1))
    :icon 600
    :indoc '("F0 data" "FOF data" "Filter data" "Noise data" "number of channels")
