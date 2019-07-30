@@ -37,6 +37,11 @@
   )
 
 
+(defun open-param-visualizer (visualization-params ch-events trans-function) 
+  (declare (ignore visualization-params ch-events trans-function))
+  nil)
+
+
 (defun chant-get-default-audio-format ()
   (get-pref-value :audio :format))
 

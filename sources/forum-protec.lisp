@@ -21,6 +21,7 @@
 (defvar *check-chant-forum-protec* nil)
 
 (defun chant-forum-protec (exe-path &optional lib)
+  (declare (ignore lib))
   (if *check-chant-forum-protec*
       (if (probe-file exe-path) 
           (let ((wait-time 10)

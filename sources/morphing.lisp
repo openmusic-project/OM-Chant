@@ -78,20 +78,20 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
 
 ;;idem, mais morphe deux phonemes entrés (liste : phon1 phon2 coeff-morph)
 (defmethod! find-phoneme ((phon list) (dico list))
-   (let* ((ctrl 50)
-              (phon1 (first phon))
-              (phon2 (second phon))
-              (morph (third phon))
-              (trajs1 (find-phoneme phon1 dico))
-              (trajs2 (find-phoneme phon2 dico))
-              )
+  (let* ((ctrl 50)
+         (phon1 (first phon))
+         (phon2 (second phon))
+         (morph (third phon))
+         (trajs1 (find-phoneme phon1 dico))
+         (trajs2 (find-phoneme phon2 dico))
+         )
 
-              (loop for slot1 in trajs1 for slot2 in trajs2 collect
-                    (if (typep slot1 'bpf);;si slot de morphing
-                        (morphed-vals slot1 slot2 morph ctrl)
-                      (loop for s1 in slot1 for s2 in slot2 collect
-                            (morphed-vals s1 s2 morph ctrl)
-                            )))))
+    (loop for slot1 in trajs1 for slot2 in trajs2 collect
+          (if (typep slot1 'bpf);;si slot de morphing
+              (morphed-vals slot1 slot2 morph ctrl)
+            (loop for s1 in slot1 for s2 in slot2 collect
+                  (morphed-vals s1 s2 morph ctrl)
+                  )))))
 
 
 (defvar *default-phonemes* nil)
@@ -253,18 +253,18 @@ The transition follows individual profiles fro frequencies, amplitudes and bandw
 <transition> can be obtained from a transition dictionary using FIND-PHONEME.
 "
 
-        (let ((dur (or duration (- (abs (- (action-time fof2) 
-                                        (+ (action-time fof1) (event-dur fof1))))
-                                   (* 2 *min-delta-frames*))))
-              (ctrl (if sr (if (integerp sr) sr (round (/ dur sr))) 50))
-              (action-time (or onset (+ (min (+ (action-time fof1) (event-dur fof1))
-                                             (action-time fof2))
-                                        *min-delta-frames*)))
-              (freq-curves (or (get-array-row transition :freq) (list (om-make-bpf 'bpf '(0 1) '(1 1) 6))))
-              (amp-curves (or (get-array-row transition :amp) (list (om-make-bpf 'bpf '(0 1) '(1 1) 6))))
-              (bw-curves (or (get-array-row transition :bw) (list (om-make-bpf 'bpf '(0 1) '(1 1) 6))))
-              (morph-curve (or (transition transition) (list (om-make-bpf 'bpf '(0 1) '(0 1) 6)))))
-              
+        (let* ((dur (or duration (- (abs (- (action-time fof2) 
+                                            (+ (action-time fof1) (event-dur fof1))))
+                                    (* 2 *min-delta-frames*))))
+               (ctrl (if sr (if (integerp sr) sr (round (/ dur sr))) 50))
+               (action-time (or onset (+ (min (+ (action-time fof1) (event-dur fof1))
+                                              (action-time fof2))
+                                         *min-delta-frames*)))
+               (freq-curves (or (get-array-row transition :freq) (list (om-make-bpf 'bpf '(0 1) '(1 1) 6))))
+               (amp-curves (or (get-array-row transition :amp) (list (om-make-bpf 'bpf '(0 1) '(1 1) 6))))
+               (bw-curves (or (get-array-row transition :bw) (list (om-make-bpf 'bpf '(0 1) '(1 1) 6))))
+               (morph-curve (or (transition transition) (list (om-make-bpf 'bpf '(0 1) '(0 1) 6)))))
+          
           (if (= dur 0)
               (om-beep-msg "Inter FOF duration = 0!!!")
             (let* ((x-list (third (multiple-value-list (om-sample (list 0 dur) ctrl)))))
@@ -282,15 +282,15 @@ The transition follows individual profiles fro frequencies, amplitudes and bandw
 
 ;; OLD
 (defmethod! gen-inter-fofs-2 ((fof1 ch-fof) (fof2 ch-fof)
-                            freq-curves amp-curves bw-curves 
-                            morph-curve  
-                            &optional sr onset duration)
-    :icon 624
-    :indoc '("first FOF event" "second FOF event" "frequency trajectories" "amplitude trajectories" "bandwidth trajectories" "morphing curve" 
-                               "sample rate or number of sampling points" "onset" "duration")
-    :initvals '(nil nil nil nil nil nil nil nil nil)
-    :outdoc '("transition fof event")
-            :doc "Generates a FOF event, which represents the transition between the two distant FOF events (<fof1> and <fof2>). 
+                              freq-curves amp-curves bw-curves 
+                              morph-curve  
+                              &optional sr onset duration)
+  :icon 624
+  :indoc '("first FOF event" "second FOF event" "frequency trajectories" "amplitude trajectories" "bandwidth trajectories" "morphing curve" 
+           "sample rate or number of sampling points" "onset" "duration")
+  :initvals '(nil nil nil nil nil nil nil nil nil)
+  :outdoc '("transition fof event")
+  :doc "Generates a FOF event, which represents the transition between the two distant FOF events (<fof1> and <fof2>). 
 
 The transition follows individual profiles fro frequencies, amplitudes and bandwidths. 
 Each profile can be given as a list of BPFs for the different formants, e.g. ([frequency trajectory of 1st formant] [frequency trajectory of 2nd formant] ...), or as a suingle VPF applied to all formants
@@ -302,30 +302,30 @@ The BPF will be rescaled, thus there are no constraints concerning the abscissa.
 <freq-curves>, <amp-curves>, <bw-curves>, <morph-curve> can be obtained from a transition dictionary using FIND-PHONEME.
 "
 
-        (let ((dur (or duration (- (abs (- (action-time fof2) 
-                                        (+ (action-time fof1) (event-dur fof1))))
-                                   (* 2 *min-delta-frames*))))
-              (ctrl (if sr (if (integerp sr) sr (round (/ dur sr))) 50))
-              (action-time (or onset (+ (min (+ (action-time fof1) (event-dur fof1))
-                                             (action-time fof2))
-                                        *min-delta-frames*)))
-              (freq-curves (if (consp freq-curves) freq-curves (create-list (numcols fof1) (or freq-curves (om-make-bpf 'bpf '(0 1) '(1 1) 6)))))
-              (amp-curves (if (consp amp-curves) amp-curves (create-list (numcols fof1) (or amp-curves (om-make-bpf 'bpf '(0 1) '(1 1) 6)))))
-              (bw-curves (if (consp bw-curves) bw-curves (create-list (numcols fof1) (or bw-curves (om-make-bpf 'bpf '(0 1) '(1 1) 6)))))
-              (morph-curve (or morph-curve (om-make-bpf 'bpf '(0 1) '(0 1) 10))))
+  (let* ((dur (or duration (- (abs (- (action-time fof2) 
+                                      (+ (action-time fof1) (event-dur fof1))))
+                              (* 2 *min-delta-frames*))))
+         (ctrl (if sr (if (integerp sr) sr (round (/ dur sr))) 50))
+         (action-time (or onset (+ (min (+ (action-time fof1) (event-dur fof1))
+                                        (action-time fof2))
+                                   *min-delta-frames*)))
+         (freq-curves (if (consp freq-curves) freq-curves (create-list (numcols fof1) (or freq-curves (om-make-bpf 'bpf '(0 1) '(1 1) 6)))))
+         (amp-curves (if (consp amp-curves) amp-curves (create-list (numcols fof1) (or amp-curves (om-make-bpf 'bpf '(0 1) '(1 1) 6)))))
+         (bw-curves (if (consp bw-curves) bw-curves (create-list (numcols fof1) (or bw-curves (om-make-bpf 'bpf '(0 1) '(1 1) 6)))))
+         (morph-curve (or morph-curve (om-make-bpf 'bpf '(0 1) '(0 1) 10))))
               
-          (if (= dur 0)
-              (om-beep-msg "Inter FOF duration = 0!!!")
-            (let* ((x-list (third (multiple-value-list (om-sample (list 0 dur) ctrl)))))
-              (om-make-array 'ch-fof (max (slot-value fof1 'numcols) (slot-value fof2 'numcols))
-                             action-time 
-                             dur 
-                             nil 
-                             nil
-                             :freq (make-bpfs x-list freq-curves (inter-trans (slot-value fof1 'freq) (slot-value fof2 'freq) morph-curve ctrl) ctrl)
-                             :amp (make-bpfs x-list amp-curves (inter-trans (slot-value fof1 'amp) (slot-value fof2 'amp) morph-curve ctrl) ctrl)
-                             :bw (make-bpfs x-list bw-curves (inter-trans (slot-value fof1 'bw) (slot-value fof2 'bw) morph-curve ctrl) ctrl))))
-          ))
+    (if (= dur 0)
+        (om-beep-msg "Inter FOF duration = 0!!!")
+      (let* ((x-list (third (multiple-value-list (om-sample (list 0 dur) ctrl)))))
+        (om-make-array 'ch-fof (max (slot-value fof1 'numcols) (slot-value fof2 'numcols))
+                       action-time 
+                       dur 
+                       nil 
+                       nil
+                       :freq (make-bpfs x-list freq-curves (inter-trans (slot-value fof1 'freq) (slot-value fof2 'freq) morph-curve ctrl) ctrl)
+                       :amp (make-bpfs x-list amp-curves (inter-trans (slot-value fof1 'amp) (slot-value fof2 'amp) morph-curve ctrl) ctrl)
+                       :bw (make-bpfs x-list bw-curves (inter-trans (slot-value fof1 'bw) (slot-value fof2 'bw) morph-curve ctrl) ctrl))))
+    ))
 
 
 
