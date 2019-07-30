@@ -10,7 +10,6 @@
 (in-package :om)
 
 (defparameter *chant-files* '("om6-chant-prefs"
-                              "forum-protec" 
                               "chant-sdif" 
                               "chant-synth"
                               "formants"
