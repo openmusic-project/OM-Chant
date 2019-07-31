@@ -1,5 +1,5 @@
-; OM File Header - Saved 2019/07/30 23:53:27
-; (6.15 :patc (om-make-point 42.0D0 490) (om-make-point 86 58) (om-make-point 1180 632) "" 183 0 nil "2019/07/30 19:42:24")
+; OM File Header - Saved 2019/07/31 18:24:18
+; (6.15 :patc (om-make-point 211.064453125D0 490) (om-make-point 86 58) (om-make-point 1180 632) "" 183 0 nil "2019/07/30 19:42:24")
 ; End File Header
 ; External resources 
 ; (list (list (quote :sound) "#P\"../../out-files/my_synt.aiff\"" "#P\"../../out-files/ch_39-gen-maquette_1.aiff\""))
