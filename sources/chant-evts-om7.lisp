@@ -57,8 +57,12 @@
 (defmethod get-channels-num ((self chant-simple-evt)) 1)
 
 
+
+
 ;================================
 ;;; Some chant-simple-evt objects with single value can be edited through a BPF editor:
+(defmethod get-chant-bpf-slot ((self t)) nil)
+
 (defclass ch-bpfeditor (bpf-editor) ())
 
 (defmethod object-value ((self ch-bpfeditor)) 
@@ -70,7 +74,24 @@
   (unless (bpf-p (object-value self))
     (close-editor from)))
 
-(defmethod get-chant-bpf-slot ((self t)) nil)
+(defmethod display-modes-for-object ((self chant-simple-evt))
+  (append '(:hidden :text)
+          (if (get-chant-bpf-slot self) '(:mini-view) nil)))
+
+(defmethod get-cache-display-for-draw ((self chant-simple-evt) box) 
+  (if (get-chant-bpf-slot self)
+      (get-cache-display-for-draw (slot-value self (get-chant-bpf-slot self)) box)
+    (call-next-method)))
+
+(defmethod draw-mini-view ((self chant-simple-evt) (box t) x y w h &optional time)
+  (if (get-chant-bpf-slot self)
+      (let ((bpfslotval (slot-value self (get-chant-bpf-slot self))))
+        (if (bpf-p bpfslotval)
+            (draw-mini-view bpfslotval box x y w h time)
+          (om-draw-string (+ x 4) (+ y (/ h 2) 3) (format NIL "~A = ~A" (get-chant-bpf-slot self) bpfslotval)
+                          :font (om-def-font :font1b))))
+    (call-next-method)))
+
 
 ;================================
 ; GLOBAL UTILS
@@ -144,31 +165,34 @@ Note that CH-F0 MUST BE USED ALONG WITH AT LEAST ONE CH-FOF OBJECT, which determ
   (cond 
    
    ((numberp (f0 self))
+    
     (remove nil
             (append 
              (if (ch-evt-fade-in self) 
-                 (list (make-instance 'sdifframe :signature "1FOB" :ftime (get-absolute-time self) 
-                                      :streamid 0 
+                 
+                 (list (make-instance 'sdifframe :signature "1FOB" :streamid 0 
+                                      :ftime (get-absolute-time self) 
                                       :lmatrix (list (om-make-sdifmatrix "1FQ0" (list (list 0)))))
-                       (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-fade-in self))
-                                      :streamid 0 
+                       (make-instance 'sdifframe :signature "1FOB" :streamid 0 
+                                      :ftime (+ (get-absolute-time self) (ch-evt-fade-in self))
                                       :lmatrix (list (om-make-sdifmatrix "1FQ0" (list (list (f0 self)))))))
-               (list (make-instance 'sdifframe :signature "1FOB" :ftime (get-absolute-time self) 
-                                    :streamid 0 
-                                    :lmatrix (list (om-make-sdifmatrix "1FQ0" (list (list 0)))))))
+               
+               (list (make-instance 'sdifframe :signature "1FOB" :streamid 0
+                                    :ftime (get-absolute-time self) 
+                                    :lmatrix (list (om-make-sdifmatrix "1FQ0" (list (list (f0 self))))))))
                     
              (when (plusp (ch-evt-duration self))
                (if (ch-evt-fade-out self) 
                    (list
-                    (make-instance 'sdifframe :signature "1FOB" :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self))
-                                   :streamid 0 
+                    (make-instance 'sdifframe :signature "1FOB" :streamid 0 
+                                   :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self))
                                    :lmatrix (list (om-make-sdifmatrix "1FQ0" (list (list (f0 self))))))
-                    (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
-                                   :streamid 0 
+                    (make-instance 'sdifframe :signature "1FOB" :streamid 0 
+                                   :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
                                    :lmatrix (list (om-make-sdifmatrix "1FQ0" (list (list 0))))))
                  (list
-                  (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
-                                 :streamid 0 
+                  (make-instance 'sdifframe :signature "1FOB" :streamid 0 
+                                 :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
                                  :lmatrix (list (om-make-sdifmatrix "1FQ0" (list (list (f0 self))))))
                   )))
              )))
@@ -193,21 +217,9 @@ Note that CH-F0 MUST BE USED ALONG WITH AT LEAST ONE CH-FOF OBJECT, which determ
 
 
 
-;;;=================================================================
+;;;=======================
 ;;; CH-F0 BOX AND EDITOR
-;;;=================================================================
-
-(defmethod display-modes-for-object ((self CH-F0)) '(:hidden :text :mini-view))
-
-(defmethod get-cache-display-for-draw ((self CH-F0) box) 
-  (get-cache-display-for-draw (f0 self) box))
-
-(defmethod draw-mini-view ((self CH-F0) (box t) x y w h &optional time)
-  (if (bpf-p (f0 self))
-      (draw-mini-view (f0 self) box x y w h time)
-    (om-draw-string (+ x 4) (+ y (/ h 2) 3) (format NIL "f0 = ~A" (f0 self))
-                    :font (om-def-font :font1b))))
-
+;;;=======================
 
 (defmethod object-has-editor ((self CH-F0)) (bpf-p (f0 self)))
 (defmethod get-editor-class ((self CH-F0)) 'ch-bpfeditor)
@@ -218,7 +230,7 @@ Note that CH-F0 MUST BE USED ALONG WITH AT LEAST ONE CH-FOF OBJECT, which determ
 ; CHANT MODULE : NOISE
 ;=================================
 
-(defclass! ch-noise (chant-simple-evt simple-container)
+(defclass! ch-noise (chant-simple-evt)
    (; (dist :initform 0 :initarg :dist :type number :accessor dist)
     (action-time :initform 0 :accessor action-time :initarg :action-time :documentation "start time [sec]")
     (dur :accessor dur :initform 0  :initarg :dur :documentation "duration [sec]")
@@ -254,67 +266,63 @@ Represents the evolution of the noise amplitude during the interval determined b
 
 (defmethod evt-to-sdif ((self ch-noise))
   
-  (cond ((numberp (amp self))
-         (remove nil
-                 (append 
-                  (if (ch-evt-fade-in self) 
-                      (list (make-instance 'sdifframe :signature "1NOI" :ftime (get-absolute-time self) :streamid 2 
-                                           :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 0)))))
-                            (make-instance 'sdifframe :signature "1NOI" :ftime (+ (get-absolute-time self) (ch-evt-fade-in self)) :streamid 2 
-                                           :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self)))))))
-                    (list (make-instance 'sdifframe :signature "1NOI" :ftime (get-absolute-time self) :streamid 2 
-                                         :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self))))))))
-                    
-                  (when (plusp (ch-evt-duration self))
-                    (if (ch-evt-fade-out self) 
-                        (list
-                         (make-instance 'sdifframe :signature "1NOI" :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self)) 
-                                        :streamid 2 
-                                        :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self))))))
-                           
-                         (make-instance 'sdifframe :signature "1NOI" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
-                                        :streamid 2 
-                                        :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 0))))))
-                      (list
-                       (make-instance 'sdifframe :signature "1NOI" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
-                                      :streamid 2 
-                                      :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self))))))
-                       )))
-                  )
-                 ))
-        
-        ((bpf-p (amp self))
-         (let* ((pts (point-pairs (amp self)))
-                (xpts (mapcar 'car pts)))
-           (setf pts (apply-fade-in-out pts (ch-evt-fade-in self) (ch-evt-fade-out self)))
-           (loop for time in (if (and (numberp (ch-evt-duration self)) (plusp (ch-evt-duration self))
-                                      (not (and (= (get-absolute-time self) (car xpts))
-                                                (= (+ (get-absolute-time self) (ch-evt-duration self)) (last-elem xpts)))))
-                                 (om-scale xpts
-                                           (get-absolute-time self)
-                                           (+ (get-absolute-time self) (ch-evt-duration self)))
-                               (om+ (get-absolute-time self) xpts))
-                 for a in (mapcar 'cadr pts) collect
-                 (make-instance 'sdifframe :signature "1NOI" :ftime time :streamid 2 
-                                :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 a)))))
-                 )))
+  (cond 
 
-        ))
+   ((numberp (amp self))
+    (remove nil
+            (append 
+             (if (ch-evt-fade-in self) 
+                      
+                 (list (make-instance 'sdifframe :signature "1NOI" :ftime (get-absolute-time self) :streamid 2 
+                                      :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 0)))))
+                       (make-instance 'sdifframe :signature "1NOI" :ftime (+ (get-absolute-time self) (ch-evt-fade-in self)) :streamid 2 
+                                      :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self)))))))
+                    
+               (list (make-instance 'sdifframe :signature "1NOI" :ftime (get-absolute-time self) :streamid 2 
+                                    :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self))))))))
+                    
+             (when (plusp (ch-evt-duration self))
+               (if (ch-evt-fade-out self) 
+                   (list
+                    (make-instance 'sdifframe :signature "1NOI" 
+                                   :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self)) 
+                                   :streamid 2 
+                                   :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self))))))
+                    (make-instance 'sdifframe :signature "1NOI" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
+                                   :streamid 2 
+                                   :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 0))))))
+                 (list
+                  (make-instance 'sdifframe :signature "1NOI" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) 
+                                 :streamid 2 
+                                 :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 (amp self))))))
+                  )))
+             )
+            ))
+        
+   ((bpf-p (amp self))
+    (let* ((pts (point-pairs (amp self)))
+           (xpts (mapcar 'car pts)))
+      (setf pts (apply-fade-in-out pts (ch-evt-fade-in self) (ch-evt-fade-out self)))
+      (loop for time in (if (and (numberp (ch-evt-duration self)) (plusp (ch-evt-duration self))
+                                 (not (and (= (get-absolute-time self) (car xpts))
+                                           (= (+ (get-absolute-time self) (ch-evt-duration self)) (last-elem xpts)))))
+                            (om-scale xpts
+                                      (get-absolute-time self)
+                                      (+ (get-absolute-time self) (ch-evt-duration self)))
+                          (om+ (get-absolute-time self) xpts))
+            for a in (mapcar 'cadr pts) collect
+            (make-instance 'sdifframe :signature "1NOI" :ftime time :streamid 2 
+                           :lmatrix (list (om-make-sdifmatrix "1DIS" (list (list 0 a)))))
+            )))
+
+   ))
 
 
 ;;;=================================================================
 ;;; CH-NOISE BOX AND EDITOR
 ;;;=================================================================
-(defmethod display-modes-for-object ((self CH-NOISE)) '(:hidden :text :mini-view))
 
-(defmethod get-cache-display-for-draw ((self CH-NOISE) box) 
-  (get-cache-display-for-draw (amp self) box))
-
-(defmethod draw-mini-view ((self CH-NOISE) (box t) x y w h &optional time)
-  (draw-mini-view (amp self) box x y w h time))
-
-
-(defmethod object-has-editor ((self CH-NOISE)) (bpf-p (f0 self)))
+(defmethod object-has-editor ((self CH-NOISE)) (bpf-p (amp self)))
 (defmethod get-editor-class ((self CH-NOISE)) 'ch-bpfeditor)
 (defmethod get-chant-bpf-slot ((self CH-NOISE)) 'amp)
 
@@ -541,80 +549,81 @@ Note that CH-FOF MUST BE USED ALONG WITH AT LEAST ONE CH-F0 OBJECT, which determ
       
 (defmethod evt-to-sdif ((self CH-FOF))
   (if (continuous-event-p self)
-        (multiple-value-bind (times array-lists) 
+        
+      (multiple-value-bind (times array-lists) 
 
-            (continuous-values self)
+          (continuous-values self)
 
-          (loop for time in times
-                for framevalues in array-lists 
-                collect 
-                (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) time) :streamid 0 
-                               :lmatrix (remove nil
-                                                (list 
-                                                 (om-make-sdifmatrix 
-                                                  "1FOF"
-                                                  (loop for i from 0 to (1- (elts self)) collect (first-n (nth i framevalues) 7)))
-                                                 (continuous-channel-panning-matrix self framevalues)
-                                                 )))))
-      (remove nil 
-              (append
-               (if (ch-evt-fade-in self) 
-                   (list (make-instance 'sdifframe :signature "1FOB" :ftime (get-absolute-time self) :streamid 0 
-                                        :lmatrix (remove nil
-                                                         (list (om-make-sdifmatrix 
-                                                                "1FOF" 
-                                                                (loop for i from 0 to (1- (elts self)) collect 
-                                                                      (let ((data (first-n (get-array-element self i) 7)))
-                                                                        (cons (car data) (cons 0 (cddr data))))))
+        (loop for time in times
+              for framevalues in array-lists 
+              collect 
+              (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) time) :streamid 0 
+                             :lmatrix (remove nil
+                                              (list 
+                                               (om-make-sdifmatrix 
+                                                "1FOF"
+                                                (loop for i from 0 to (1- (elts self)) collect (first-n (nth i framevalues) 7)))
+                                               (continuous-channel-panning-matrix self framevalues)
+                                               )))))
+    (remove nil 
+            (append
+             (if (ch-evt-fade-in self) 
+                 (list (make-instance 'sdifframe :signature "1FOB" :ftime (get-absolute-time self) :streamid 0 
+                                      :lmatrix (remove nil
+                                                       (list (om-make-sdifmatrix 
+                                                              "1FOF" 
+                                                              (loop for i from 0 to (1- (elts self)) collect 
+                                                                    (let ((data (first-n (get-array-element self i) 7)))
+                                                                      (cons (car data) (cons 0 (cddr data))))))
                                                               
-                                                               (static-channel-panning-matrix self)
-                                                               )))
-                         (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-fade-in self)) :streamid 0 
+                                                             (static-channel-panning-matrix self)
+                                                             )))
+                       (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-fade-in self)) :streamid 0 
+                                      :lmatrix (remove nil
+                                                       (list (om-make-sdifmatrix 
+                                                              "1FOF" 
+                                                              (loop for i from 0 to (1- (elts self)) collect (first-n (get-array-element self i) 7)))
+                                                             (static-channel-panning-matrix self)
+                                                             ))))
+               (list
+                (make-instance 'sdifframe :signature "1FOB" :ftime (get-absolute-time self) :streamid 0 
+                               :lmatrix (remove nil
+                                                (list (om-make-sdifmatrix 
+                                                       "1FOF" 
+                                                       (loop for i from 0 to (1- (elts self)) collect (first-n (get-array-element self i) 7)))
+                                                      (static-channel-panning-matrix self)
+                                                      )))))
+
+             (if (plusp (ch-evt-duration self))
+                 (if (ch-evt-fade-out self) 
+                     (list 
+                      (make-instance 'sdifframe :signature "1FOB" :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self)) :streamid 0 
+                                     :lmatrix (remove nil 
+                                                      (list (om-make-sdifmatrix 
+                                                             "1FOF" 
+                                                             (loop for i from 0 to (1- (elts self)) collect (first-n (get-array-element self i) 7)))
+                                                            (static-channel-panning-matrix self)
+                                                            )))
+                      (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid 0 
+                                     :lmatrix (remove nil
+                                                      (list (om-make-sdifmatrix 
+                                                             "1FOF" 
+                                                             (loop for i from 0 to (1- (elts self)) collect 
+                                                                   (let ((data (first-n (get-array-element self i) 7)))
+                                                                     (cons (car data) (cons 0 (cddr data))))))
+                                                            (static-channel-panning-matrix self)
+                                                            ))))
+
+                   (list (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid 0 
                                         :lmatrix (remove nil
                                                          (list (om-make-sdifmatrix 
-                                                                "1FOF" 
+                                                                "1FOF"  
                                                                 (loop for i from 0 to (1- (elts self)) collect (first-n (get-array-element self i) 7)))
                                                                (static-channel-panning-matrix self)
                                                                ))))
-                 (list
-                  (make-instance 'sdifframe :signature "1FOB" :ftime (get-absolute-time self) :streamid 0 
-                                 :lmatrix (remove nil
-                                                  (list (om-make-sdifmatrix 
-                                                         "1FOF" 
-                                                         (loop for i from 0 to (1- (elts self)) collect (first-n (get-array-element self i) 7)))
-                                                        (static-channel-panning-matrix self)
-                                                        )))))
-
-               (if (plusp (ch-evt-duration self))
-                   (if (ch-evt-fade-out self) 
-                       (list 
-                        (make-instance 'sdifframe :signature "1FOB" :ftime (- (+ (get-absolute-time self) (ch-evt-duration self)) (ch-evt-fade-out self)) :streamid 0 
-                                       :lmatrix (remove nil 
-                                                        (list (om-make-sdifmatrix 
-                                                               "1FOF" 
-                                                               (loop for i from 0 to (1- (elts self)) collect (first-n (get-array-element self i) 7)))
-                                                              (static-channel-panning-matrix self)
-                                                              )))
-                        (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid 0 
-                                       :lmatrix (remove nil
-                                                        (list (om-make-sdifmatrix 
-                                                               "1FOF" 
-                                                               (loop for i from 0 to (1- (elts self)) collect 
-                                                                     (let ((data (first-n (get-array-element self i) 7)))
-                                                                       (cons (car data) (cons 0 (cddr data))))))
-                                                              (static-channel-panning-matrix self)
-                                                              ))))
-
-                     (list (make-instance 'sdifframe :signature "1FOB" :ftime (+ (get-absolute-time self) (ch-evt-duration self)) :streamid 0 
-                                          :lmatrix (remove nil
-                                                           (list (om-make-sdifmatrix 
-                                                                  "1FOF"  
-                                                                  (loop for i from 0 to (1- (elts self)) collect (first-n (get-array-element self i) 7)))
-                                                                 (static-channel-panning-matrix self)
-                                                                 ))))
-                     )
-                 )))
-      ))
+                   )
+               )))
+    ))
 
 
 
@@ -928,7 +937,7 @@ Add keyword controls and name them ':channelX' (x = 1, 2,... n) in order to add 
   (let ((rep ()))
     (loop for field in (data self) 
           for i from 0 do
-          (let ((ctlname (array-field-name field)))
+          (let ((ctlname (print (array-field-name field))))
             (when (and (> (length ctlname) 4)
                        (string-equal "chan" (subseq ctlname 0 4)))
               (push i rep))))
@@ -984,7 +993,6 @@ Add :chanX (e.g. :channel1, :channel2,...) keyword controls for the different ch
 
 
 
-
 (defmethod evt-to-sdif ((self ch-channels))
   
   (let ((frametypes (remove '(2 3) (patch-ev-types *chant-patch*) 
@@ -1000,7 +1008,7 @@ Add :chanX (e.g. :channel1, :channel2,...) keyword controls for the different ch
                 (loop for sid in frametypes collect
                       (make-instance 'sdifframe 
                                      :signature (type-to-frame-signature sid) 
-                                     :ftime (+ (action-time self) (/ (offset self) 1000.0) time) 
+                                     :ftime (+ (get-absolute-time self) time) 
                                      :streamid sid 
                                      :lmatrix (list (continuous-channel-panning-matrix self framevalues))))
                 ))
@@ -1331,12 +1339,16 @@ All non-specified transitions are linear.
         (om-print (format nil "CHANT synthesis patch: ~D" *chant-patch*) "OM-Chant ::")
                        
         (sdif::SdifFWriteGeneralHeader thefile)
+        
         (when (> ch-num 2)
+          ;;; need to declare all channels > 2
           (let ((typedef-str "{ 1MTD 1CHA {"))
             (loop for c = 3 then (+ c 1) while (<= c ch-num) do
                   (setf typedef-str (string+ typedef-str " Channel" (number-to-string c) ",")))
             (setf typedef-str (string+ typedef-str " } }"))
-            (write-sdif-types thefile typedef-str)))
+            (write-sdif-types thefile typedef-str)
+            ))
+        
         (write-1nvt-table thefile (car nvt) (cadr nvt))
         (write-CHANT-IDStables thefile *chant-patch* sortedevents total-dur)
         (sdif::SdifFWriteAllASCIIChunks thefile)
