@@ -1,0 +1,3182 @@
+
+(:patch
+ (:om-version 0.011)
+ (:name "21-example-resonant")
+ (:doc "")
+ (:info
+  (:created "2019/07/31 16:33:55")
+  (:modified "2019/07/31 17:06:31"))
+ (:window (:size (652 875)) (:position (241 291)))
+ (:grid nil)
+ (:lock nil)
+ (:boxes
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 2")
+   (:x 161)
+   (:y 134)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 0)
+   (:id 0))
+  (:box
+   (:reference bpf-scale)
+   (:type :function)
+   (:group-id nil)
+   (:name "bpf-scale")
+   (:x 104)
+   (:y 168)
+   (:w 96)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda :lambda)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :key) (:name "x2") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "y1") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "y2") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "x1") (:value nil) (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 1))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 3")
+   (:x 116)
+   (:y 134)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 4)
+   (:id 2))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux")
+   (:x 279)
+   (:y 95)
+   (:w 41)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 300)
+   (:id 3))
+  (:box
+   (:reference om+)
+   (:type :function)
+   (:group-id nil)
+   (:name "om+")
+   (:x 253)
+   (:y 132)
+   (:w 60)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "ARG1")
+     (:value 0)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ARG2")
+     (:value 0)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 4))
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 4")
+   (:x 154)
+   (:y 69)
+   (:w 172)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list 100 400 1000 2000 2300))
+   (:id 5))
+  (:box
+   (:reference mapcar)
+   (:type :function)
+   (:group-id nil)
+   (:name "mapcar")
+   (:x 196)
+   (:y 211)
+   (:w 99)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "FUNCTION")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "LIST")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :optional)
+     (:name "more-lists")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 6))
+  (:box
+   (:reference bpf)
+   (:type :object)
+   (:group-id nil)
+   (:name "BPF")
+   (:x 17)
+   (:y 65)
+   (:w 114)
+   (:h 71)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "BPF")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "X-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "Y-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "decimals")
+     (:value 0)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "X-POINTS") (:reactive nil))
+    (:output (:name "Y-POINTS") (:reactive nil))
+    (:output (:name "decimals") (:reactive nil)))
+   (:window (:size nil) (:position nil))
+   (:edition-params)
+   (:value
+    (:object
+     (:class bpf)
+     (:slots
+      ((:onset 0)
+       (:duration 104.511)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:action nil)
+       (:color (:color 0 0 0 1.0))
+       (:decimals 3)
+       (:x-points
+        (:list
+         1.0
+         2.0
+         3.0
+         4.0
+         6.0
+         7.0
+         9.0
+         10.0
+         12.0
+         13.0
+         15.0
+         17.0
+         18.0
+         19.0
+         26.946
+         34.649
+         37.0
+         38.0
+         39.0
+         40.0
+         41.0
+         43.0
+         44.0
+         46.0
+         47.0
+         49.0
+         50.0
+         51.0
+         53.0
+         54.0
+         55.0
+         56.0
+         58.0
+         60.0
+         62.0
+         63.0
+         66.0
+         67.0
+         69.0
+         71.0
+         73.0
+         74.0
+         76.0
+         77.0
+         78.0
+         79.0
+         80.0
+         81.0
+         82.0
+         104.511))
+       (:y-points
+        (:list
+         29.0
+         29.0
+         30.0
+         32.0
+         34.0
+         35.0
+         37.0
+         39.0
+         41.0
+         44.0
+         46.0
+         50.0
+         53.0
+         57.0
+         59.739
+         58.109
+         57.0
+         54.0
+         51.0
+         48.0
+         46.0
+         45.0
+         44.0
+         43.0
+         43.0
+         44.0
+         46.0
+         49.0
+         52.0
+         54.0
+         56.0
+         58.0
+         58.0
+         59.0
+         60.0
+         60.0
+         60.0
+         60.0
+         59.0
+         58.0
+         57.0
+         55.0
+         54.0
+         51.0
+         49.0
+         47.0
+         45.0
+         42.0
+         41.0
+         0.0))))
+     (:add-slots
+      ((:decimals 3)
+       (:color (:color 0 0 0 1.0))
+       (:name nil)
+       (:action nil)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
+   (:id 7))
+  (:box
+   (:reference single-float)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 5")
+   (:x 518)
+   (:y 464)
+   (:w 52)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 110.0)
+   (:id 8))
+  (:comment
+   (:x 107)
+   (:y 6)
+   (:w 492)
+   (:h 32)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font (:font (:face "Verdana") (:size 13) (:style :bold)))
+   (:align nil)
+   (:text
+    "Play with the FOF params and explore a wide variety of sounds...")
+   (:id 9))
+  (:box
+   (:reference simple-base-string)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 12")
+   (:x 428)
+   (:y 615)
+   (:w 169)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value "ch_21-example-resonant")
+   (:id 10))
+  (:box
+   (:reference single-float)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 11")
+   (:x 334)
+   (:y 350)
+   (:w 52)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 0.001)
+   (:id 11))
+  (:box
+   (:reference single-float)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 10")
+   (:x 291)
+   (:y 376)
+   (:w 38)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 0.1)
+   (:id 12))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 8")
+   (:x 417)
+   (:y 646)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value -1)
+   (:id 13))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 7")
+   (:x 365)
+   (:y 379)
+   (:w 27)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 1)
+   (:id 14))
+  (:box
+   (:reference
+    (:patch
+     (:om-version 0.011)
+     (:name "bpf-autoamp")
+     (:doc "")
+     (:info (:created nil) (:modified nil))
+     (:window (:size (448 509)) (:position (142 92)))
+     (:grid nil)
+     (:lock nil)
+     (:boxes
+      (:box
+       (:reference
+        (:patch
+         (:om-version 0.011)
+         (:name "make-BPF")
+         (:doc "")
+         (:info (:created nil) (:modified nil))
+         (:window (:size nil) (:position nil))
+         (:grid nil)
+         (:lock nil)
+         (:boxes
+          (:box
+           (:reference fixnum)
+           (:type :value)
+           (:group-id nil)
+           (:name "aux")
+           (:x 157)
+           (:y 178)
+           (:w 27)
+           (:h 30)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 1.0))
+             (:t-or-nil t)))
+           (:border nil)
+           (:roundness nil)
+           (:text-font nil)
+           (:align nil)
+           (:lock nil)
+           (:inputs)
+           (:outputs (:output (:name "value") (:reactive nil)))
+           (:value 4)
+           (:id 0))
+          (:box
+           (:reference bpf)
+           (:type :object)
+           (:group-id nil)
+           (:name "BPF")
+           (:x 95)
+           (:y 209)
+           (:w 40)
+           (:h 60)
+           (:color nil)
+           (:border nil)
+           (:roundness nil)
+           (:text-font nil)
+           (:align :center)
+           (:name "BPF")
+           (:display :hidden)
+           (:showname nil)
+           (:show-markers t)
+           (:group-id nil)
+           (:lock nil)
+           (:lambda nil)
+           (:inputs
+            (:input
+             (:type :standard)
+             (:name "SELF")
+             (:value nil)
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "X-POINTS")
+             (:value (:list 0 100))
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "Y-POINTS")
+             (:value (:list 0 100))
+             (:reactive nil))
+            (:input
+             (:type :key)
+             (:name "decimals")
+             (:value 0)
+             (:reactive nil)))
+           (:outputs
+            (:output (:name "SELF") (:reactive nil))
+            (:output (:name "X-POINTS") (:reactive nil))
+            (:output (:name "Y-POINTS") (:reactive nil))
+            (:output (:name "decimals") (:reactive nil)))
+           (:window (:size nil) (:position nil))
+           (:edition-params)
+           (:value
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 100)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0 0 0 1.0))
+               (:decimals 0)
+               (:x-points (:list 0 100))
+               (:y-points (:list 0 100))))
+             (:add-slots
+              ((:decimals 0)
+               (:color (:color 0 0 0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))))))
+           (:id 1))
+          (:box
+           (:reference bpf)
+           (:type :slots)
+           (:group-id nil)
+           (:name "BPF SLOTS")
+           (:x 55)
+           (:y 95)
+           (:w 89)
+           (:h 30)
+           (:color (:color 0.9 0.88 0.81 1.0))
+           (:border nil)
+           (:roundness nil)
+           (:text-font nil)
+           (:align :left)
+           (:group-id nil)
+           (:lock nil)
+           (:lambda nil)
+           (:inputs
+            (:input
+             (:type :standard)
+             (:name "SELF")
+             (:value nil)
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "X-POINTS")
+             (:value (:list 0 2000))
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "Y-POINTS")
+             (:value (:list 0 100))
+             (:reactive nil)))
+           (:outputs
+            (:output (:name "SELF") (:reactive nil))
+            (:output (:name "X-POINTS") (:reactive nil))
+            (:output (:name "Y-POINTS") (:reactive nil)))
+           (:id 2))
+          (:box
+           (:reference
+            (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
+           (:type :io)
+           (:group-id nil)
+           (:name nil)
+           (:x 79)
+           (:y 289)
+           (:w 40)
+           (:h 42)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 0.0))
+             (:t-or-nil t)))
+           (:border 0)
+           (:roundness 0)
+           (:text-font nil)
+           (:align :center)
+           (:icon :top)
+           (:inputs
+            (:input
+             (:type :standard)
+             (:name "out-value")
+             (:value nil)
+             (:reactive nil)))
+           (:outputs)
+           (:id 3))
+          (:box
+           (:reference
+            (:in (:type omin) (:index 1) (:name "input") (:doc "")))
+           (:type :io)
+           (:group-id nil)
+           (:name "input")
+           (:x 47)
+           (:y 26)
+           (:w 50)
+           (:h 42)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 0.0))
+             (:t-or-nil t)))
+           (:border 0)
+           (:roundness 0)
+           (:text-font nil)
+           (:align :center)
+           (:icon :top)
+           (:inputs)
+           (:outputs (:output (:name "out") (:reactive nil)))
+           (:id 4))
+          (:box
+           (:reference
+            (:in (:type omin) (:index 2) (:name "input 2") (:doc "")))
+           (:type :io)
+           (:group-id nil)
+           (:name "input 2")
+           (:x 109)
+           (:y 116)
+           (:w 59)
+           (:h 42)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 0.0))
+             (:t-or-nil t)))
+           (:border 0)
+           (:roundness 0)
+           (:text-font nil)
+           (:align :center)
+           (:icon :top)
+           (:inputs)
+           (:outputs (:output (:name "out") (:reactive nil)))
+           (:id 5)))
+         (:connections
+          (:connection
+           (:from (:box 0 :out 0))
+           (:to (:box 1 :in 3))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 1 :out 0))
+           (:to (:box 3 :in 0))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 2 :out 1))
+           (:to (:box 1 :in 1))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 4 :out 0))
+           (:to (:box 2 :in 0))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 5 :out 0))
+           (:to (:box 1 :in 2))
+           (:attributes (:color nil :style nil :modif nil))))))
+       (:type :patch)
+       (:group-id nil)
+       (:name "make-BPF")
+       (:x 863/4)
+       (:y 1103/4)
+       (:w 87)
+       (:h 28)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:display :mini-view)
+       (:group-id nil)
+       (:lock nil)
+       (:lambda :lambda)
+       (:pre-delay 0)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "input")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "input 2")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name nil) (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference mat-trans)
+       (:type :function)
+       (:group-id nil)
+       (:name "mat-trans")
+       (:x 107)
+       (:y 275)
+       (:w 86)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "MATRIX")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 1))
+      (:box
+       (:reference car)
+       (:type :function)
+       (:group-id nil)
+       (:name "car")
+       (:x 214)
+       (:y 240)
+       (:w 53)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "X")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 2))
+      (:box
+       (:reference mapcar)
+       (:type :function)
+       (:group-id nil)
+       (:name "mapcar")
+       (:x 104)
+       (:y 348)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FUNCTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LIST")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 3))
+      (:box
+       (:reference mapcar)
+       (:type :function)
+       (:group-id nil)
+       (:name "mapcar")
+       (:x 122)
+       (:y 99)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FUNCTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LIST")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 4))
+      (:box
+       (:reference y-points)
+       (:type :function)
+       (:group-id nil)
+       (:name "y-points")
+       (:x 102)
+       (:y 53)
+       (:w 78)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda :lambda)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 5))
+      (:box
+       (:reference mat-trans)
+       (:type :function)
+       (:group-id nil)
+       (:name "mat-trans")
+       (:x 111)
+       (:y 150)
+       (:w 86)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "MATRIX")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 6))
+      (:box
+       (:reference mapcar)
+       (:type :function)
+       (:group-id nil)
+       (:name "mapcar")
+       (:x 273)
+       (:y 101)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FUNCTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LIST")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 7))
+      (:box
+       (:reference y-points)
+       (:type :function)
+       (:group-id nil)
+       (:name "y-points")
+       (:x 253)
+       (:y 64)
+       (:w 78)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda :lambda)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 8))
+      (:box
+       (:reference mat-trans)
+       (:type :function)
+       (:group-id nil)
+       (:name "mat-trans")
+       (:x 262)
+       (:y 152)
+       (:w 86)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "MATRIX")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 9))
+      (:box
+       (:reference single-float)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 2")
+       (:x 52)
+       (:y 130)
+       (:w 38)
+       (:h 30)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 1.0)
+       (:id 10))
+      (:box
+       (:library "OM-Chant")
+       (:reference autoamp)
+       (:type :function)
+       (:group-id nil)
+       (:name "autoamp")
+       (:x 14)
+       (:y 163)
+       (:w 82)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda :lambda)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FREQLIST")
+         (:value (:list 609 1000 2450 2700 3240))
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "BWLIST")
+         (:value (:list 77.64382 88.43109 122.9401 127.8438 137.6589))
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "scaler")
+         (:value 1.0)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 11))
+      (:box
+       (:reference mapcar)
+       (:type :function)
+       (:group-id nil)
+       (:name "mapcar")
+       (:x 118)
+       (:y 232)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FUNCTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LIST")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "more-lists")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 12))
+      (:box
+       (:reference
+        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
+       (:type :io)
+       (:group-id nil)
+       (:name nil)
+       (:x 106)
+       (:y 406)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 13))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "freq") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "freq")
+       (:x 218)
+       (:y 32)
+       (:w 44)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 14))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 2) (:name "bw") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "bw")
+       (:x 354)
+       (:y 42)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 15)))
+     (:connections
+      (:connection
+       (:from (:box 0 :out 0))
+       (:to (:box 3 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 1 :out 0))
+       (:to (:box 3 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 2 :out 0))
+       (:to (:box 0 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 3 :out 0))
+       (:to (:box 13 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 4 :out 0))
+       (:to (:box 6 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 5 :out 0))
+       (:to (:box 4 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 6 :out 0))
+       (:to (:box 12 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 7 :out 0))
+       (:to (:box 9 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 8 :out 0))
+       (:to (:box 7 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 9 :out 0))
+       (:to (:box 12 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 0))
+       (:to (:box 11 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 0))
+       (:to (:box 12 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 12 :out 0))
+       (:to (:box 1 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 0))
+       (:to (:box 2 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 0))
+       (:to (:box 4 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 15 :out 0))
+       (:to (:box 7 :in 1))
+       (:attributes (:color nil :style nil :modif nil))))))
+   (:type :patch)
+   (:group-id nil)
+   (:name "bpf-autoamp")
+   (:x 272)
+   (:y 304)
+   (:w 102)
+   (:h 28)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:display :mini-view)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:pre-delay 0)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "freq")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "bw")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name nil) (:reactive nil)))
+   (:id 15))
+  (:box
+   (:reference
+    (:patch
+     (:om-version 0.011)
+     (:name "bpf-autobw")
+     (:doc "")
+     (:info (:created nil) (:modified nil))
+     (:window (:size (479 509)) (:position (121 69)))
+     (:grid nil)
+     (:lock nil)
+     (:boxes
+      (:box
+       (:reference
+        (:patch
+         (:om-version 0.011)
+         (:name "make-BPF")
+         (:doc "")
+         (:info (:created nil) (:modified nil))
+         (:window (:size nil) (:position nil))
+         (:grid nil)
+         (:lock nil)
+         (:boxes
+          (:box
+           (:reference fixnum)
+           (:type :value)
+           (:group-id nil)
+           (:name "aux")
+           (:x 126)
+           (:y 240)
+           (:w 27)
+           (:h 30)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 1.0))
+             (:t-or-nil t)))
+           (:border nil)
+           (:roundness nil)
+           (:text-font nil)
+           (:align nil)
+           (:lock nil)
+           (:inputs)
+           (:outputs (:output (:name "value") (:reactive nil)))
+           (:value 4)
+           (:id 0))
+          (:box
+           (:reference bpf)
+           (:type :object)
+           (:group-id nil)
+           (:name "BPF")
+           (:x 98)
+           (:y 270)
+           (:w 40)
+           (:h 60)
+           (:color nil)
+           (:border nil)
+           (:roundness nil)
+           (:text-font nil)
+           (:align :center)
+           (:name "BPF")
+           (:display :hidden)
+           (:showname nil)
+           (:show-markers t)
+           (:group-id nil)
+           (:lock nil)
+           (:lambda nil)
+           (:inputs
+            (:input
+             (:type :standard)
+             (:name "SELF")
+             (:value nil)
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "X-POINTS")
+             (:value (:list 0 100))
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "Y-POINTS")
+             (:value (:list 0 100))
+             (:reactive nil))
+            (:input
+             (:type :key)
+             (:name "decimals")
+             (:value 0)
+             (:reactive nil)))
+           (:outputs
+            (:output (:name "SELF") (:reactive nil))
+            (:output (:name "X-POINTS") (:reactive nil))
+            (:output (:name "Y-POINTS") (:reactive nil))
+            (:output (:name "decimals") (:reactive nil)))
+           (:window (:size nil) (:position nil))
+           (:edition-params)
+           (:value
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 100)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0 0 0 1.0))
+               (:decimals 0)
+               (:x-points (:list 0 100))
+               (:y-points (:list 0 100))))
+             (:add-slots
+              ((:decimals 0)
+               (:color (:color 0 0 0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))))))
+           (:id 1))
+          (:box
+           (:reference bpf)
+           (:type :slots)
+           (:group-id nil)
+           (:name "BPF SLOTS")
+           (:x 60)
+           (:y 185)
+           (:w 40)
+           (:h 56)
+           (:color (:color 0.9 0.88 0.81 1.0))
+           (:border nil)
+           (:roundness nil)
+           (:text-font nil)
+           (:align :left)
+           (:group-id nil)
+           (:lock nil)
+           (:lambda nil)
+           (:inputs
+            (:input
+             (:type :standard)
+             (:name "SELF")
+             (:value nil)
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "X-POINTS")
+             (:value (:list 0 2000))
+             (:reactive nil))
+            (:input
+             (:type :standard)
+             (:name "Y-POINTS")
+             (:value (:list 0 100))
+             (:reactive nil)))
+           (:outputs
+            (:output (:name "SELF") (:reactive nil))
+            (:output (:name "X-POINTS") (:reactive nil))
+            (:output (:name "Y-POINTS") (:reactive nil)))
+           (:id 2))
+          (:box
+           (:reference car)
+           (:type :function)
+           (:group-id nil)
+           (:name "car")
+           (:x 57)
+           (:y 124)
+           (:w 53)
+           (:h 30)
+           (:color nil)
+           (:border nil)
+           (:roundness nil)
+           (:text-font nil)
+           (:align nil)
+           (:lock nil)
+           (:lambda nil)
+           (:inputs
+            (:input
+             (:type :standard)
+             (:name "X")
+             (:value nil)
+             (:reactive nil)))
+           (:outputs (:output (:name "out") (:reactive nil)))
+           (:id 3))
+          (:box
+           (:reference
+            (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
+           (:type :io)
+           (:group-id nil)
+           (:name nil)
+           (:x 82)
+           (:y 344)
+           (:w 40)
+           (:h 42)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 0.0))
+             (:t-or-nil t)))
+           (:border 0)
+           (:roundness 0)
+           (:text-font nil)
+           (:align :center)
+           (:icon :top)
+           (:inputs
+            (:input
+             (:type :standard)
+             (:name "out-value")
+             (:value nil)
+             (:reactive nil)))
+           (:outputs)
+           (:id 4))
+          (:box
+           (:reference
+            (:in (:type omin) (:index 1) (:name "input") (:doc "")))
+           (:type :io)
+           (:group-id nil)
+           (:name "input")
+           (:x 54)
+           (:y 50)
+           (:w 50)
+           (:h 42)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 0.0))
+             (:t-or-nil t)))
+           (:border 0)
+           (:roundness 0)
+           (:text-font nil)
+           (:align :center)
+           (:icon :top)
+           (:inputs)
+           (:outputs (:output (:name "out") (:reactive nil)))
+           (:id 5))
+          (:box
+           (:reference
+            (:in (:type omin) (:index 2) (:name "input 2") (:doc "")))
+           (:type :io)
+           (:group-id nil)
+           (:name "input 2")
+           (:x 142)
+           (:y 102)
+           (:w 59)
+           (:h 42)
+           (:color
+            (:color-or-nil
+             (:color (:color 1.0 1.0 1.0 0.0))
+             (:t-or-nil t)))
+           (:border 0)
+           (:roundness 0)
+           (:text-font nil)
+           (:align :center)
+           (:icon :top)
+           (:inputs)
+           (:outputs (:output (:name "out") (:reactive nil)))
+           (:id 6)))
+         (:connections
+          (:connection
+           (:from (:box 0 :out 0))
+           (:to (:box 1 :in 3))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 1 :out 0))
+           (:to (:box 4 :in 0))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 2 :out 1))
+           (:to (:box 1 :in 1))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 3 :out 0))
+           (:to (:box 2 :in 0))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 5 :out 0))
+           (:to (:box 3 :in 0))
+           (:attributes (:color nil :style nil :modif nil)))
+          (:connection
+           (:from (:box 6 :out 0))
+           (:to (:box 1 :in 2))
+           (:attributes (:color nil :style nil :modif nil))))))
+       (:type :patch)
+       (:group-id nil)
+       (:name "make-BPF")
+       (:x 391/5)
+       (:y 1191/5)
+       (:w 87)
+       (:h 28)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align :center)
+       (:display :mini-view)
+       (:group-id nil)
+       (:lock nil)
+       (:lambda :lambda)
+       (:pre-delay 0)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "input")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "input 2")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name nil) (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference fixnum)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux 4")
+       (:x 337)
+       (:y 237)
+       (:w 32)
+       (:h 30)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value 50)
+       (:id 1))
+      (:box
+       (:reference om/)
+       (:type :function)
+       (:group-id nil)
+       (:name "om/")
+       (:x 311)
+       (:y 271)
+       (:w 59)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "ARG1")
+         (:value 1)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "ARG2")
+         (:value 1)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 2))
+      (:box
+       (:reference mat-trans)
+       (:type :function)
+       (:group-id nil)
+       (:name "mat-trans")
+       (:x 229)
+       (:y 316)
+       (:w 86)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "MATRIX")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 3))
+      (:box
+       (:reference mapcar)
+       (:type :function)
+       (:group-id nil)
+       (:name "mapcar")
+       (:x 144)
+       (:y 356)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FUNCTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LIST")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 4))
+      (:box
+       (:reference mat-trans)
+       (:type :function)
+       (:group-id nil)
+       (:name "mat-trans")
+       (:x 334)
+       (:y 147)
+       (:w 86)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "MATRIX")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 5))
+      (:box
+       (:reference y-points)
+       (:type :function)
+       (:group-id nil)
+       (:name "y-points")
+       (:x 324)
+       (:y 42)
+       (:w 78)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda :lambda)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SELF")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 6))
+      (:box
+       (:reference mapcar)
+       (:type :function)
+       (:group-id nil)
+       (:name "mapcar")
+       (:x 344)
+       (:y 96)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FUNCTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LIST")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 7))
+      (:box
+       (:reference mapcar)
+       (:type :function)
+       (:group-id nil)
+       (:name "mapcar")
+       (:x 247)
+       (:y 224)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FUNCTION")
+         (:value nil)
+         (:reactive nil))
+        (:input
+         (:type :standard)
+         (:name "LIST")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 8))
+      (:box
+       (:reference cons)
+       (:type :value)
+       (:group-id nil)
+       (:name "aux")
+       (:x 135)
+       (:y 142)
+       (:w 164)
+       (:h 30)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 1.0))
+         (:t-or-nil t)))
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:inputs)
+       (:outputs (:output (:name "value") (:reactive nil)))
+       (:value (:list (:list 200 75) (:list 500 75) (:list 4000 150)))
+       (:id 9))
+      (:box
+       (:library "OM-Chant")
+       (:reference autobw)
+       (:type :function)
+       (:group-id nil)
+       (:name "autobw")
+       (:x 194)
+       (:y 178)
+       (:w 75)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda :lambda)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "FREQLIST")
+         (:value (:list 609 1000 2450 2700 3240))
+         (:reactive nil))
+        (:input
+         (:type :optional)
+         (:name "ref-curve")
+         (:value
+          (:list (:list 200 75) (:list 500 75) (:list 4000 150)))
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 10))
+      (:box
+       (:reference
+        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
+       (:type :io)
+       (:group-id nil)
+       (:name nil)
+       (:x 114)
+       (:y 437)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 11))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "input") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "input")
+       (:x 77)
+       (:y 34)
+       (:w 50)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 12)))
+     (:connections
+      (:connection
+       (:from (:box 0 :out 0))
+       (:to (:box 4 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 1 :out 0))
+       (:to (:box 2 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 2 :out 0))
+       (:to (:box 3 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 3 :out 0))
+       (:to (:box 4 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 4 :out 0))
+       (:to (:box 11 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 5 :out 0))
+       (:to (:box 8 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 6 :out 0))
+       (:to (:box 7 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 7 :out 0))
+       (:to (:box 5 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 8 :out 0))
+       (:to (:box 2 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 9 :out 0))
+       (:to (:box 10 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 0))
+       (:to (:box 8 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 12 :out 0))
+       (:to (:box 0 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 12 :out 0))
+       (:to (:box 7 :in 1))
+       (:attributes (:color nil :style nil :modif nil))))))
+   (:type :patch)
+   (:group-id nil)
+   (:name "bpf-autobw")
+   (:x 336)
+   (:y 262)
+   (:w 95)
+   (:h 28)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:display :mini-view)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:pre-delay 0)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "input")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name nil) (:reactive nil)))
+   (:id 16))
+  (:box
+   (:reference sound)
+   (:type :object)
+   (:group-id nil)
+   (:name "ch_21-example-resonant.aiff")
+   (:x 214)
+   (:y 737)
+   (:w 361)
+   (:h 92)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "ch_21-example-resonant.aiff")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "SELF") (:reactive nil)))
+   (:window (:size nil) (:position nil))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sound)
+     (:slots
+      ((:onset 0)
+       (:duration 0)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:default-frame-type marker-frame)
+       (:frames nil)
+       (:buffer nil)
+       (:n-samples 176401)
+       (:n-channels 1)
+       (:sample-rate 44100)
+       (:smpl-type :float)
+       (:sample-size 16)))
+     (:add-slots
+      ((:markers nil)
+       (:file-pathname
+        (:pathname
+         (:directory
+          (:absolute
+           "Users"
+           "bresson"
+           "_SHARED-FILES"
+           "WORKSPACES"
+           "my-workspace"
+           "out-files"))
+         (:device nil)
+         (:host nil)
+         (:name "ch_21-example-resonant")
+         (:type "aiff")))
+       (:sample-rate 44100)
+       (:n-channels 1)
+       (:n-samples 176401)
+       (:gain 1.0)
+       (:access-from-file nil)))))
+   (:id 17))
+  (:box
+   (:reference list)
+   (:type :function)
+   (:group-id nil)
+   (:name "list")
+   (:x 340)
+   (:y 600.0)
+   (:w 70)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input (:type :optional) (:name "x") (:value 1) (:reactive nil))
+    (:input (:type :optional) (:name "x") (:value 1) (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 18))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 4")
+   (:x 180)
+   (:y 376)
+   (:w 27)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 3)
+   (:id 19))
+  (:box
+   (:library "OM-Chant")
+   (:reference ch-f0)
+   (:type :object)
+   (:group-id nil)
+   (:name "CH-F0")
+   (:x 482)
+   (:y 506)
+   (:w 76)
+   (:h 61)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CH-F0")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ACTION-TIME")
+     (:value 0)
+     (:reactive nil))
+    (:input (:type :standard) (:name "DUR") (:value 0) (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "F0")
+     (:value 110.0)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "ACTION-TIME") (:reactive nil))
+    (:output (:name "DUR") (:reactive nil))
+    (:output (:name "F0") (:reactive nil)))
+   (:window (:size nil) (:position nil))
+   (:edition-params)
+   (:value
+    (:object
+     (:class ch-f0)
+     (:slots ((:onset 0) (:action-time 0) (:dur 0) (:f0 110.0)))))
+   (:id 20))
+  (:box
+   (:library "OM-Chant")
+   (:reference ch-fof)
+   (:type :object)
+   (:group-id nil)
+   (:name "CH-FOF")
+   (:x 164)
+   (:y 423)
+   (:w 235)
+   (:h 137)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CH-FOF")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ELTS")
+     (:value 1)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ACTION-TIME")
+     (:value 0)
+     (:reactive nil))
+    (:input (:type :standard) (:name "DUR") (:value 0) (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "KT")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "USER-FUN")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :key) (:name "freq") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "amp") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "bw") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "win") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "wdur") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "wout") (:value nil) (:reactive nil))
+    (:input (:type :key) (:name "phs") (:value nil) (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "ELTS") (:reactive nil))
+    (:output (:name "ACTION-TIME") (:reactive nil))
+    (:output (:name "DUR") (:reactive nil))
+    (:output (:name "KT") (:reactive nil))
+    (:output (:name "USER-FUN") (:reactive nil))
+    (:output (:name "freq") (:reactive nil))
+    (:output (:name "amp") (:reactive nil))
+    (:output (:name "bw") (:reactive nil))
+    (:output (:name "win") (:reactive nil))
+    (:output (:name "wdur") (:reactive nil))
+    (:output (:name "wout") (:reactive nil))
+    (:output (:name "phs") (:reactive nil)))
+   (:window (:size nil) (:position nil))
+   (:edition-params)
+   (:value
+    (:object
+     (:class ch-fof)
+     (:slots
+      ((:elts 3)
+       (:field-names
+        (:list "freq" "amp" "bw" "win" "wdur" "wout" "phs"))
+       (:onset 0)
+       (:dur 0)
+       (:kt nil)
+       (:user-fun nil)
+       (:action-time 0)))
+     (:add-slots
+      ((:data
+        (:list
+         (:array-field
+          (:name "freq")
+          (:doc "FOF frequency(-ies) [Hz]")
+          (:type number)
+          (:decimals 4)
+          (:default 609.0)
+          (:data
+           (:list
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 4.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0 0 0 1.0))
+               (:decimals 3)
+               (:x-points
+                (:list
+                 0.0
+                 0.039
+                 0.077
+                 0.116
+                 0.193
+                 0.232
+                 0.309
+                 0.348
+                 0.425
+                 0.464
+                 0.541
+                 0.618
+                 0.657
+                 0.696
+                 1.003
+                 1.3
+                 1.391
+                 1.43
+                 1.468
+                 1.507
+                 1.546
+                 1.623
+                 1.662
+                 1.739
+                 1.778
+                 1.855
+                 1.894
+                 1.932
+                 2.009
+                 2.048
+                 2.087
+                 2.125
+                 2.203
+                 2.28
+                 2.357
+                 2.396
+                 2.512
+                 2.55
+                 2.628
+                 2.705
+                 2.782
+                 2.821
+                 2.898
+                 2.937
+                 2.976
+                 3.014
+                 3.053
+                 3.091
+                 3.13
+                 4.0))
+               (:y-points
+                (:list
+                 245.0
+                 245.0
+                 250.0
+                 260.0
+                 270.0
+                 275.0
+                 285.0
+                 295.0
+                 305.0
+                 320.0
+                 330.0
+                 350.0
+                 365.0
+                 385.0
+                 398.695
+                 390.545
+                 385.0
+                 370.0
+                 355.0
+                 340.0
+                 330.0
+                 325.0
+                 320.0
+                 315.0
+                 315.0
+                 320.0
+                 330.0
+                 345.0
+                 360.0
+                 370.0
+                 380.0
+                 390.0
+                 390.0
+                 395.0
+                 400.0
+                 400.0
+                 400.0
+                 400.0
+                 395.0
+                 390.0
+                 385.0
+                 375.0
+                 370.0
+                 355.0
+                 345.0
+                 335.0
+                 325.0
+                 310.0
+                 305.0
+                 100.0))))
+             (:add-slots
+              ((:decimals 3)
+               (:color (:color 0 0 0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 4.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0 0 0 1.0))
+               (:decimals 3)
+               (:x-points
+                (:list
+                 0.0
+                 0.039
+                 0.077
+                 0.116
+                 0.193
+                 0.232
+                 0.309
+                 0.348
+                 0.425
+                 0.464
+                 0.541
+                 0.618
+                 0.657
+                 0.696
+                 1.003
+                 1.3
+                 1.391
+                 1.43
+                 1.468
+                 1.507
+                 1.546
+                 1.623
+                 1.662
+                 1.739
+                 1.778
+                 1.855
+                 1.894
+                 1.932
+                 2.009
+                 2.048
+                 2.087
+                 2.125
+                 2.203
+                 2.28
+                 2.357
+                 2.396
+                 2.512
+                 2.55
+                 2.628
+                 2.705
+                 2.782
+                 2.821
+                 2.898
+                 2.937
+                 2.976
+                 3.014
+                 3.053
+                 3.091
+                 3.13
+                 4.0))
+               (:y-points
+                (:list
+                 545.0
+                 545.0
+                 550.0
+                 560.0
+                 570.0
+                 575.0
+                 585.0
+                 595.0
+                 605.0
+                 620.0
+                 630.0
+                 650.0
+                 665.0
+                 685.0
+                 698.695
+                 690.545
+                 685.0
+                 670.0
+                 655.0
+                 640.0
+                 630.0
+                 625.0
+                 620.0
+                 615.0
+                 615.0
+                 620.0
+                 630.0
+                 645.0
+                 660.0
+                 670.0
+                 680.0
+                 690.0
+                 690.0
+                 695.0
+                 700.0
+                 700.0
+                 700.0
+                 700.0
+                 695.0
+                 690.0
+                 685.0
+                 675.0
+                 670.0
+                 655.0
+                 645.0
+                 635.0
+                 625.0
+                 610.0
+                 605.0
+                 400.0))))
+             (:add-slots
+              ((:decimals 3)
+               (:color (:color 0 0 0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 4.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0 0 0 1.0))
+               (:decimals 3)
+               (:x-points
+                (:list
+                 0.0
+                 0.039
+                 0.077
+                 0.116
+                 0.193
+                 0.232
+                 0.309
+                 0.348
+                 0.425
+                 0.464
+                 0.541
+                 0.618
+                 0.657
+                 0.696
+                 1.003
+                 1.3
+                 1.391
+                 1.43
+                 1.468
+                 1.507
+                 1.546
+                 1.623
+                 1.662
+                 1.739
+                 1.778
+                 1.855
+                 1.894
+                 1.932
+                 2.009
+                 2.048
+                 2.087
+                 2.125
+                 2.203
+                 2.28
+                 2.357
+                 2.396
+                 2.512
+                 2.55
+                 2.628
+                 2.705
+                 2.782
+                 2.821
+                 2.898
+                 2.937
+                 2.976
+                 3.014
+                 3.053
+                 3.091
+                 3.13
+                 4.0))
+               (:y-points
+                (:list
+                 1145.0
+                 1145.0
+                 1150.0
+                 1160.0
+                 1170.0
+                 1175.0
+                 1185.0
+                 1195.0
+                 1205.0
+                 1220.0
+                 1230.0
+                 1250.0
+                 1265.0
+                 1285.0
+                 1298.695
+                 1290.545
+                 1285.0
+                 1270.0
+                 1255.0
+                 1240.0
+                 1230.0
+                 1225.0
+                 1220.0
+                 1215.0
+                 1215.0
+                 1220.0
+                 1230.0
+                 1245.0
+                 1260.0
+                 1270.0
+                 1280.0
+                 1290.0
+                 1290.0
+                 1295.0
+                 1300.0
+                 1300.0
+                 1300.0
+                 1300.0
+                 1295.0
+                 1290.0
+                 1285.0
+                 1275.0
+                 1270.0
+                 1255.0
+                 1245.0
+                 1235.0
+                 1225.0
+                 1210.0
+                 1205.0
+                 1000.0))))
+             (:add-slots
+              ((:decimals 3)
+               (:color (:color 0 0 0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))))))))
+         (:array-field
+          (:name "amp")
+          (:doc "FOF amplitudes !! Only linear [0.0 -> 1.0]")
+          (:type number)
+          (:decimals 4)
+          (:default 1.0)
+          (:data
+           (:list
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 4.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:decimals 4)
+               (:x-points
+                (:list
+                 0.0
+                 0.039
+                 0.077
+                 0.116
+                 0.193
+                 0.232
+                 0.309
+                 0.348
+                 0.425
+                 0.464
+                 0.541
+                 0.618
+                 0.657
+                 0.696
+                 1.003
+                 1.3
+                 1.391
+                 1.43
+                 1.468
+                 1.507
+                 1.546
+                 1.623
+                 1.662
+                 1.739
+                 1.778
+                 1.855
+                 1.894
+                 1.932
+                 2.009
+                 2.048
+                 2.087
+                 2.125
+                 2.203
+                 2.28
+                 2.357
+                 2.396
+                 2.512
+                 2.55
+                 2.628
+                 2.705
+                 2.782
+                 2.821
+                 2.898
+                 2.937
+                 2.976
+                 3.014
+                 3.053
+                 3.091
+                 3.13
+                 4.0))
+               (:y-points
+                (:list
+                 0.9724
+                 0.9724
+                 0.983
+                 1.0041
+                 1.0252
+                 1.0357
+                 1.0567
+                 1.0777
+                 1.0986
+                 1.1301
+                 1.1511
+                 1.1932
+                 1.225
+                 1.2676
+                 1.297
+                 1.2795
+                 1.2676
+                 1.2356
+                 1.2037
+                 1.1721
+                 1.1511
+                 1.1406
+                 1.1301
+                 1.1196
+                 1.1196
+                 1.1301
+                 1.1511
+                 1.1826
+                 1.2143
+                 1.2356
+                 1.2569
+                 1.2784
+                 1.2784
+                 1.2891
+                 1.2998
+                 1.2998
+                 1.2998
+                 1.2998
+                 1.2891
+                 1.2784
+                 1.2676
+                 1.2462
+                 1.2356
+                 1.2037
+                 1.1826
+                 1.1615
+                 1.1406
+                 1.1091
+                 1.0986
+                 0.6269))))
+             (:add-slots
+              ((:decimals 4)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 4.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:decimals 4)
+               (:x-points
+                (:list
+                 0.0
+                 0.039
+                 0.077
+                 0.116
+                 0.193
+                 0.232
+                 0.309
+                 0.348
+                 0.425
+                 0.464
+                 0.541
+                 0.618
+                 0.657
+                 0.696
+                 1.003
+                 1.3
+                 1.391
+                 1.43
+                 1.468
+                 1.507
+                 1.546
+                 1.623
+                 1.662
+                 1.739
+                 1.778
+                 1.855
+                 1.894
+                 1.932
+                 2.009
+                 2.048
+                 2.087
+                 2.125
+                 2.203
+                 2.28
+                 2.357
+                 2.396
+                 2.512
+                 2.55
+                 2.628
+                 2.705
+                 2.782
+                 2.821
+                 2.898
+                 2.937
+                 2.976
+                 3.014
+                 3.053
+                 3.091
+                 3.13
+                 4.0))
+               (:y-points
+                (:list
+                 0.2764
+                 0.2764
+                 0.2855
+                 0.3042
+                 0.3233
+                 0.333
+                 0.3527
+                 0.3729
+                 0.3935
+                 0.4253
+                 0.447
+                 0.4917
+                 0.5264
+                 0.5743
+                 0.608
+                 0.5878
+                 0.5743
+                 0.5382
+                 0.5032
+                 0.4691
+                 0.447
+                 0.4361
+                 0.4253
+                 0.4146
+                 0.4146
+                 0.4253
+                 0.447
+                 0.4804
+                 0.5147
+                 0.5382
+                 0.5621
+                 0.5865
+                 0.5865
+                 0.5988
+                 0.6113
+                 0.6113
+                 0.6113
+                 0.6113
+                 0.5988
+                 0.5865
+                 0.5743
+                 0.5501
+                 0.5382
+                 0.5032
+                 0.4804
+                 0.458
+                 0.4361
+                 0.404
+                 0.3935
+                 0.064))))
+             (:add-slots
+              ((:decimals 4)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 4.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:decimals 4)
+               (:x-points
+                (:list
+                 0.0
+                 0.039
+                 0.077
+                 0.116
+                 0.193
+                 0.232
+                 0.309
+                 0.348
+                 0.425
+                 0.464
+                 0.541
+                 0.618
+                 0.657
+                 0.696
+                 1.003
+                 1.3
+                 1.391
+                 1.43
+                 1.468
+                 1.507
+                 1.546
+                 1.623
+                 1.662
+                 1.739
+                 1.778
+                 1.855
+                 1.894
+                 1.932
+                 2.009
+                 2.048
+                 2.087
+                 2.125
+                 2.203
+                 2.28
+                 2.357
+                 2.396
+                 2.512
+                 2.55
+                 2.628
+                 2.705
+                 2.782
+                 2.821
+                 2.898
+                 2.937
+                 2.976
+                 3.014
+                 3.053
+                 3.091
+                 3.13
+                 4.0))
+               (:y-points
+                (:list
+                 0.0199
+                 0.0199
+                 0.0209
+                 0.0231
+                 0.0254
+                 0.0266
+                 0.0291
+                 0.0317
+                 0.0345
+                 0.039
+                 0.0422
+                 0.049
+                 0.0547
+                 0.0628
+                 0.0688
+                 0.0652
+                 0.0628
+                 0.0566
+                 0.0509
+                 0.0455
+                 0.0422
+                 0.0406
+                 0.039
+                 0.0374
+                 0.0374
+                 0.039
+                 0.0422
+                 0.0473
+                 0.0527
+                 0.0566
+                 0.0607
+                 0.0649
+                 0.0649
+                 0.0671
+                 0.0693
+                 0.0693
+                 0.0693
+                 0.0693
+                 0.0671
+                 0.0649
+                 0.0628
+                 0.0586
+                 0.0566
+                 0.0509
+                 0.0473
+                 0.0438
+                 0.0406
+                 0.036
+                 0.0345
+                 0.0024))))
+             (:add-slots
+              ((:decimals 4)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))))))))
+         (:array-field
+          (:name "bw")
+          (:doc "FOF bandwidth(s) [Hz]")
+          (:type number)
+          (:decimals 4)
+          (:default 77.0)
+          (:data (:list 0.1 0.1 0.1)))
+         (:array-field
+          (:name "win")
+          (:doc "attack time(s) of the FOFs (aka. Tex) [sec]")
+          (:type number)
+          (:decimals 4)
+          (:default 0.003)
+          (:data (:list 0.001 0.001 0.001)))
+         (:array-field
+          (:name "wdur")
+          (:doc "duration(s) of the FOFs (aka. DebAtt) [sec]")
+          (:type number)
+          (:decimals 4)
+          (:default 0.02)
+          (:data (:list 1 1 1)))
+         (:array-field
+          (:name "wout")
+          (:doc "decay time(s) of the FOFs (aka. Atten) [sec]")
+          (:type number)
+          (:decimals 4)
+          (:default 0.007)
+          (:data (:list 0.007 0.007 0.007)))
+         (:array-field
+          (:name "phs")
+          (:doc "FOF phase")
+          (:type number)
+          (:decimals 4)
+          (:default 0)
+          (:data (:list 0 0 0)))))))))
+   (:id 21))
+  (:box
+   (:reference synthesize)
+   (:type :function)
+   (:group-id nil)
+   (:name "synthesize")
+   (:x 354)
+   (:y 687)
+   (:w 89)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OBJ")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "name")
+     (:value "my-synth")
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "normalize")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 22)))
+ (:connections
+  (:connection
+   (:from (:box 0 :out 0))
+   (:to (:box 1 :in 4))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 0 :out 0))
+   (:to (:box 1 :in 4))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 1 :out 0))
+   (:to (:box 6 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 1 :out 0))
+   (:to (:box 6 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 2 :out 0))
+   (:to (:box 1 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 2 :out 0))
+   (:to (:box 1 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 3 :out 0))
+   (:to (:box 4 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 3 :out 0))
+   (:to (:box 4 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 4 :out 0))
+   (:to (:box 6 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 4 :out 0))
+   (:to (:box 6 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 5 :out 0))
+   (:to (:box 4 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 5 :out 0))
+   (:to (:box 6 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 5 :out 0))
+   (:to (:box 4 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 5 :out 0))
+   (:to (:box 6 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 6 :out 0))
+   (:to (:box 15 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 6 :out 0))
+   (:to (:box 21 :in 6))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 6 :out 0))
+   (:to (:box 15 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 6 :out 0))
+   (:to (:box 16 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 6 :out 0))
+   (:to (:box 21 :in 6))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 7 :out 0))
+   (:to (:box 1 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 7 :out 0))
+   (:to (:box 1 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 8 :out 0))
+   (:to (:box 20 :in 3))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 8 :out 0))
+   (:to (:box 20 :in 3))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 10 :out 0))
+   (:to (:box 22 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 10 :out 0))
+   (:to (:box 22 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 11 :out 0))
+   (:to (:box 21 :in 9))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 11 :out 0))
+   (:to (:box 21 :in 9))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 12 :out 0))
+   (:to (:box 21 :in 8))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 12 :out 0))
+   (:to (:box 21 :in 8))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 13 :out 0))
+   (:to (:box 22 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 13 :out 0))
+   (:to (:box 22 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 14 :out 0))
+   (:to (:box 21 :in 10))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 14 :out 0))
+   (:to (:box 21 :in 10))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 15 :out 0))
+   (:to (:box 21 :in 7))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 15 :out 0))
+   (:to (:box 21 :in 7))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 16 :out 0))
+   (:to (:box 15 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 18 :out 0))
+   (:to (:box 22 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 18 :out 0))
+   (:to (:box 22 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 19 :out 0))
+   (:to (:box 21 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 19 :out 0))
+   (:to (:box 21 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 20 :out 0))
+   (:to (:box 18 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 20 :out 0))
+   (:to (:box 18 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 21 :out 0))
+   (:to (:box 18 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 21 :out 0))
+   (:to (:box 18 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 22 :out 0))
+   (:to (:box 17 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 22 :out 0))
+   (:to (:box 17 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))))

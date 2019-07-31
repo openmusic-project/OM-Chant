@@ -1,0 +1,4509 @@
+
+(:patch
+ (:om-version 0.011)
+ (:name "25-ch-channels-object")
+ (:doc "")
+ (:info
+  (:created "2019/07/31 17:15:02")
+  (:modified "2019/07/31 17:39:32"))
+ (:window (:size (1176 694)) (:position (561 184)))
+ (:grid nil)
+ (:lock nil)
+ (:boxes
+  (:box
+   (:reference single-float)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 8")
+   (:x 420)
+   (:y 108)
+   (:w 45)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 0.06)
+   (:id 0))
+  (:box
+   (:reference single-float)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 7")
+   (:x 396)
+   (:y 138)
+   (:w 38)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 6.0)
+   (:id 1))
+  (:comment
+   (:x 831)
+   (:y 426)
+   (:w 299)
+   (:h 41)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font (:font (:face "Verdana") (:size 12) (:style :italic)))
+   (:align nil)
+   (:text
+    "... an alternative to generate CH-CHANNEL instance from a list of formant distributions:")
+   (:id 2))
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 5")
+   (:x 878)
+   (:y 254)
+   (:w 201)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value
+    (:list
+     (:list (:list 0 (:list 1 0)) (:list 1 (:list 0 1)))
+     (:list (:list 0 (:list 0 1)) (:list 1 (:list 1 0)))))
+   (:id 3))
+  (:box
+   (:library "OM-Chant")
+   (:reference ch-channels)
+   (:type :object)
+   (:group-id nil)
+   (:name "CH-CHANNELS")
+   (:x 893)
+   (:y 330)
+   (:w 143)
+   (:h 85)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CH-CHANNELS")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ELTS")
+     (:value 1)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ACTION-TIME")
+     (:value 0)
+     (:reactive nil))
+    (:input (:type :standard) (:name "DUR") (:value 0) (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "KT")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "USER-FUN")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :key) (:name "chan1") (:value nil) (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "ELTS") (:reactive nil))
+    (:output (:name "ACTION-TIME") (:reactive nil))
+    (:output (:name "DUR") (:reactive nil))
+    (:output (:name "KT") (:reactive nil))
+    (:output (:name "USER-FUN") (:reactive nil))
+    (:output (:name "chan1") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class ch-channels)
+     (:slots
+      ((:elts 2)
+       (:field-names (:list "CHAN1" "CHAN2"))
+       (:onset 0)
+       (:dur (:list 1 (:list 0 1)))
+       (:kt nil)
+       (:user-fun nil)
+       (:action-time 0)))
+     (:add-slots
+      ((:data
+        (:list
+         (:array-field
+          (:name "CHAN1")
+          (:doc nil)
+          (:type nil)
+          (:decimals 4)
+          (:default nil)
+          (:data
+           (:list
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 1.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:decimals 3)
+               (:x-points (:list 0.0 1.0))
+               (:y-points (:list 1.0 0.0))))
+             (:add-slots
+              ((:decimals 3)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 1.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:decimals 3)
+               (:x-points (:list 0.0 1.0))
+               (:y-points (:list 0.0 1.0))))
+             (:add-slots
+              ((:decimals 3)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))))))))
+         (:array-field
+          (:name "CHAN2")
+          (:doc nil)
+          (:type nil)
+          (:decimals 4)
+          (:default nil)
+          (:data
+           (:list
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 1.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:decimals 3)
+               (:x-points (:list 0.0 1.0))
+               (:y-points (:list 0.0 1.0))))
+             (:add-slots
+              ((:decimals 3)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 1.0)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:decimals 3)
+               (:x-points (:list 0.0 1.0))
+               (:y-points (:list 1.0 0.0))))
+             (:add-slots
+              ((:decimals 3)
+               (:color (:color 0.0 0.0 0.0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil
+                 (:number 50)
+                 (:t-or-nil nil)))))))))))))))
+   (:id 4))
+  (:box
+   (:library "OM-Chant")
+   (:reference gen-chant-channels)
+   (:type :function)
+   (:group-id nil)
+   (:name "gen-chant-channels")
+   (:x 892)
+   (:y 287)
+   (:w 134)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "LIST")
+     (:value
+      (:list
+       (:list (:list 0 (:list 1 1)))
+       (:list (:list 0 (:list 1 1)))))
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 5))
+  (:box
+   (:library "OM-Chant")
+   (:reference ch-channels)
+   (:type :object)
+   (:group-id nil)
+   (:name "CH-CHANNELS")
+   (:x 545)
+   (:y 258)
+   (:w 197)
+   (:h 99)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CH-CHANNELS")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ELTS")
+     (:value 5)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ACTION-TIME")
+     (:value 0)
+     (:reactive nil))
+    (:input (:type :standard) (:name "DUR") (:value 0) (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "KT")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "USER-FUN")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "channel1")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "channel2")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "channel3")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "ELTS") (:reactive nil))
+    (:output (:name "ACTION-TIME") (:reactive nil))
+    (:output (:name "DUR") (:reactive nil))
+    (:output (:name "KT") (:reactive nil))
+    (:output (:name "USER-FUN") (:reactive nil))
+    (:output (:name "channel1") (:reactive nil))
+    (:output (:name "channel2") (:reactive nil))
+    (:output (:name "channel3") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class ch-channels)
+     (:slots
+      ((:elts 5)
+       (:field-names (:list "CHANNEL1" "CHANNEL2" "CHANNEL3"))
+       (:onset 0)
+       (:dur 0)
+       (:kt nil)
+       (:user-fun nil)
+       (:action-time 0)))
+     (:add-slots
+      ((:data
+        (:list
+         (:array-field
+          (:name "CHANNEL1")
+          (:doc nil)
+          (:type nil)
+          (:decimals 4)
+          (:default nil)
+          (:data (:list 1 1 1 1 1)))
+         (:array-field
+          (:name "CHANNEL2")
+          (:doc nil)
+          (:type nil)
+          (:decimals 4)
+          (:default nil)
+          (:data
+           (:list
+            0
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 5)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0 0 0 1.0))
+               (:decimals 0)
+               (:x-points (:list 0 5))
+               (:y-points (:list 0 98))))
+             (:add-slots
+              ((:decimals 0)
+               (:color (:color 0 0 0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            (:object
+             (:class bpf)
+             (:slots
+              ((:onset 0)
+               (:duration 5)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil)))
+               (:action nil)
+               (:color (:color 0 0 0 1.0))
+               (:decimals 0)
+               (:x-points (:list 0 5))
+               (:y-points (:list 98 2))))
+             (:add-slots
+              ((:decimals 0)
+               (:color (:color 0 0 0 1.0))
+               (:name nil)
+               (:action nil)
+               (:interpol
+                (:number-or-nil (:number 50) (:t-or-nil nil))))))
+            0
+            0)))
+         (:array-field
+          (:name "CHANNEL3")
+          (:doc nil)
+          (:type nil)
+          (:decimals 4)
+          (:default nil)
+          (:data (:list 0.5 1 1 1 1)))))))))
+   (:id 6))
+  (:box
+   (:library "OM-Chant")
+   (:reference vowel-formants)
+   (:type :function)
+   (:group-id nil)
+   (:name "vowel-formants")
+   (:x 125)
+   (:y 187)
+   (:w 115)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "VOWEL")
+     (:value (:list a e))
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "out0") (:reactive nil))
+    (:output (:name "out1") (:reactive nil))
+    (:output (:name "out2") (:reactive nil))
+    (:output (:name "out3") (:reactive nil)))
+   (:id 7))
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 4")
+   (:x 640)
+   (:y 215)
+   (:w 75)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list 1 1 1 1 1))
+   (:id 8))
+  (:box
+   (:reference bpf)
+   (:type :object)
+   (:group-id nil)
+   (:name "BPF 2")
+   (:x 543)
+   (:y 91)
+   (:w 82)
+   (:h 72)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "BPF 2")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "X-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "Y-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "decimals")
+     (:value 0)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "X-POINTS") (:reactive nil))
+    (:output (:name "Y-POINTS") (:reactive nil))
+    (:output (:name "decimals") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class bpf)
+     (:slots
+      ((:onset 0)
+       (:duration 5)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:action nil)
+       (:color (:color 0 0 0 1.0))
+       (:decimals 0)
+       (:x-points (:list 0 5))
+       (:y-points (:list 0 98))))
+     (:add-slots
+      ((:decimals 0)
+       (:color (:color 0 0 0 1.0))
+       (:name "BPF")
+       (:action nil)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
+   (:id 9))
+  (:box
+   (:reference list)
+   (:type :function)
+   (:group-id nil)
+   (:name "list")
+   (:x 599)
+   (:y 185)
+   (:w 60)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input (:type :optional) (:name "x") (:value 0) (:reactive nil))
+    (:input (:type :optional) (:name "x") (:value 0) (:reactive nil))
+    (:input (:type :optional) (:name "x") (:value 0) (:reactive nil))
+    (:input (:type :optional) (:name "x") (:value 0) (:reactive nil))
+    (:input (:type :optional) (:name "x") (:value 0) (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 10))
+  (:box
+   (:reference bpf)
+   (:type :object)
+   (:group-id nil)
+   (:name "BPF")
+   (:x 636)
+   (:y 91)
+   (:w 83)
+   (:h 73)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "BPF")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "X-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "Y-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "decimals")
+     (:value 0)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "X-POINTS") (:reactive nil))
+    (:output (:name "Y-POINTS") (:reactive nil))
+    (:output (:name "decimals") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class bpf)
+     (:slots
+      ((:onset 0)
+       (:duration 5)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:action nil)
+       (:color (:color 0 0 0 1.0))
+       (:decimals 0)
+       (:x-points (:list 0 5))
+       (:y-points (:list 98 2))))
+     (:add-slots
+      ((:decimals 0)
+       (:color (:color 0 0 0 1.0))
+       (:name "BPF")
+       (:action nil)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
+   (:id 11))
+  (:comment
+   (:x 77)
+   (:y 32)
+   (:w 362)
+   (:h 41)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font (:font (:face "Verdana") (:size 12) (:style :italic)))
+   (:align nil)
+   (:text
+    "Use the CH-CHANNEL object to control the multi-channel distribution independently of the other Chant events")
+   (:id 12))
+  (:comment
+   (:x 77)
+   (:y 11)
+   (:w 268)
+   (:h 30)
+   (:fgcolor (:color 0 0 0 1.0))
+   (:bgcolor nil)
+   (:border 0)
+   (:roundness nil)
+   (:text-font (:font (:face "Verdana") (:size 12) (:style :bold)))
+   (:align nil)
+   (:text "CHANT CHANNELS: continuous control")
+   (:id 13))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 3")
+   (:x 358)
+   (:y 170)
+   (:w 36)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 140)
+   (:id 14))
+  (:box
+   (:reference vibrato)
+   (:type :function)
+   (:group-id nil)
+   (:name "vibrato")
+   (:x 397)
+   (:y 171)
+   (:w 73)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "FREQS")
+     (:value 6.0)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "AMPS")
+     (:value 0.06)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 15))
+  (:box
+   (:reference param-process)
+   (:type :function)
+   (:group-id nil)
+   (:name "param-process")
+   (:x 362)
+   (:y 207)
+   (:w 110)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "INITVAL")
+     (:value 140)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "PROCESS")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "DURATION")
+     (:value 5)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "KT")
+     (:value 0.01)
+     (:reactive nil))
+    (:input (:type :standard) (:name "OP") (:value a) (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 16))
+  (:box
+   (:reference simple-base-string)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 6")
+   (:x 243)
+   (:y 388)
+   (:w 201)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value "ch_25-ch-channels-object_3ch")
+   (:id 17))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 2")
+   (:x 64)
+   (:y 179)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 5)
+   (:id 18))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux")
+   (:x 311)
+   (:y 220)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 5)
+   (:id 19))
+  (:box
+   (:reference list)
+   (:type :function)
+   (:group-id nil)
+   (:name "list")
+   (:x 183)
+   (:y 385)
+   (:w 52)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input (:type :optional) (:name "x") (:value a) (:reactive nil))
+    (:input (:type :optional) (:name "x") (:value a) (:reactive nil))
+    (:input
+     (:type :optional)
+     (:name "x")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 20))
+  (:box
+   (:library "OM-Chant")
+   (:reference ch-f0)
+   (:type :object)
+   (:group-id nil)
+   (:name "CH-F0")
+   (:x 268)
+   (:y 256)
+   (:w 96)
+   (:h 62)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CH-F0")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ACTION-TIME")
+     (:value 0)
+     (:reactive nil))
+    (:input (:type :standard) (:name "DUR") (:value 0) (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "F0")
+     (:value 110.0)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "ACTION-TIME") (:reactive nil))
+    (:output (:name "DUR") (:reactive nil))
+    (:output (:name "F0") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class ch-f0)
+     (:slots
+      ((:onset 0)
+       (:action-time 0)
+       (:dur 5)
+       (:f0
+        (:object
+         (:class bpf)
+         (:slots
+          ((:onset 0)
+           (:duration 0)
+           (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+           (:action nil)
+           (:color (:color 0.0 0.0 0.0 1.0))
+           (:decimals 6)
+           (:x-points
+            (:list
+             0.0
+             0.01
+             0.02
+             0.03
+             0.04
+             0.05
+             0.06
+             0.07
+             0.08
+             0.09
+             0.1
+             0.11
+             0.12
+             0.13
+             0.14
+             0.15
+             0.16
+             0.17
+             0.18
+             0.19
+             0.2
+             0.21
+             0.22
+             0.23
+             0.24
+             0.25
+             0.26
+             0.27
+             0.28
+             0.29
+             0.3
+             0.31
+             0.32
+             0.33
+             0.34
+             0.35
+             0.36
+             0.37
+             0.38
+             0.39
+             0.4
+             0.41
+             0.42
+             0.43
+             0.44
+             0.45
+             0.46
+             0.47
+             0.48
+             0.49
+             0.5
+             0.51
+             0.52
+             0.53
+             0.54
+             0.55
+             0.56
+             0.57
+             0.58
+             0.59
+             0.6
+             0.61
+             0.62
+             0.63
+             0.64
+             0.65
+             0.66
+             0.67
+             0.68
+             0.69
+             0.7
+             0.71
+             0.72
+             0.73
+             0.74
+             0.75
+             0.76
+             0.77
+             0.78
+             0.79
+             0.8
+             0.81
+             0.82
+             0.83
+             0.84
+             0.85
+             0.86
+             0.87
+             0.88
+             0.89
+             0.9
+             0.91
+             0.92
+             0.93
+             0.94
+             0.95
+             0.96
+             0.97
+             0.98
+             0.99
+             1.0
+             1.01
+             1.02
+             1.03
+             1.04
+             1.05
+             1.06
+             1.07
+             1.08
+             1.09
+             1.1
+             1.11
+             1.12
+             1.13
+             1.14
+             1.15
+             1.16
+             1.17
+             1.18
+             1.19
+             1.2
+             1.21
+             1.22
+             1.23
+             1.24
+             1.25
+             1.26
+             1.27
+             1.28
+             1.29
+             1.3
+             1.31
+             1.32
+             1.33
+             1.34
+             1.35
+             1.36
+             1.37
+             1.38
+             1.39
+             1.4
+             1.41
+             1.42
+             1.43
+             1.44
+             1.45
+             1.46
+             1.47
+             1.48
+             1.49
+             1.5
+             1.51
+             1.52
+             1.53
+             1.54
+             1.55
+             1.56
+             1.57
+             1.58
+             1.59
+             1.6
+             1.61
+             1.62
+             1.63
+             1.64
+             1.65
+             1.66
+             1.67
+             1.68
+             1.69
+             1.7
+             1.71
+             1.72
+             1.73
+             1.74
+             1.75
+             1.76
+             1.77
+             1.78
+             1.79
+             1.8
+             1.81
+             1.82
+             1.83
+             1.84
+             1.85
+             1.86
+             1.87
+             1.88
+             1.89
+             1.9
+             1.91
+             1.92
+             1.93
+             1.94
+             1.95
+             1.96
+             1.97
+             1.98
+             1.99
+             2.0
+             2.01
+             2.02
+             2.03
+             2.04
+             2.05
+             2.06
+             2.07
+             2.08
+             2.09
+             2.1
+             2.11
+             2.12
+             2.13
+             2.14
+             2.15
+             2.16
+             2.17
+             2.18
+             2.19
+             2.2
+             2.21
+             2.22
+             2.23
+             2.24
+             2.25
+             2.26
+             2.27
+             2.28
+             2.29
+             2.3
+             2.31
+             2.32
+             2.33
+             2.34
+             2.35
+             2.36
+             2.37
+             2.38
+             2.39
+             2.4
+             2.41
+             2.42
+             2.43
+             2.44
+             2.45
+             2.46
+             2.47
+             2.48
+             2.49
+             2.5
+             2.51
+             2.52
+             2.53
+             2.54
+             2.55
+             2.56
+             2.57
+             2.58
+             2.59
+             2.6
+             2.61
+             2.62
+             2.63
+             2.64
+             2.65
+             2.66
+             2.67
+             2.68
+             2.69
+             2.7
+             2.71
+             2.72
+             2.73
+             2.74
+             2.75
+             2.76
+             2.77
+             2.78
+             2.79
+             2.8
+             2.81
+             2.82
+             2.83
+             2.84
+             2.85
+             2.86
+             2.87
+             2.88
+             2.89
+             2.9
+             2.91
+             2.92
+             2.93
+             2.94
+             2.95
+             2.96
+             2.97
+             2.98
+             2.99
+             3.0
+             3.01
+             3.02
+             3.03
+             3.04
+             3.05
+             3.06
+             3.07
+             3.08
+             3.09
+             3.1
+             3.11
+             3.12
+             3.13
+             3.14
+             3.15
+             3.16
+             3.17
+             3.18
+             3.19
+             3.2
+             3.21
+             3.22
+             3.23
+             3.24
+             3.25
+             3.26
+             3.27
+             3.28
+             3.29
+             3.3
+             3.31
+             3.32
+             3.33
+             3.34
+             3.35
+             3.36
+             3.37
+             3.38
+             3.39
+             3.4
+             3.41
+             3.42
+             3.43
+             3.44
+             3.45
+             3.46
+             3.47
+             3.48
+             3.49
+             3.5
+             3.51
+             3.52
+             3.53
+             3.54
+             3.55
+             3.56
+             3.57
+             3.58
+             3.59
+             3.6
+             3.61
+             3.62
+             3.63
+             3.64
+             3.65
+             3.66
+             3.67
+             3.68
+             3.69
+             3.7
+             3.71
+             3.72
+             3.73
+             3.74
+             3.75
+             3.76
+             3.77
+             3.78
+             3.79
+             3.8
+             3.81
+             3.82
+             3.83
+             3.84
+             3.85
+             3.86
+             3.87
+             3.88
+             3.89
+             3.9
+             3.91
+             3.92
+             3.93
+             3.94
+             3.95
+             3.96
+             3.97
+             3.98
+             3.99
+             4.0
+             4.01
+             4.02
+             4.03
+             4.04
+             4.05
+             4.06
+             4.07
+             4.08
+             4.09
+             4.1
+             4.11
+             4.12
+             4.13
+             4.14
+             4.15
+             4.16
+             4.17
+             4.18
+             4.19
+             4.2
+             4.21
+             4.22
+             4.23
+             4.24
+             4.25
+             4.26
+             4.27
+             4.28
+             4.29
+             4.3
+             4.31
+             4.32
+             4.33
+             4.34
+             4.35
+             4.36
+             4.37
+             4.38
+             4.39
+             4.4
+             4.41
+             4.42
+             4.43
+             4.44
+             4.45
+             4.46
+             4.47
+             4.48
+             4.49
+             4.5
+             4.51
+             4.52
+             4.53
+             4.54
+             4.55
+             4.56
+             4.57
+             4.58
+             4.59
+             4.6
+             4.61
+             4.62
+             4.63
+             4.64
+             4.65
+             4.66
+             4.67
+             4.68
+             4.69
+             4.7
+             4.71
+             4.72
+             4.73
+             4.74
+             4.75
+             4.76
+             4.77
+             4.78
+             4.79
+             4.8
+             4.81
+             4.82
+             4.83
+             4.84
+             4.85
+             4.86
+             4.87
+             4.88
+             4.89
+             4.9
+             4.91
+             4.92
+             4.93
+             4.94
+             4.95
+             4.96
+             4.97
+             4.98
+             4.99
+             5.0))
+           (:y-points
+            (:list
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09218
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91106
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91106
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09218
+             140.0
+             136.90782
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08895
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08895
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90782
+             140.0
+             143.09232
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91092
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91092
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09232
+             140.0
+             136.90769
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08908
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08908
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90769
+             140.0
+             143.09232
+             145.75022
+             147.6006
+             148.38349
+             147.98882
+             146.47234
+             144.0467
+             141.0528
+             137.91092
+             135.06262
+             132.9076
+             131.74883
+             131.74883
+             132.9076
+             135.06262
+             137.91092
+             141.0528
+             144.0467
+             146.47234
+             147.98882
+             148.38349
+             147.6006
+             145.75022
+             143.09232
+             140.0
+             136.90769
+             134.24979
+             132.3994
+             131.61652
+             132.01119
+             133.52767
+             135.9533
+             138.9472
+             142.08908
+             144.93738
+             147.0924
+             148.25118
+             148.25118
+             147.0924
+             144.93738
+             142.08908
+             138.9472
+             135.9533
+             133.52767
+             132.01119
+             131.61652
+             132.3994
+             134.24979
+             136.90769
+             140.0))))
+         (:add-slots
+          ((:decimals 6)
+           (:color (:color 0.0 0.0 0.0 1.0))
+           (:name nil)
+           (:action nil)
+           (:interpol
+            (:number-or-nil (:number 50) (:t-or-nil nil)))))))))))
+   (:id 21))
+  (:box
+   (:reference sound)
+   (:type :object)
+   (:group-id nil)
+   (:name "ch_25-ch-channels-object_3ch.aiff")
+   (:x 129)
+   (:y 498)
+   (:w 351)
+   (:h 150)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "ch_25-ch-channels-object_3ch.aiff")
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :key)
+     (:name "markers")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "markers") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sound)
+     (:slots
+      ((:onset 0)
+       (:duration 0)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:default-frame-type marker-frame)
+       (:frames nil)
+       (:buffer nil)
+       (:n-samples 220501)
+       (:n-channels 3)
+       (:sample-rate 44100)
+       (:smpl-type :float)
+       (:sample-size 16)))
+     (:add-slots
+      ((:markers nil)
+       (:file-pathname
+        (:pathname
+         (:directory
+          (:absolute
+           "Users"
+           "bresson"
+           "_SHARED-FILES"
+           "WORKSPACES"
+           "my-workspace"
+           "out-files"))
+         (:device nil)
+         (:host nil)
+         (:name "ch_25-ch-channels-object_3ch")
+         (:type "aiff")))
+       (:sample-rate 44100)
+       (:n-channels 3)
+       (:n-samples 220501)
+       (:gain 1.0)
+       (:access-from-file nil)))))
+   (:id 22))
+  (:box
+   (:reference synthesize)
+   (:type :function)
+   (:group-id nil)
+   (:name "synthesize")
+   (:x 244)
+   (:y 434)
+   (:w 89)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OBJ")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :key) (:name "name") (:value nil) (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 23))
+  (:box
+   (:library "OM-Chant")
+   (:reference ch-fof)
+   (:type :object)
+   (:group-id nil)
+   (:name "CH-FOF")
+   (:x 44)
+   (:y 239)
+   (:w 203)
+   (:h 102)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name "CH-FOF")
+   (:display :mini-view)
+   (:showname t)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ELTS")
+     (:value 5)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ACTION-TIME")
+     (:value 0)
+     (:reactive nil))
+    (:input (:type :standard) (:name "DUR") (:value 0) (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "KT")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "USER-FUN")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :key) (:name "freq") (:value 609.0) (:reactive nil))
+    (:input (:type :key) (:name "amp") (:value 1.0) (:reactive nil))
+    (:input (:type :key) (:name "bw") (:value 77.0) (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "ELTS") (:reactive nil))
+    (:output (:name "ACTION-TIME") (:reactive nil))
+    (:output (:name "DUR") (:reactive nil))
+    (:output (:name "KT") (:reactive nil))
+    (:output (:name "USER-FUN") (:reactive nil))
+    (:output (:name "freq") (:reactive nil))
+    (:output (:name "amp") (:reactive nil))
+    (:output (:name "bw") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class ch-fof)
+     (:slots
+      ((:elts 5)
+       (:field-names
+        (:list "freq" "amp" "bw" "win" "wdur" "wout" "phs"))
+       (:onset 0)
+       (:dur 5)
+       (:kt nil)
+       (:user-fun nil)
+       (:action-time 0)))
+     (:add-slots
+      ((:data
+        (:list
+         (:array-field
+          (:name "freq")
+          (:doc "FOF frequency(-ies) [Hz]")
+          (:type number)
+          (:decimals 4)
+          (:default 609.0)
+          (:data (:list 400 1600 2700 3300 4950)))
+         (:array-field
+          (:name "amp")
+          (:doc "FOF amplitudes !! Only linear [0.0 -> 1.0]")
+          (:type number)
+          (:decimals 4)
+          (:default 1.0)
+          (:data
+           (:list 1.0 0.063095726 0.031622775 0.017782795 0.001)))
+         (:array-field
+          (:name "bw")
+          (:doc "FOF bandwidth(s) [Hz]")
+          (:type number)
+          (:decimals 4)
+          (:default 77.0)
+          (:data (:list 60 80 120 150 200)))
+         (:array-field
+          (:name "win")
+          (:doc "attack time(s) of the FOFs (aka. Tex) [sec]")
+          (:type number)
+          (:decimals 4)
+          (:default 0.003)
+          (:data (:list 0.003 0.003 0.003 0.003 0.003)))
+         (:array-field
+          (:name "wdur")
+          (:doc "duration(s) of the FOFs (aka. DebAtt) [sec]")
+          (:type number)
+          (:decimals 4)
+          (:default 0.02)
+          (:data (:list 0.02 0.02 0.02 0.02 0.02)))
+         (:array-field
+          (:name "wout")
+          (:doc "decay time(s) of the FOFs (aka. Atten) [sec]")
+          (:type number)
+          (:decimals 4)
+          (:default 0.007)
+          (:data (:list 0.007 0.007 0.007 0.007 0.007)))
+         (:array-field
+          (:name "phs")
+          (:doc "FOF phase")
+          (:type number)
+          (:decimals 4)
+          (:default 0)
+          (:data (:list 0 0 0 0 0)))))))))
+   (:id 24))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 2")
+   (:x 87)
+   (:y 203)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 5)
+   (:id 25))
+  (:box
+   (:reference fixnum)
+   (:type :value)
+   (:group-id nil)
+   (:name "value box")
+   (:x 563)
+   (:y 223)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value 5)
+   (:id 26))
+  (:box
+   (:reference cons)
+   (:type :value)
+   (:group-id nil)
+   (:name "aux 4")
+   (:x 734)
+   (:y 203)
+   (:w 76)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value (:list 0.5 1 1 1 1))
+   (:id 27))
+  (:box
+   (:reference synthesize)
+   (:type :function)
+   (:group-id nil)
+   (:name "synthesize")
+   (:x 556)
+   (:y 497)
+   (:w 89)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "OBJ")
+     (:value nil)
+     (:reactive nil))
+    (:input (:type :key) (:name "run") (:value t) (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 28))
+  (:box
+   (:reference null)
+   (:type :value)
+   (:group-id nil)
+   (:name "value box")
+   (:x 597)
+   (:y 462)
+   (:w 32)
+   (:h 30)
+   (:color
+    (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:inputs)
+   (:outputs (:output (:name "value") (:reactive nil)))
+   (:value nil)
+   (:id 29))
+  (:box
+   (:reference sdiffile)
+   (:type :object)
+   (:group-id nil)
+   (:name nil)
+   (:x 556)
+   (:y 529)
+   (:w 80)
+   (:h 40)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name nil)
+   (:display :mini-view)
+   (:showname nil)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value :choose-file)
+     (:reactive nil)))
+   (:outputs (:output (:name "SELF") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class sdiffile)
+     (:slots nil)
+     (:add-slots
+      ((:file-pathname
+        (:pathname
+         (:directory (:absolute "Users" "bresson" "OM" "temp-files"))
+         (:device :unspecific)
+         (:host nil)
+         (:name "my-synth")
+         (:type "sdif")))))))
+   (:id 30))
+  (:box
+   (:reference textbuffer)
+   (:type :object)
+   (:group-id nil)
+   (:name nil)
+   (:x 556)
+   (:y 574)
+   (:w 82)
+   (:h 42)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name nil)
+   (:display :mini-view)
+   (:showname nil)
+   (:group-id nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "CONTENTS")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "CONTENTS") (:reactive nil)))
+   (:window (:size (500 500)) (:position (186 43)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class textbuffer)
+     (:slots
+      ((:contents
+        (:list
+         "SDIF"
+         ""
+         "1NVT"
+         "{"
+         "BufferSize	512;"
+         "NumberOfChannels	3;"
+         "EndTime	5.0;"
+         "Author	OM 0.1.10;"
+         "SamplingRate	44100.0;"
+         "}"
+         ""
+         "1TYP"
+         "{"
+         "  1MTD	1CHA	{Channel3}"
+         "}"
+         ""
+         "1IDS"
+         "{"
+         "  0 Chant:Patch0/1/FOB/1/5/0.0/5.0;"
+         "}"
+         ""
+         ""
+         "SDFC"
+         ""
+         "1FOB	3	0	0"
+         "  1CHA	0x0004	5	3"
+         "	1	1	1"
+         "	1	1	1"
+         "	1	1	1"
+         "	1	1	1"
+         "	1	1	1"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         "  1FOF	0x0004	5	7"
+         "	400	1	60	0.003	0.02	0.007	0"
+         "	1600	0.0630957	80	0.003	0.02	0.007	0"
+         "	2700	0.0316228	120	0.003	0.02	0.007	0"
+         "	3300	0.0177828	150	0.003	0.02	0.007	0"
+         "	4950	0.001	200	0.003	0.02	0.007	0"
+         ""
+         "1FOB	1	0	0.01"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	0.02"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	0.03"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	0.04"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	0.05"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	0.06"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	0.07"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	0.08"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	0.09"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	0.1"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	0.11"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	0.12"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	0.13"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	0.14"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	0.15"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	0.16"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	0.17"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	0.18"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	0.19"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	0.2"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	0.21"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	0.22"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	0.23"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	0.24"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	0.25"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	0.26"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	0.27"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	0.28"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	0.29"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	0.3"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	0.31"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	0.32"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	0.33"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	0.34"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	0.35"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	0.36"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	0.37"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	0.38"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	0.39"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	0.4"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	0.41"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	0.42"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	0.43"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	0.44"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	0.45"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	0.46"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	0.47"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	0.48"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	0.49"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	0.5"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	0.51"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	0.52"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	0.53"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	0.54"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	0.55"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	0.56"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	0.57"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	0.58"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	0.59"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	0.6"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	0.61"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	0.62"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	0.63"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	0.64"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	0.65"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	0.66"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	0.67"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	0.68"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	0.69"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	0.7"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	0.71"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	0.72"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	0.73"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	0.74"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	0.75"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	0.76"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	0.77"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	0.78"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	0.79"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	0.8"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	0.81"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	0.82"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	0.83"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	0.84"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	0.85"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	0.86"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	0.87"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	0.88"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	0.89"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	0.9"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	0.91"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	0.92"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	0.93"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	0.94"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	0.95"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	0.96"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	0.97"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	0.98"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	0.99"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	1"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	1.01"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	1.02"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	1.03"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	1.04"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	1.05"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	1.06"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	1.07"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	1.08"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	1.09"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	1.1"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	1.11"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	1.12"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	1.13"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	1.14"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	1.15"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	1.16"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	1.17"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	1.18"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	1.19"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	1.2"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	1.21"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	1.22"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	1.23"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	1.24"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	1.25"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	1.26"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	1.27"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	1.28"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	1.29"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	1.3"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	1.31"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	1.32"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	1.33"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	1.34"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	1.35"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	1.36"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	1.37"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	1.38"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	1.39"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	1.4"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	1.41"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	1.42"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	1.43"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	1.44"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	1.45"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	1.46"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	1.47"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	1.48"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	1.49"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	1.5"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	1.51"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	1.52"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	1.53"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	1.54"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	1.55"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	1.56"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	1.57"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	1.58"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	1.59"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	1.6"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	1.61"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	1.62"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	1.63"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	1.64"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	1.65"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	1.66"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	1.67"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	1.68"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	1.69"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	1.7"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	1.71"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	1.72"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	1.73"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	1.74"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	1.75"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	1.76"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	1.77"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	1.78"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	1.79"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	1.8"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	1.81"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	1.82"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	1.83"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	1.84"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	1.85"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	1.86"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	1.87"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	1.88"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	1.89"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	1.9"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	1.91"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	1.92"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	1.93"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	1.94"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	1.95"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	1.96"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	1.97"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	1.98"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	1.99"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	2"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	2.01"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	2.02"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	2.03"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	2.04"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	2.05"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	2.06"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	2.07"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	2.08"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	2.09"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	2.1"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	2.11"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	2.12"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	2.13"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	2.14"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	2.15"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	2.16"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	2.17"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	2.18"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	2.19"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	2.2"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	2.21"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	2.22"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	2.23"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	2.24"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	2.25"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	2.26"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	2.27"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	2.28"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	2.29"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	2.3"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	2.31"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	2.32"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	2.33"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	2.34"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	2.35"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	2.36"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	2.37"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	2.38"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	2.39"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	2.4"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	2.41"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	2.42"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	2.43"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	2.44"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	2.45"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	2.46"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	2.47"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	2.48"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	2.49"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	2.5"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	2.51"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	2.52"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	2.53"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	2.54"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	2.55"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	2.56"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	2.57"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	2.58"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	2.59"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	2.6"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	2.61"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	2.62"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	2.63"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	2.64"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	2.65"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	2.66"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	2.67"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	2.68"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	2.69"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	2.7"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	2.71"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	2.72"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	2.73"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	2.74"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	2.75"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	2.76"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	2.77"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	2.78"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	2.79"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	2.8"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	2.81"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	2.82"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	2.83"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	2.84"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	2.85"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	2.86"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	2.87"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	2.88"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	2.89"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	2.9"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	2.91"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	2.92"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	2.93"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	2.94"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	2.95"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	2.96"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	2.97"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	2.98"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	2.99"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	3"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	3.01"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	3.02"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	3.03"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	3.04"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	3.05"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	3.06"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	3.07"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	3.08"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	3.09"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	3.1"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	3.11"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	3.12"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	3.13"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	3.14"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	3.15"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	3.16"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	3.17"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	3.18"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	3.19"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	3.2"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	3.21"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	3.22"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	3.23"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	3.24"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	3.25"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	3.26"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	3.27"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	3.28"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	3.29"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	3.3"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	3.31"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	3.32"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	3.33"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	3.34"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	3.35"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	3.36"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	3.37"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	3.38"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	3.39"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	3.4"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	3.41"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	3.42"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	3.43"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	3.44"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	3.45"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	3.46"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	3.47"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	3.48"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	3.49"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	3.5"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	3.51"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	3.52"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	3.53"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	3.54"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	3.55"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	3.56"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	3.57"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	3.58"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	3.59"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	3.6"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	3.61"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	3.62"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	3.63"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	3.64"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	3.65"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	3.66"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	3.67"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	3.68"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	3.69"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	3.7"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	3.71"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	3.72"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	3.73"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	3.74"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	3.75"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	3.76"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	3.77"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	3.78"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	3.79"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	3.8"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	3.81"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	3.82"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	3.83"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	3.84"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	3.85"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	3.86"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	3.87"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	3.88"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	3.89"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	3.9"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	3.91"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	3.92"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	3.93"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	3.94"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	3.95"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	3.96"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	3.97"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	3.98"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	3.99"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	4"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	4.01"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	4.02"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	4.03"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	4.04"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	4.05"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	4.06"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	4.07"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	4.08"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	4.09"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	4.1"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	4.11"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	4.12"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	4.13"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	4.14"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	4.15"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	4.16"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	4.17"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	4.18"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	4.19"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	4.2"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	4.21"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	4.22"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	4.23"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	4.24"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	4.25"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	4.26"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	4.27"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	4.28"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	4.29"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	4.3"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	4.31"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	4.32"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	4.33"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	4.34"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	4.35"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	4.36"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	4.37"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	4.38"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	4.39"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	4.4"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	4.41"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	4.42"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	4.43"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	4.44"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	4.45"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	4.46"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	4.47"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	4.48"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	4.49"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	4.5"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	4.51"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	4.52"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	4.53"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	4.54"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	4.55"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	4.56"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	4.57"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	4.58"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	4.59"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	4.6"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	4.61"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	4.62"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	4.63"
+         "  1FQ0	0x0004	1	1"
+         "	131.749"
+         ""
+         "1FOB	1	0	4.64"
+         "  1FQ0	0x0004	1	1"
+         "	132.908"
+         ""
+         "1FOB	1	0	4.65"
+         "  1FQ0	0x0004	1	1"
+         "	135.063"
+         ""
+         "1FOB	1	0	4.66"
+         "  1FQ0	0x0004	1	1"
+         "	137.911"
+         ""
+         "1FOB	1	0	4.67"
+         "  1FQ0	0x0004	1	1"
+         "	141.053"
+         ""
+         "1FOB	1	0	4.68"
+         "  1FQ0	0x0004	1	1"
+         "	144.047"
+         ""
+         "1FOB	1	0	4.69"
+         "  1FQ0	0x0004	1	1"
+         "	146.472"
+         ""
+         "1FOB	1	0	4.7"
+         "  1FQ0	0x0004	1	1"
+         "	147.989"
+         ""
+         "1FOB	1	0	4.71"
+         "  1FQ0	0x0004	1	1"
+         "	148.383"
+         ""
+         "1FOB	1	0	4.72"
+         "  1FQ0	0x0004	1	1"
+         "	147.601"
+         ""
+         "1FOB	1	0	4.73"
+         "  1FQ0	0x0004	1	1"
+         "	145.75"
+         ""
+         "1FOB	1	0	4.74"
+         "  1FQ0	0x0004	1	1"
+         "	143.092"
+         ""
+         "1FOB	1	0	4.75"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         ""
+         "1FOB	1	0	4.76"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	1	0	4.77"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	4.78"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	4.79"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	4.8"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	4.81"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	4.82"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	4.83"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	4.84"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	4.85"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	4.86"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	4.87"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	4.88"
+         "  1FQ0	0x0004	1	1"
+         "	148.251"
+         ""
+         "1FOB	1	0	4.89"
+         "  1FQ0	0x0004	1	1"
+         "	147.092"
+         ""
+         "1FOB	1	0	4.9"
+         "  1FQ0	0x0004	1	1"
+         "	144.937"
+         ""
+         "1FOB	1	0	4.91"
+         "  1FQ0	0x0004	1	1"
+         "	142.089"
+         ""
+         "1FOB	1	0	4.92"
+         "  1FQ0	0x0004	1	1"
+         "	138.947"
+         ""
+         "1FOB	1	0	4.93"
+         "  1FQ0	0x0004	1	1"
+         "	135.953"
+         ""
+         "1FOB	1	0	4.94"
+         "  1FQ0	0x0004	1	1"
+         "	133.528"
+         ""
+         "1FOB	1	0	4.95"
+         "  1FQ0	0x0004	1	1"
+         "	132.011"
+         ""
+         "1FOB	1	0	4.96"
+         "  1FQ0	0x0004	1	1"
+         "	131.617"
+         ""
+         "1FOB	1	0	4.97"
+         "  1FQ0	0x0004	1	1"
+         "	132.399"
+         ""
+         "1FOB	1	0	4.98"
+         "  1FQ0	0x0004	1	1"
+         "	134.25"
+         ""
+         "1FOB	1	0	4.99"
+         "  1FQ0	0x0004	1	1"
+         "	136.908"
+         ""
+         "1FOB	2	0	5"
+         "  1FQ0	0x0004	1	1"
+         "	140"
+         "  1FOF	0x0004	5	7"
+         "	400	1	60	0.003	0.02	0.007	0"
+         "	1600	0.0630957	80	0.003	0.02	0.007	0"
+         "	2700	0.0316228	120	0.003	0.02	0.007	0"
+         "	3300	0.0177828	150	0.003	0.02	0.007	0"
+         "	4950	0.001	200	0.003	0.02	0.007	0"
+         ""
+         "ENDC"
+         "ENDF"))))
+     (:add-slots ((:input-mode :lines-cols)))))
+   (:id 31)))
+ (:connections
+  (:connection
+   (:from (:box 0 :out 0))
+   (:to (:box 15 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 1 :out 0))
+   (:to (:box 15 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 3 :out 0))
+   (:to (:box 5 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 5 :out 0))
+   (:to (:box 4 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 6 :out 0))
+   (:to (:box 20 :in 2))
+   (:attributes (:color nil :style nil :modif (0 0))))
+  (:connection
+   (:from (:box 7 :out 1))
+   (:to (:box 24 :in 6))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 7 :out 2))
+   (:to (:box 24 :in 7))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 7 :out 3))
+   (:to (:box 24 :in 8))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 8 :out 0))
+   (:to (:box 6 :in 6))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 9 :out 0))
+   (:to (:box 10 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 10 :out 0))
+   (:to (:box 6 :in 7))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 11 :out 0))
+   (:to (:box 10 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 14 :out 0))
+   (:to (:box 16 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 15 :out 0))
+   (:to (:box 16 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 16 :out 0))
+   (:to (:box 21 :in 3))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 17 :out 0))
+   (:to (:box 23 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 18 :out 0))
+   (:to (:box 24 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 19 :out 0))
+   (:to (:box 21 :in 2))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 20 :out 0))
+   (:to (:box 23 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 20 :out 0))
+   (:to (:box 28 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 21 :out 0))
+   (:to (:box 20 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 23 :out 0))
+   (:to (:box 22 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 24 :out 0))
+   (:to (:box 20 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 25 :out 0))
+   (:to (:box 24 :in 3))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 26 :out 0))
+   (:to (:box 6 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 27 :out 0))
+   (:to (:box 6 :in 8))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 28 :out 0))
+   (:to (:box 30 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 29 :out 0))
+   (:to (:box 28 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 30 :out 0))
+   (:to (:box 31 :in 0))
+   (:attributes (:color nil :style nil :modif nil)))))
