@@ -937,7 +937,7 @@ Add keyword controls and name them ':channelX' (x = 1, 2,... n) in order to add 
   (let ((rep ()))
     (loop for field in (data self) 
           for i from 0 do
-          (let ((ctlname (print (array-field-name field))))
+          (let ((ctlname (array-field-name field)))
             (when (and (> (length ctlname) 4)
                        (string-equal "chan" (subseq ctlname 0 4)))
               (push i rep))))
@@ -1126,22 +1126,26 @@ All non-specified transitions are linear.
 "
   (let* ((start (+ (get-absolute-time ev1) (event-dur ev1) delta))
          (dur (- (get-absolute-time ev2) start delta))
-         (args (loop for slot in (mapcar 'intern-k (mapcar #'array-field-name (data ev1))) append
+         (args (loop for slot in (mapcar #'array-field-name (data ev1)) collect
                      ;;; ex. for each slot in '(freq amp bw ...)
-                     (let ((slotrules (loop for rule in rules 
-                                            when (if (listp (car rule))
-                                                    (equal (intern-k (car (car rule))) slot)
-                                                   (equal (intern-k (car rule)) slot))
-                                            collect rule))
-                           ;;; slot rules = (freq 400) or (freq 'my-freq-fun) or ((freq 1) ...)
-                           (slotvals (loop for v1 in (get-array-field-data ev1 slot) 
-                                           for v2 in (get-array-field-data ev2 slot) collect
-                                           (list (if (bpf-p v1) (last-elem (y-points v1)) v1)
-                                                 (if (bpf-p v2) (car (y-points v2)) v2)
-                                                 nil ;;; HERE WILL BE STORED THE RESULT OF THE RULE
-                                                 ))))
-                       (print (format nil "RULE(S) for ~A:" (string slot)))
-                       (loop for r in slotrules do (print r))
+                     (let* ((slot-k (intern-k slot))
+                            (slotrules (loop for rule in rules 
+                                             when (if (listp (car rule))
+                                                      (equal (intern-k (car (car rule))) slot-k)
+                                                    (equal (intern-k (car rule)) slot-k))
+                                             collect rule))
+                            ;;; slot rules = (freq 400) or (freq 'my-freq-fun) or ((freq 1) ...)
+                            (slotvals (loop for v1 in (get-field ev1 slot) 
+                                            for v2 in (get-field ev2 slot) collect
+                                            (list (if (bpf-p v1) (last-elem (y-points v1)) v1)
+                                                  (if (bpf-p v2) (car (y-points v2)) v2)
+                                                  nil ;;; HERE WILL BE STORED THE RESULT OF THE RULE
+                                                  ))))
+
+                       (when slotrules 
+                         (om-print-dbg  (format nil "RULE(S) for ~A:" slot) nil "OM-CHANT")
+                         (loop for r in slotrules do (om-print-dbg (format nil "~A" r) nil "OM-CHANT")))
+
                        ;;; at this point slotvals = ((f1a f1b) (f2a f2b) ...)
                        (loop for slotrule in slotrules do
                              (if (listp (car slotrule)) ;;; Ex. ((:freq 2) ...) 
@@ -1160,7 +1164,7 @@ All non-specified transitions are linear.
                                                                      (list (car element) (cadr element)))
                                                             (cadr slotrule)))))))
                        ;;; this is what is actually collected :
-                       (list slot
+                       (list slot-k
                              (if (listp slotvals) 
                                  (loop for item in slotvals collect 
                                        (if (third item)
@@ -1171,6 +1175,7 @@ All non-specified transitions are linear.
                                          (om-make-bpf 'bpf (list 0 dur) (list (car item) (cadr item)) 5))
                                        )
                                slotvals))))))
+    
      (om-init-instance (make-instance (type-of ev1)
                                       :elts (elts ev1) 
                                       :action-time start
@@ -1335,8 +1340,8 @@ All non-specified transitions are linear.
                        ;(events-and-silence (handle-inter-events sorted-events))
              (sdifframes (pack-frames (loop for item in events append (evt-to-sdif (apply-user-fun item))))))
                 
-        (om-print "=========================" "OM-Chant ::")
-        (om-print (format nil "CHANT synthesis patch: ~D" *chant-patch*) "OM-Chant ::")
+        (om-print "=========================" "OM-Chant")
+        (om-print (format nil "CHANT synthesis patch: ~D" *chant-patch*) "OM-Chant")
                        
         (sdif::SdifFWriteGeneralHeader thefile)
         
