@@ -1064,9 +1064,9 @@ Each speakerN is a value between 0.0 aand 1.0.
                    (loop for i from 1 to (length (cadr (caar list))) append
                          (list (intern (format nil "chan~D" i) :keyword)
                                (loop for formant in list collect
-                                     (simple-bpf-from-list (mapcar 'car formant) 
-                                                           (mapcar #'(lambda (state) (nth (1- i) (cadr state))) formant)  
-                                                           'bpf 3)))))))
+                                     (om-make-bpf 'bpf (mapcar 'car formant) 
+                                                  (mapcar #'(lambda (state) (nth (1- i) (cadr state))) formant)  
+                                                  3)))))))
     (set-data channels)
     channels))
                   
@@ -1133,7 +1133,7 @@ All non-specified transitions are linear.
                                                   (bpf-scale (third item) :x1 0 :x2 dur))
                                                  (t (third item)))
                                                                   
-                                         (simple-bpf-from-list (list 0 dur) (list (car item) (cadr item)) 'bpf 5))
+                                         (om-make-bpf 'bpf (list 0 dur) (list (car item) (cadr item)) 5))
                                        )
                                slotvals))))))
     (setf inter-evt (cons-array inter-evt (list nil (numcols ev1) start dur nil nil) args))

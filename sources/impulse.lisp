@@ -73,7 +73,7 @@ All the other bpf's, if given, will be scaled according to durtrain.
                   (setf (nth butlast yvals) 0.0)
                   (setf (nth last yvals) 0.0))
  ; write the last two y-vals at 0.0
-         (values (simple-bpf-from-list xvals yvals 'bpf decimals) xvals yvals))))))
+         (values (om-make-bpf 'bpf xvals yvals decimals) xvals yvals))))))
 
 ;(pulse-train '(10.0 2.0 0.5 1.0 0.1 0.1 0.1))
 
@@ -88,7 +88,7 @@ All the other bpf's, if given, will be scaled according to durtrain.
 "If val is a bpf, scale x-vals according to dur, otherwise make a bpf of two constant points"
   (if (bpf-p val)
       (scale-x-bpf val 0.0 dur)
-    (simple-bpf-from-list (list 0.0 dur) (list val val) 'bpf 8)))
+    (om-make-bpf 'bpf (list 0.0 dur) (list val val) 8)))
 
 (defun compute-points (freq dur)
 "Return the list of x (time) points of period 1/freq for the duration of dur"
@@ -102,7 +102,7 @@ All the other bpf's, if given, will be scaled according to durtrain.
 
 (defun scale-x-bpf (bpf min max)
 "Scale the x-points of a bpf between min and max; leave the y-points untouched"
-  (simple-bpf-from-list (om-scale (x-points bpf) min max) (y-points bpf)  'bpf (decimals bpf)))
+  (om-make-bpf 'bpf (om-scale (x-points bpf) min max) (y-points bpf) (decimals bpf)))
 
 
 (defmethod* single-pulse ((durtot number) (durpulse number) (a1 number) (a2 number) (a3 number) (atk number) (dec number) &optional (epsilon 0.0001))  
@@ -194,9 +194,9 @@ Return the list of times and values.
       ((<= dur first-x)
        (error "This bpf starts after or at the end of the given duration. Can do nothing with it, Sir!"))
       ((<= dur second-x)
-         (simple-bpf-from-list (list first-x dur) (list first-y (x-transfer bpf dur)) 'bpf (decimals bpf)))
+         (om-make-bpf 'bpf (list first-x dur) (list first-y (x-transfer bpf dur)) (decimals bpf)))
       ((>= dur last-x)
-         (simple-bpf-from-list (append x (list dur)) (append y (last y)) 'bpf (decimals bpf)))
+         (om-make-bpf 'bpf (append x (list dur)) (append y (last y)) (decimals bpf)))
       (t
        (let* ((result 
                (loop for xi in x
@@ -206,7 +206,7 @@ Return the list of times and values.
               (xy (mat-trans result))
               (xvals (first xy))
               (yvals (second xy)))
-         (simple-bpf-from-list (append xvals (list dur)) (append yvals (list (x-transfer bpf dur))) 'bpf (decimals bpf)))))))
+         (om-make-bpf 'bpf (append xvals (list dur)) (append yvals (list (x-transfer bpf dur))) (decimals bpf)))))))
 
 
 

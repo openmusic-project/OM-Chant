@@ -146,9 +146,10 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
 (defmethod! morphed-val ((val1 bpf) (morph bpf) (ctrl real) (x-list list))
   (let* ((x-list (or x-list (third (multiple-value-list (om-sample (list 0 1) ctrl)))))
          (morph-vals (third (multiple-value-list (om-sample morph ctrl)))))
-    (simple-bpf-from-list x-list 
-                          (om* morph-vals (third (multiple-value-list (om-sample val1 ctrl)))) 
-                          'bpf (decimals morph))
+    (om-make-bpf 'bpf 
+                 x-list 
+                 (om* morph-vals (third (multiple-value-list (om-sample val1 ctrl)))) 
+                 (decimals morph))
     ))
 
 
@@ -159,18 +160,20 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
          (x-list (third (multiple-value-list (om-sample (list 0 1) ctrl))))
          (val1 (if (not (typep val1 'bpf)) (list val1 val1) val1))
          (val2 (if (not (typep val2 'bpf)) (list val2 val2) val2)))
-    (simple-bpf-from-list x-list 
-                          (om+ (om* (om- 1 morph-vals) (third (multiple-value-list (om-sample val1 ctrl)))) 
-                               (om* morph-vals (third (multiple-value-list (om-sample val2 ctrl))))) 
-                          'bpf (decimals morph))
+    (om-make-bpf 'bpf 
+                 x-list 
+                 (om+ (om* (om- 1 morph-vals) (third (multiple-value-list (om-sample val1 ctrl)))) 
+                      (om* morph-vals (third (multiple-value-list (om-sample val2 ctrl))))) 
+                 (decimals morph))
     ))
 
 (defmethod! morphed-vals ( val1 val2 (morph float)(ctrl real))
   (let* ((x-list (third (multiple-value-list (om-sample (list 0 1) ctrl)))))
-    (simple-bpf-from-list x-list 
-                          (om+ (om* (om- 1 morph) (third (multiple-value-list (om-sample val1 ctrl))))
-                               (om* morph (third (multiple-value-list (om-sample val2 ctrl))))) 
-                          'bpf 3)
+    (om-make-bpf 'bpf 
+                 x-list 
+                 (om+ (om* (om- 1 morph) (third (multiple-value-list (om-sample val1 ctrl))))
+                      (om* morph (third (multiple-value-list (om-sample val2 ctrl))))) 
+                 3)
     ))
 
 
@@ -416,9 +419,12 @@ The BPFs will be rescaled, thus there are no constraints concerning the values, 
                    (setf fof1 (cons-array 
                                (make-instance 'ch-fof)
                                (list nil (length (first xslots)) beg1 (- (max end1 end2) beg1) nil nil)
-                               (list :freq (loop for x in (first xslots) for y in (first yslots) collect (simple-bpf-from-list x y 'bpf 5))
-                                     :amp (loop for x in (second xslots) for y in (second yslots) collect (simple-bpf-from-list x y 'bpf 5))
-                                     :bw (loop for x in (third xslots) for y in (third yslots) collect (simple-bpf-from-list x y 'bpf 5)))))
+                               (list :freq (loop for x in (first xslots) for y in (first yslots) 
+                                                 collect (om-make-bpf 'bpf x y 5))
+                                     :amp (loop for x in (second xslots) for y in (second yslots) 
+                                                collect (om-make-bpf 'bpf x y 5))
+                                     :bw (loop for x in (third xslots) for y in (third yslots) 
+                                               collect (om-make-bpf 'bpf x y 5)))))
                    (set-data fof1))
                          
                (progn

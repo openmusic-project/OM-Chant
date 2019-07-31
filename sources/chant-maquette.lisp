@@ -318,9 +318,9 @@ The BPFs will be rescaled, thus there are no constraints concerning the values, 
                         (setf res (om-make-array 'ch-fof
                                                (length (first xslots)) 
                                                0 (- end2 beg1) nil nil
-                                               :freq (loop for x in (first xslots) for y in (first yslots) collect  (simple-bpf-from-list x y 'bpf 5))
-                                               :amp (loop for x in (second xslots) for y in (second yslots) collect  (simple-bpf-from-list x y 'bpf 5))
-                                               :bw (loop for x in (third xslots) for y in (third yslots) collect  (simple-bpf-from-list x y 'bpf 5))
+                                               :freq (loop for x in (first xslots) for y in (first yslots) collect  (om-make-bpf 'bpf x y 5))
+                                               :amp (loop for x in (second xslots) for y in (second yslots) collect  (om-make-bpf 'bpf x y 5))
+                                               :bw (loop for x in (third xslots) for y in (third yslots) collect  (om-make-bpf 'bpf x y 5))
                                                ))
                         (setf (id res) (concatenate 'string (id fof1) "-" (id fof2)))
                         res
@@ -458,11 +458,13 @@ The BPF will be rescaled, thus there are no constraints concerning the abscissa.
                   (dur1 (if (< onset1 onset2) (dur val1) (dur val2)))
                   (f1 (if (typep f1 'bpf) (car (last (y-points f1))) f1)) ;; si f1 ou f2 sont des bpf, on prend resp. le dernier et premier  point
                   (f2 (if (typep f2 'bpf) (first (y-points f2)) f2)) ;; si f1 ou f2 sont des bpf, on prend resp. le dernier et premier  point
-                  (sampled-freq (om-sample (bpf-scale (simple-bpf-from-list (list 0 1) (list 0 1) 'bpf 3) :y1 f1 :y2 f2) ctrl)) ;; valeurs samplées, de l'interpolation linéaire entre f1 et f2
-                  (freq (simple-bpf-from-list (x-points sampled-freq)
-                                              (om* 
-                                                 (y-points sampled-freq) 
-                                                 (third (multiple-value-list (om-sample profile ctrl)))) 'bpf 5))
+                  (sampled-freq (om-sample (bpf-scale (om-make-bpf 'bpf (list 0 1) (list 0 1) 3) :y1 f1 :y2 f2) ctrl)) ;; valeurs samplées, de l'interpolation linéaire entre f1 et f2
+                  (freq (om-make-bpf 'bpf 
+                                     (x-points sampled-freq)
+                                     (om* 
+                                      (y-points sampled-freq) 
+                                      (third (multiple-value-list (om-sample profile ctrl))))
+                                     5))
 
                   (id (string (gensym)))
                   (color (om-color-blend f01 f02)))
