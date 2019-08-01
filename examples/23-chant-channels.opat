@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/07/31 16:46:25")
-  (:modified "2019/07/31 17:14:51"))
+  (:modified "2019/08/01 15:32:04"))
  (:window (:size (806 739)) (:position (453 188)))
  (:grid nil)
  (:lock nil)
@@ -484,7 +484,7 @@
          (:class bpf)
          (:slots
           ((:onset 0)
-           (:duration 0)
+           (:duration 5.0)
            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
            (:action nil)
            (:color (:color 0.0 0.0 0.0 1.0))
@@ -1550,30 +1550,17 @@
        (:default-frame-type marker-frame)
        (:frames nil)
        (:buffer nil)
-       (:n-samples 88201)
-       (:n-channels 5)
-       (:sample-rate 44100)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
        (:smpl-type :float)
        (:sample-size 16)))
      (:add-slots
       ((:markers nil)
-       (:file-pathname
-        (:pathname
-         (:directory
-          (:absolute
-           "Users"
-           "bresson"
-           "_SHARED-FILES"
-           "WORKSPACES"
-           "my-workspace"
-           "out-files"))
-         (:device nil)
-         (:host nil)
-         (:name "ch_23-chant-channels_5ch")
-         (:type "aiff")))
-       (:sample-rate 44100)
-       (:n-channels 5)
-       (:n-samples 88201)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
        (:gain 1.0)
        (:access-from-file nil)))))
    (:id 23))

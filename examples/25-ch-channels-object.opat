@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/07/31 17:15:02")
-  (:modified "2019/07/31 17:39:32"))
+  (:modified "2019/08/01 10:58:13"))
  (:window (:size (1176 694)) (:position (561 184)))
  (:grid nil)
  (:lock nil)
@@ -1970,30 +1970,17 @@
        (:default-frame-type marker-frame)
        (:frames nil)
        (:buffer nil)
-       (:n-samples 220501)
-       (:n-channels 3)
-       (:sample-rate 44100)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
        (:smpl-type :float)
        (:sample-size 16)))
      (:add-slots
       ((:markers nil)
-       (:file-pathname
-        (:pathname
-         (:directory
-          (:absolute
-           "Users"
-           "bresson"
-           "_SHARED-FILES"
-           "WORKSPACES"
-           "my-workspace"
-           "out-files"))
-         (:device nil)
-         (:host nil)
-         (:name "ch_25-ch-channels-object_3ch")
-         (:type "aiff")))
-       (:sample-rate 44100)
-       (:n-channels 3)
-       (:n-samples 220501)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
        (:gain 1.0)
        (:access-from-file nil)))))
    (:id 22))
@@ -2283,7 +2270,7 @@
      (:value :choose-file)
      (:reactive nil)))
    (:outputs (:output (:name "SELF") (:reactive nil)))
-   (:window (:size (nil nil)) (:position (nil nil)))
+   (:window (:size (927 650)) (:position (82 69)))
    (:edition-params)
    (:value
     (:object
@@ -2294,7 +2281,7 @@
         (:pathname
          (:directory (:absolute "Users" "bresson" "OM" "temp-files"))
          (:device :unspecific)
-         (:host nil)
+         (:host :unspecific)
          (:name "my-synth")
          (:type "sdif")))))))
    (:id 30))

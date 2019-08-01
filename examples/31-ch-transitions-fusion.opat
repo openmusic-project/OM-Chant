@@ -5,8 +5,8 @@
  (:doc "")
  (:info
   (:created "2019/07/31 18:47:16")
-  (:modified "2019/08/01 0:30:19"))
- (:window (:size (864 826)) (:position (54 183)))
+  (:modified "2019/08/01 15:22:08"))
+ (:window (:size (864 826)) (:position (375 177)))
  (:grid nil)
  (:lock nil)
  (:boxes
@@ -28,7 +28,7 @@
    (:lock nil)
    (:inputs)
    (:outputs (:output (:name "value") (:reactive nil)))
-   (:value "ch_33-ch-transitions-fusion")
+   (:value "ch_31-ch-transitions-fusion")
    (:id 0))
   (:comment
    (:x 352)
@@ -61,7 +61,7 @@ Merging events")
        (:type :value)
        (:group-id nil)
        (:name "list")
-       (:x 367)
+       (:x 366)
        (:y 576)
        (:w 187)
        (:h 30)
@@ -76,7 +76,7 @@ Merging events")
        (:lock nil)
        (:inputs)
        (:outputs (:output (:name "value") (:reactive nil)))
-       (:value "ch_33-ch-transitions-fusion_2")
+       (:value "ch_31-ch-transitions-fusion_2")
        (:id 0))
       (:box
        (:reference bpf)
@@ -186,8 +186,8 @@ Merging events")
        (:type :slots)
        (:group-id nil)
        (:name "CH-F0 SLOTS")
-       (:x 483)
-       (:y 535)
+       (:x 431)
+       (:y 534)
        (:w 100)
        (:h 30)
        (:color (:color 0.9 0.88 0.81 1.0))
@@ -509,8 +509,8 @@ Merging events")
        (:type :function)
        (:group-id nil)
        (:name "synthesize")
-       (:x 102)
-       (:y 598)
+       (:x 72)
+       (:y 618)
        (:w 89)
        (:h 30)
        (:color nil)
@@ -565,7 +565,7 @@ Merging events")
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "SELF") (:reactive nil)))
-       (:window (:size (nil nil)) (:position (nil nil)))
+       (:window (:size (1010 596)) (:position (187 184)))
        (:edition-params)
        (:value
         (:object
@@ -586,8 +586,8 @@ Merging events")
        (:type :value)
        (:group-id nil)
        (:name "aux 4")
-       (:x 126)
-       (:y 561)
+       (:x 96)
+       (:y 581)
        (:w 32)
        (:h 30)
        (:color
@@ -1817,8 +1817,8 @@ Merging events")
        (:type :value)
        (:group-id nil)
        (:name "list 2")
-       (:x 359)
-       (:y 219)
+       (:x 372)
+       (:y 203)
        (:w 130)
        (:h 53)
        (:color
@@ -3952,8 +3952,8 @@ This process can be applied on FOFs and F0s")
        (:type :object)
        (:group-id nil)
        (:name "ch_33-ch-transitions-fusion_2.aiff")
-       (:x 469)
-       (:y 767)
+       (:x 442)
+       (:y 747)
        (:w 217)
        (:h 67)
        (:color nil)
@@ -3987,30 +3987,17 @@ This process can be applied on FOFs and F0s")
            (:default-frame-type marker-frame)
            (:frames nil)
            (:buffer nil)
-           (:n-samples 290179)
-           (:n-channels 1)
-           (:sample-rate 44100)
+           (:n-samples nil)
+           (:n-channels nil)
+           (:sample-rate nil)
            (:smpl-type :float)
            (:sample-size 16)))
          (:add-slots
           ((:markers nil)
-           (:file-pathname
-            (:pathname
-             (:directory
-              (:absolute
-               "Users"
-               "bresson"
-               "_SHARED-FILES"
-               "WORKSPACES"
-               "my-workspace"
-               "out-files"))
-             (:device nil)
-             (:host nil)
-             (:name "ch_33-ch-transitions-fusion_2")
-             (:type "aiff")))
-           (:sample-rate 44100)
-           (:n-channels 1)
-           (:n-samples 290179)
+           (:file-pathname nil)
+           (:sample-rate nil)
+           (:n-channels nil)
+           (:n-samples nil)
            (:gain 1.0)
            (:access-from-file nil)))))
        (:id 26))
@@ -4776,7 +4763,7 @@ At the end, we have a single, long event")
      (:name "bpf-crossfade")
      (:doc "")
      (:info (:created nil) (:modified nil))
-     (:window (:size (497 447)) (:position (184 115)))
+     (:window (:size (507 540)) (:position (184 115)))
      (:grid nil)
      (:lock nil)
      (:boxes
@@ -6726,8 +6713,36 @@ At the end, we have a single, long event")
            (:action nil)
            (:interpol
             (:number-or-nil (:number 50) (:t-or-nil nil)))))))
-       (:id 8)))
+       (:id 8))
+      (:box
+       (:reference length)
+       (:type :function)
+       (:group-id nil)
+       (:name "length")
+       (:x 256)
+       (:y 447)
+       (:w 69)
+       (:h 30)
+       (:color nil)
+       (:border nil)
+       (:roundness nil)
+       (:text-font nil)
+       (:align nil)
+       (:lock nil)
+       (:lambda nil)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "SEQUENCE")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 9)))
      (:connections
+      (:connection
+       (:from (:box 1 :out 2))
+       (:to (:box 9 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 2 :out 0))
        (:to (:box 5 :in 1))
@@ -6795,13 +6810,62 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
      (:name "crossfade-transition")
      (:doc "")
      (:info (:created nil) (:modified nil))
-     (:window (:size (535 468)) (:position (657 125)))
+     (:window (:size (527 484)) (:position (595 46)))
      (:grid nil)
      (:lock nil)
      (:boxes
+      (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "tr-data") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "tr-data")
+       (:x 124)
+       (:y 40)
+       (:w 59)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference
+        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
+       (:type :io)
+       (:group-id nil)
+       (:name nil)
+       (:x 148)
+       (:y 382)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 1))
       (:comment
-       (:x 280)
-       (:y 334)
+       (:x 278)
+       (:y 382)
        (:w 194)
        (:h 46)
        (:fgcolor (:color 0 0 0 1.0))
@@ -6811,7 +6875,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
        (:text-font (:font (:face "Verdana") (:size 12) (:style :bold)))
        (:align nil)
        (:text "2 events produce 1 single (crossfaded) event")
-       (:id 0))
+       (:id 2))
       (:box
        (:reference bpf-offset)
        (:type :function)
@@ -6840,7 +6904,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value 0)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 1))
+       (:id 3))
       (:box
        (:reference bpf-crossfade)
        (:type :function)
@@ -6869,7 +6933,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 2))
+       (:id 4))
       (:box
        (:library "OM-Chant")
        (:reference ch-f0)
@@ -6923,7 +6987,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
         (:object
          (:class ch-f0)
          (:slots ((:onset 0) (:action-time 0) (:dur 0) (:f0 110.0)))))
-       (:id 3))
+       (:id 5))
       (:box
        (:reference ch-f0)
        (:type :slots)
@@ -6967,7 +7031,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
         (:output (:name "ACTION-TIME") (:reactive nil))
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "F0") (:reactive nil)))
-       (:id 4))
+       (:id 6))
       (:box
        (:reference ch-f0)
        (:type :slots)
@@ -7011,7 +7075,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
         (:output (:name "ACTION-TIME") (:reactive nil))
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "F0") (:reactive nil)))
-       (:id 5))
+       (:id 7))
       (:box
        (:library "OM-Chant")
        (:reference transition-info)
@@ -7124,96 +7188,47 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
            (:end2 nil)
            (:dur2 nil)
            (:dur-inter nil)))))
-       (:id 6))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 1) (:name "tr-data") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "tr-data")
-       (:x 124)
-       (:y 40)
-       (:w 59)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 7))
-      (:box
-       (:reference
-        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
-       (:type :io)
-       (:group-id nil)
-       (:name nil)
-       (:x 148)
-       (:y 382)
-       (:w 40)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
        (:id 8)))
      (:connections
       (:connection
-       (:from (:box 1 :out 0))
-       (:to (:box 2 :in 1))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 2 :out 0))
-       (:to (:box 3 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 3 :out 0))
+       (:from (:box 0 :out 0))
        (:to (:box 8 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 4 :out 1))
-       (:to (:box 3 :in 1))
+       (:from (:box 3 :out 0))
+       (:to (:box 4 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 4 :out 3))
-       (:to (:box 2 :in 0))
+       (:from (:box 4 :out 0))
+       (:to (:box 5 :in 3))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 5 :out 3))
+       (:from (:box 5 :out 0))
        (:to (:box 1 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 6 :out 2))
-       (:to (:box 4 :in 0))
+       (:from (:box 6 :out 1))
+       (:to (:box 5 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 6 :out 3))
-       (:to (:box 5 :in 0))
+       (:to (:box 4 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 6 :out 7))
-       (:to (:box 1 :in 1))
+       (:from (:box 7 :out 3))
+       (:to (:box 3 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 7 :out 0))
+       (:from (:box 8 :out 2))
        (:to (:box 6 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 8 :out 3))
+       (:to (:box 7 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 8 :out 7))
+       (:to (:box 3 :in 1))
        (:attributes (:color nil :style nil :modif nil))))))
    (:type :patch)
    (:group-id nil)
@@ -7374,30 +7389,17 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
        (:default-frame-type marker-frame)
        (:frames nil)
        (:buffer nil)
-       (:n-samples 303409)
-       (:n-channels 1)
-       (:sample-rate 44100)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
        (:smpl-type :float)
        (:sample-size 16)))
      (:add-slots
       ((:markers nil)
-       (:file-pathname
-        (:pathname
-         (:directory
-          (:absolute
-           "Users"
-           "bresson"
-           "_SHARED-FILES"
-           "WORKSPACES"
-           "my-workspace"
-           "out-files"))
-         (:device nil)
-         (:host nil)
-         (:name "ch_33-ch-transitions-fusion")
-         (:type "aiff")))
-       (:sample-rate 44100)
-       (:n-channels 1)
-       (:n-samples 303409)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
        (:gain 1.0)
        (:access-from-file nil)))))
    (:id 12))
@@ -9396,20 +9398,13 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
      (:value nil)
      (:reactive nil)))
    (:outputs (:output (:name "SELF") (:reactive nil)))
-   (:window (:size (nil nil)) (:position (nil nil)))
+   (:window (:size (1035 596)) (:position (780 218)))
    (:edition-params)
    (:value
     (:object
      (:class sdiffile)
      (:slots nil)
-     (:add-slots
-      ((:file-pathname
-        (:pathname
-         (:directory (:absolute "Users" "bresson" "OM" "temp-files"))
-         (:device :unspecific)
-         (:host nil)
-         (:name "ch_33-ch-transitions-fusion")
-         (:type "sdif")))))))
+     (:add-slots ((:file-pathname nil)))))
    (:id 19))
   (:box
    (:reference synthesize)
@@ -9543,6 +9538,148 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
      (:boxes
       (:box
        (:reference
+        (:in (:type omin) (:index 1) (:name "freqs") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "freqs")
+       (:x 29)
+       (:y 42)
+       (:w 49)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "F0s") (:index 1) (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "F0s")
+       (:x 358)
+       (:y 471)
+       (:w 68)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 1))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 2) (:name "onsets") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "onsets")
+       (:x 294)
+       (:y 118)
+       (:w 57)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 2))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "FOFs") (:index 2) (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "FOFs")
+       (:x 493)
+       (:y 467)
+       (:w 68)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 3))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 3) (:name "durs") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "durs")
+       (:x 370)
+       (:y 109)
+       (:w 45)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 4))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 4) (:name "vowels") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "vowels")
+       (:x 526)
+       (:y 141)
+       (:w 59)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 5))
+      (:box
+       (:reference
         (:object
          (:class omcollect)
          (:slots ((:name "collect") (:protected-p nil) (:icon nil)))))
@@ -9582,7 +9719,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
         (:output (:name "collect") (:reactive nil))
         (:output (:name "data-out") (:reactive nil))
         (:output (:name "init") (:reactive nil)))
-       (:id 0))
+       (:id 6))
       (:box
        (:reference length)
        (:type :function)
@@ -9606,7 +9743,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 1))
+       (:id 7))
       (:comment
        (:x 4)
        (:y 320)
@@ -9621,7 +9758,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
        (:align nil)
        (:text
         "Generate a CH-FOF and a CH-F0 for each note in the CHORD-SEQ")
-       (:id 2))
+       (:id 8))
       (:box
        (:library "OM-Chant")
        (:reference ch-fof)
@@ -9714,7 +9851,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
            (:user-fun nil)
            (:action-time 0)))
          (:add-slots ((:data nil)))))
-       (:id 3))
+       (:id 9))
       (:box
        (:library "OM-Chant")
        (:reference vowel-formants)
@@ -9748,7 +9885,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
         (:output (:name "out1") (:reactive nil))
         (:output (:name "out2") (:reactive nil))
         (:output (:name "out3") (:reactive nil)))
-       (:id 4))
+       (:id 10))
       (:box
        (:reference bpf)
        (:type :object)
@@ -9817,7 +9954,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
            (:action nil)
            (:interpol
             (:number-or-nil (:number 50) (:t-or-nil nil)))))))
-       (:id 5))
+       (:id 11))
       (:box
        (:reference bpf)
        (:type :object)
@@ -9886,7 +10023,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
            (:action nil)
            (:interpol
             (:number-or-nil (:number 50) (:t-or-nil nil)))))))
-       (:id 6))
+       (:id 12))
       (:box
        (:library "OM-Chant")
        (:reference ch-f0)
@@ -9940,7 +10077,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
         (:object
          (:class ch-f0)
          (:slots ((:onset 0) (:action-time 0) (:dur 0) (:f0 110.0)))))
-       (:id 7))
+       (:id 13))
       (:box
        (:reference
         (:object
@@ -9982,7 +10119,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
         (:output (:name "collect") (:reactive nil))
         (:output (:name "data-out") (:reactive nil))
         (:output (:name "init") (:reactive nil)))
-       (:id 8))
+       (:id 14))
       (:box
        (:reference param-process)
        (:type :function)
@@ -10026,7 +10163,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value a)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 9))
+       (:id 15))
       (:box
        (:reference vibrato)
        (:type :function)
@@ -10055,7 +10192,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value 0.06)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 10))
+       (:id 16))
       (:box
        (:reference
         (:object
@@ -10093,7 +10230,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value nil)
          (:reactive nil)))
        (:outputs)
-       (:id 11))
+       (:id 17))
       (:box
        (:reference
         (:object
@@ -10126,7 +10263,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 12))
+       (:id 18))
       (:box
        (:reference
         (:object
@@ -10159,7 +10296,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 13))
+       (:id 19))
       (:box
        (:reference
         (:object
@@ -10192,7 +10329,7 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 14))
+       (:id 20))
       (:box
        (:reference
         (:object
@@ -10225,249 +10362,107 @@ At the end, we have a single, long event (check with the vizuation input of ch-t
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 15))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 1) (:name "freqs") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "freqs")
-       (:x 29)
-       (:y 42)
-       (:w 49)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 16))
-      (:box
-       (:reference
-        (:out (:type omout) (:name "F0s") (:index 1) (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "F0s")
-       (:x 358)
-       (:y 471)
-       (:w 68)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
-       (:id 17))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 2) (:name "onsets") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "onsets")
-       (:x 294)
-       (:y 118)
-       (:w 57)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 18))
-      (:box
-       (:reference
-        (:out (:type omout) (:name "FOFs") (:index 2) (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "FOFs")
-       (:x 493)
-       (:y 467)
-       (:w 68)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
-       (:id 19))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 3) (:name "durs") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "durs")
-       (:x 370)
-       (:y 109)
-       (:w 45)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 20))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 4) (:name "vowels") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "vowels")
-       (:x 526)
-       (:y 141)
-       (:w 59)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
        (:id 21)))
      (:connections
       (:connection
        (:from (:box 0 :out 0))
-       (:to (:box 11 :in 1))
+       (:to (:box 21 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 0 :out 1))
-       (:to (:box 19 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 1 :out 0))
-       (:to (:box 3 :in 1))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 3 :out 0))
-       (:to (:box 0 :in 0))
+       (:from (:box 2 :out 0))
+       (:to (:box 20 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 4 :out 0))
-       (:to (:box 1 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 4 :out 1))
-       (:to (:box 3 :in 6))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 4 :out 2))
-       (:to (:box 3 :in 7))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 4 :out 3))
-       (:to (:box 3 :in 8))
+       (:to (:box 19 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 5 :out 0))
-       (:to (:box 10 :in 1))
+       (:to (:box 18 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 6 :out 0))
-       (:to (:box 10 :in 0))
+       (:to (:box 17 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 6 :out 1))
+       (:to (:box 3 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 7 :out 0))
-       (:to (:box 8 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 8 :out 0))
-       (:to (:box 11 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 8 :out 1))
-       (:to (:box 17 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 9 :out 0))
-       (:to (:box 7 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 10 :out 0))
        (:to (:box 9 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
+       (:from (:box 9 :out 0))
+       (:to (:box 6 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 0))
+       (:to (:box 7 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 1))
+       (:to (:box 9 :in 6))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 2))
+       (:to (:box 9 :in 7))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 3))
+       (:to (:box 9 :in 8))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 0))
+       (:to (:box 16 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
        (:from (:box 12 :out 0))
-       (:to (:box 4 :in 0))
+       (:to (:box 16 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 13 :out 0))
-       (:to (:box 3 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 13 :out 0))
-       (:to (:box 9 :in 2))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 14 :out 0))
-       (:to (:box 3 :in 2))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 14 :out 0))
-       (:to (:box 7 :in 1))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 15 :out 0))
-       (:to (:box 9 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 16 :out 0))
-       (:to (:box 15 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 18 :out 0))
        (:to (:box 14 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
+       (:from (:box 14 :out 0))
+       (:to (:box 17 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 1))
+       (:to (:box 1 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 15 :out 0))
+       (:to (:box 13 :in 3))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 16 :out 0))
+       (:to (:box 15 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 18 :out 0))
+       (:to (:box 10 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 19 :out 0))
+       (:to (:box 9 :in 3))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 19 :out 0))
+       (:to (:box 15 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
        (:from (:box 20 :out 0))
-       (:to (:box 13 :in 0))
+       (:to (:box 9 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 20 :out 0))
+       (:to (:box 13 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 21 :out 0))
-       (:to (:box 12 :in 0))
+       (:to (:box 15 :in 0))
        (:attributes (:color nil :style nil :modif nil))))))
    (:type :patch)
    (:group-id nil)
@@ -11294,7 +11289,3733 @@ This process can be applied on FOFs and F0s")
      (:value nil)
      (:reactive nil)))
    (:outputs (:output (:name nil) (:reactive nil)))
-   (:id 29)))
+   (:id 29))
+  (:box
+   (:reference car)
+   (:type :function)
+   (:group-id nil)
+   (:name "car")
+   (:x 496)
+   (:y 412)
+   (:w 53)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "X")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 30))
+  (:box
+   (:library "OM-Chant")
+   (:reference ch-f0)
+   (:type :object)
+   (:group-id nil)
+   (:name nil)
+   (:x 396)
+   (:y 85)
+   (:w 132)
+   (:h 91)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name nil)
+   (:display :mini-view)
+   (:showname nil)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "ACTION-TIME")
+     (:value 0)
+     (:reactive nil))
+    (:input (:type :standard) (:name "DUR") (:value 0) (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "F0")
+     (:value 110.0)
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "ACTION-TIME") (:reactive nil))
+    (:output (:name "DUR") (:reactive nil))
+    (:output (:name "F0") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class ch-f0)
+     (:slots
+      ((:onset 0)
+       (:action-time 0.0)
+       (:dur nil)
+       (:f0
+        (:object
+         (:class bpf)
+         (:slots
+          ((:onset 0)
+           (:duration 6.88)
+           (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+           (:action nil)
+           (:color (:color 0.0 0.0 0.0 1.0))
+           (:decimals 6)
+           (:x-points
+            (:list
+             0.0
+             0.01
+             0.02
+             0.03
+             0.04
+             0.05
+             0.06
+             0.07
+             0.08
+             0.09
+             0.1
+             0.11
+             0.12
+             0.13
+             0.14
+             0.15
+             0.16
+             0.17
+             0.18
+             0.19
+             0.2
+             0.21
+             0.22
+             0.23
+             0.24
+             0.25
+             0.26
+             0.27
+             0.28
+             0.29
+             0.3
+             0.31
+             0.32
+             0.33
+             0.34
+             0.35
+             0.36
+             0.37
+             0.38
+             0.39
+             0.4
+             0.41
+             0.42
+             0.43
+             0.44
+             0.45
+             0.46
+             0.47
+             0.48
+             0.49
+             0.5
+             0.51
+             0.52
+             0.53
+             0.54
+             0.55
+             0.56
+             0.57
+             0.58
+             0.59
+             0.6
+             0.61
+             0.62
+             0.63
+             0.64
+             0.65
+             0.66
+             0.67
+             0.68
+             0.69
+             0.7
+             0.71
+             0.72
+             0.73
+             0.74
+             0.75
+             0.76
+             0.77
+             0.78
+             0.79
+             0.8
+             0.81
+             0.82
+             0.83
+             0.84
+             0.85
+             0.86
+             0.87
+             0.88
+             0.888
+             0.89
+             0.898
+             0.9
+             0.908
+             0.91
+             0.918
+             0.92
+             0.928
+             0.93
+             0.938
+             0.94
+             0.948
+             0.95
+             0.958
+             0.96
+             0.968
+             0.97
+             0.978
+             0.98
+             0.988
+             0.99
+             0.998
+             1.0
+             1.008
+             1.01
+             1.018
+             1.02
+             1.028
+             1.03
+             1.038
+             1.04
+             1.048
+             1.05
+             1.058
+             1.06
+             1.068
+             1.07
+             1.078
+             1.08
+             1.088
+             1.09
+             1.098
+             1.1
+             1.108
+             1.11
+             1.118
+             1.12
+             1.128
+             1.13
+             1.138
+             1.14
+             1.148
+             1.15
+             1.158
+             1.16
+             1.168
+             1.17
+             1.178
+             1.18
+             1.188
+             1.19
+             1.198
+             1.2
+             1.208
+             1.21
+             1.218
+             1.22
+             1.228
+             1.23
+             1.238
+             1.24
+             1.248
+             1.25
+             1.258
+             1.26
+             1.268
+             1.27
+             1.278
+             1.28
+             1.288
+             1.29
+             1.298
+             1.3
+             1.308
+             1.318
+             1.328
+             1.338
+             1.348
+             1.358
+             1.368
+             1.378
+             1.388
+             1.398
+             1.408
+             1.418
+             1.428
+             1.438
+             1.448
+             1.458
+             1.468
+             1.478
+             1.488
+             1.498
+             1.508
+             1.514
+             1.518
+             1.524
+             1.528
+             1.534
+             1.538
+             1.544
+             1.548
+             1.554
+             1.558
+             1.564
+             1.568
+             1.574
+             1.578
+             1.584
+             1.588
+             1.594
+             1.598
+             1.604
+             1.608
+             1.614
+             1.618
+             1.624
+             1.628
+             1.634
+             1.638
+             1.644
+             1.648
+             1.654
+             1.658
+             1.664
+             1.668
+             1.674
+             1.678
+             1.684
+             1.688
+             1.694
+             1.698
+             1.704
+             1.708
+             1.714
+             1.718
+             1.724
+             1.728
+             1.734
+             1.738
+             1.744
+             1.748
+             1.754
+             1.758
+             1.764
+             1.768
+             1.774
+             1.778
+             1.784
+             1.788
+             1.794
+             1.804
+             1.814
+             1.824
+             1.834
+             1.844
+             1.854
+             1.864
+             1.874
+             1.884
+             1.894
+             1.904
+             1.914
+             1.924
+             1.934
+             1.944
+             1.954
+             1.964
+             1.974
+             1.984
+             1.994
+             2.004
+             2.014
+             2.024
+             2.028
+             2.034
+             2.038
+             2.044
+             2.048
+             2.054
+             2.058
+             2.064
+             2.068
+             2.074
+             2.078
+             2.084
+             2.088
+             2.094
+             2.098
+             2.104
+             2.108
+             2.114
+             2.118
+             2.124
+             2.128
+             2.134
+             2.138
+             2.144
+             2.148
+             2.154
+             2.158
+             2.164
+             2.168
+             2.174
+             2.178
+             2.184
+             2.188
+             2.194
+             2.198
+             2.204
+             2.208
+             2.214
+             2.218
+             2.224
+             2.228
+             2.234
+             2.238
+             2.244
+             2.248
+             2.254
+             2.258
+             2.264
+             2.268
+             2.274
+             2.278
+             2.284
+             2.288
+             2.294
+             2.298
+             2.304
+             2.308
+             2.314
+             2.318
+             2.328
+             2.338
+             2.348
+             2.358
+             2.368
+             2.378
+             2.388
+             2.398
+             2.408
+             2.418
+             2.428
+             2.438
+             2.448
+             2.458
+             2.468
+             2.478
+             2.488
+             2.498
+             2.508
+             2.518
+             2.528
+             2.538
+             2.548
+             2.558
+             2.568
+             2.578
+             2.588
+             2.598
+             2.608
+             2.618
+             2.628
+             2.638
+             2.648
+             2.658
+             2.668
+             2.678
+             2.688
+             2.698
+             2.708
+             2.718
+             2.728
+             2.738
+             2.748
+             2.75
+             2.758
+             2.76
+             2.768
+             2.77
+             2.778
+             2.78
+             2.788
+             2.79
+             2.798
+             2.8
+             2.808
+             2.81
+             2.818
+             2.82
+             2.828
+             2.83
+             2.838
+             2.84
+             2.848
+             2.85
+             2.858
+             2.86
+             2.868
+             2.87
+             2.878
+             2.88
+             2.888
+             2.89
+             2.898
+             2.9
+             2.908
+             2.91
+             2.918
+             2.92
+             2.928
+             2.93
+             2.938
+             2.94
+             2.948
+             2.95
+             2.958
+             2.96
+             2.968
+             2.97
+             2.978
+             2.98
+             2.988
+             2.99
+             2.998
+             3.0
+             3.008
+             3.01
+             3.018
+             3.02
+             3.028
+             3.03
+             3.04
+             3.05
+             3.06
+             3.07
+             3.08
+             3.09
+             3.1
+             3.11
+             3.12
+             3.13
+             3.14
+             3.15
+             3.16
+             3.17
+             3.18
+             3.19
+             3.2
+             3.21
+             3.22
+             3.23
+             3.24
+             3.25
+             3.26
+             3.27
+             3.28
+             3.29
+             3.3
+             3.31
+             3.32
+             3.33
+             3.34
+             3.35
+             3.36
+             3.37
+             3.38
+             3.39
+             3.4
+             3.41
+             3.42
+             3.43
+             3.44
+             3.45
+             3.46
+             3.47
+             3.48
+             3.49
+             3.5
+             3.51
+             3.52
+             3.53
+             3.54
+             3.55
+             3.56
+             3.57
+             3.58
+             3.59
+             3.6
+             3.61
+             3.62
+             3.625
+             3.63
+             3.635
+             3.64
+             3.645
+             3.65
+             3.655
+             3.66
+             3.665
+             3.67
+             3.675
+             3.68
+             3.685
+             3.69
+             3.695
+             3.7
+             3.705
+             3.71
+             3.715
+             3.72
+             3.725
+             3.73
+             3.735
+             3.74
+             3.745
+             3.75
+             3.755
+             3.76
+             3.765
+             3.77
+             3.775
+             3.78
+             3.785
+             3.79
+             3.795
+             3.8
+             3.805
+             3.81
+             3.815
+             3.82
+             3.825
+             3.83
+             3.835
+             3.84
+             3.845
+             3.85
+             3.855
+             3.865
+             3.875
+             3.885
+             3.895
+             3.905
+             3.915
+             3.925
+             3.935
+             3.945
+             3.955
+             3.965
+             3.975
+             3.985
+             3.995
+             4.005
+             4.015
+             4.025
+             4.035
+             4.045
+             4.055
+             4.065
+             4.075
+             4.085
+             4.095
+             4.105
+             4.115
+             4.125
+             4.135
+             4.145
+             4.155
+             4.165
+             4.175
+             4.185
+             4.195
+             4.205
+             4.215
+             4.225
+             4.235
+             4.245
+             4.255
+             4.265
+             4.275
+             4.285
+             4.295
+             4.305
+             4.315
+             4.325
+             4.335
+             4.345
+             4.355
+             4.365
+             4.375
+             4.385
+             4.395
+             4.405
+             4.415
+             4.425
+             4.435
+             4.445
+             4.455
+             4.465
+             4.475
+             4.485
+             4.495
+             4.5
+             4.505
+             4.51
+             4.515
+             4.52
+             4.525
+             4.53
+             4.535
+             4.54
+             4.545
+             4.55
+             4.555
+             4.56
+             4.565
+             4.57
+             4.575
+             4.58
+             4.585
+             4.59
+             4.595
+             4.6
+             4.605
+             4.61
+             4.615
+             4.62
+             4.625
+             4.63
+             4.635
+             4.64
+             4.645
+             4.65
+             4.655
+             4.66
+             4.665
+             4.67
+             4.675
+             4.68
+             4.685
+             4.69
+             4.695
+             4.7
+             4.705
+             4.71
+             4.715
+             4.72
+             4.725
+             4.73
+             4.735
+             4.74
+             4.745
+             4.75
+             4.755
+             4.76
+             4.765
+             4.77
+             4.775
+             4.78
+             4.785
+             4.79
+             4.795
+             4.8
+             4.805
+             4.81
+             4.815
+             4.82
+             4.825
+             4.83
+             4.835
+             4.84
+             4.845
+             4.85
+             4.855
+             4.86
+             4.865
+             4.87
+             4.875
+             4.88
+             4.885
+             4.89
+             4.895
+             4.9
+             4.905
+             4.91
+             4.915
+             4.92
+             4.925
+             4.93
+             4.94
+             4.95
+             4.96
+             4.97
+             4.98
+             4.99
+             5.0
+             5.01
+             5.02
+             5.03
+             5.04
+             5.05
+             5.06
+             5.07
+             5.08
+             5.09
+             5.1
+             5.11
+             5.12
+             5.13
+             5.14
+             5.15
+             5.16
+             5.17
+             5.18
+             5.19
+             5.2
+             5.21
+             5.22
+             5.23
+             5.24
+             5.25
+             5.26
+             5.27
+             5.28
+             5.29
+             5.3
+             5.31
+             5.32
+             5.33
+             5.34
+             5.35
+             5.36
+             5.37
+             5.38
+             5.39
+             5.4
+             5.41
+             5.42
+             5.43
+             5.44
+             5.45
+             5.46
+             5.47
+             5.48
+             5.49
+             5.5
+             5.51
+             5.52
+             5.53
+             5.54
+             5.55
+             5.56
+             5.57
+             5.58
+             5.59
+             5.6
+             5.61
+             5.62
+             5.63
+             5.64
+             5.65
+             5.66
+             5.67
+             5.68
+             5.69
+             5.7
+             5.71
+             5.72
+             5.73
+             5.74
+             5.75
+             5.76
+             5.77
+             5.78
+             5.79
+             5.8
+             5.81
+             5.82
+             5.83
+             5.84
+             5.85
+             5.86
+             5.87
+             5.88
+             5.89
+             5.9
+             5.91
+             5.92
+             5.93
+             5.94
+             5.95
+             5.96
+             5.97
+             5.98
+             5.99
+             6.0
+             6.01
+             6.02
+             6.03
+             6.04
+             6.05
+             6.06
+             6.07
+             6.08
+             6.09
+             6.1
+             6.11
+             6.12
+             6.13
+             6.14
+             6.15
+             6.16
+             6.17
+             6.18
+             6.19
+             6.2
+             6.21
+             6.22
+             6.23
+             6.24
+             6.25
+             6.26
+             6.27
+             6.28
+             6.29
+             6.3
+             6.31
+             6.32
+             6.33
+             6.34
+             6.35
+             6.36
+             6.37
+             6.38
+             6.39
+             6.4
+             6.41
+             6.42
+             6.43
+             6.44
+             6.45
+             6.46
+             6.47
+             6.48
+             6.49
+             6.5
+             6.51
+             6.52
+             6.53
+             6.54
+             6.55
+             6.56
+             6.57
+             6.58
+             6.59
+             6.6
+             6.61
+             6.62
+             6.63
+             6.64
+             6.65
+             6.66
+             6.67
+             6.68
+             6.69
+             6.7
+             6.71
+             6.72
+             6.73
+             6.74
+             6.75
+             6.76
+             6.77
+             6.78
+             6.79
+             6.8
+             6.81
+             6.82
+             6.83
+             6.84
+             6.85
+             6.86
+             6.87
+             6.88))
+           (:y-points
+            (:list
+             311.12698
+             312.11545
+             313.14807
+             314.12158
+             314.91495
+             315.4221
+             315.56055
+             315.27213
+             314.5447
+             313.4122
+             311.9471
+             310.27106
+             308.5303
+             306.89566
+             305.53107
+             304.59332
+             304.2072
+             304.4424
+             305.32507
+             306.8154
+             308.79727
+             311.12698
+             313.99185
+             316.6669
+             318.79565
+             320.08496
+             320.3208
+             319.41727
+             317.43634
+             314.56464
+             311.12698
+             307.5257
+             304.20194
+             301.5931
+             300.04712
+             299.8116
+             300.9712
+             303.4325
+             306.9526
+             311.12698
+             315.70615
+             319.8376
+             322.9078
+             324.4759
+             324.2503
+             322.20404
+             318.5542
+             313.76907
+             308.4407
+             303.32205
+             299.0951
+             296.392
+             295.63287
+             296.99
+             300.31937
+             305.25195
+             311.12698
+             317.94534
+             323.7522
+             327.51434
+             328.5106
+             326.464
+             321.68134
+             314.91028
+             307.29388
+             300.15042
+             295.16803
+             293.02905
+             294.057
+             297.96817
+             304.01617
+             311.12698
+             318.50162
+             324.2279
+             327.2278
+             326.99445
+             323.66632
+             317.98236
+             311.12698
+             304.47943
+             299.3362
+             296.65958
+             296.8929
+             299.8978
+             304.99872
+             311.12698
+             316.67905
+             321.0849
+             323.64517
+             323.91797
+             324.31757
+             324.20483
+             324.19272
+             322.84387
+             322.53104
+             320.55322
+             320.08548
+             318.15067
+             317.68945
+             316.3946
+             316.08313
+             315.85373
+             315.7938
+             316.80808
+             317.0428
+             319.254
+             319.77332
+             322.89603
+             323.63284
+             327.24622
+             328.10306
+             331.74326
+             332.61255
+             335.84424
+             336.62677
+             339.14
+             339.76517
+             341.42972
+             341.87088
+             342.74136
+             343.01364
+             343.3062
+             343.4598
+             343.51657
+             343.63156
+             343.8338
+             343.99432
+             344.69632
+             344.97577
+             346.42578
+             346.8758
+             349.1945
+             349.92035
+             353.43347
+             354.301
+             358.34937
+             359.26248
+             363.35773
+             364.20383
+             367.83957
+             368.5045
+             371.20663
+             371.60504
+             373.00565
+             373.08463
+             373.13303
+             372.9252
+             371.76276
+             371.33545
+             369.28577
+             368.7617
+             366.3711
+             365.89157
+             363.76147
+             363.4826
+             362.25958
+             362.3156
+             362.53638
+             363.02042
+             365.04523
+             365.9841
+             369.89432
+             371.25504
+             376.8875
+             378.55475
+             385.41806
+             387.31293
+             395.07434
+             396.87485
+             404.21472
+             405.67984
+             411.62058
+             412.53592
+             414.20862
+             412.92288
+             408.31577
+             401.00348
+             391.99542
+             383.32095
+             376.2909
+             371.8731
+             370.65363
+             372.6779
+             377.52255
+             384.32172
+             391.99542
+             400.31277
+             406.64114
+             409.8312
+             409.40668
+             405.61963
+             399.36768
+             391.99542
+             385.00143
+             381.84082
+             381.83905
+             383.531
+             384.72656
+             388.3029
+             390.7092
+             395.834
+             399.21918
+             405.28455
+             409.244
+             415.51608
+             419.56952
+             425.1847
+             428.77463
+             433.47452
+             436.4397
+             439.98084
+             442.1775
+             444.52353
+             445.9455
+             447.24796
+             448.01798
+             448.59308
+             448.93698
+             449.1659
+             449.35385
+             449.6386
+             449.94308
+             450.63245
+             451.29065
+             452.65048
+             453.8331
+             456.0202
+             457.81238
+             460.87796
+             463.29675
+             467.20657
+             470.1957
+             474.84918
+             478.29456
+             483.53342
+             487.30527
+             493.18158
+             497.642
+             504.11234
+             508.33887
+             514.50306
+             518.2071
+             523.7483
+             526.7422
+             531.3456
+             533.4406
+             536.69556
+             537.73096
+             539.2802
+             539.16596
+             535.6365
+             527.704
+             518.67786
+             509.8339
+             502.37338
+             497.45325
+             495.8903
+             498.0796
+             503.8542
+             512.626
+             523.2511
+             535.7626
+             546.57764
+             552.48566
+             553.1873
+             548.7397
+             540.17304
+             529.1011
+             517.5372
+             507.48294
+             500.59433
+             497.87027
+             499.6148
+             505.2701
+             508.6293
+             509.82034
+             510.96967
+             512.5178
+             513.23395
+             514.14075
+             513.8953
+             513.3907
+             511.89658
+             509.56418
+             506.77643
+             502.55316
+             498.64584
+             492.7865
+             488.11795
+             481.1471
+             476.13675
+             468.66812
+             463.73538
+             456.38107
+             451.8595
+             445.11148
+             441.20618
+             435.3683
+             432.1324
+             427.2931
+             424.664
+             420.7398
+             418.55176
+             415.315
+             413.37265
+             410.54773
+             408.6723
+             405.99884
+             404.1101
+             401.46808
+             399.412
+             396.56958
+             394.35455
+             391.29477
+             388.9933
+             385.8016
+             383.5223
+             380.5304
+             378.514
+             375.5381
+             373.63162
+             370.59174
+             368.69522
+             365.43533
+             363.39258
+             359.6938
+             357.31677
+             352.96417
+             350.08807
+             344.93753
+             341.46802
+             335.4872
+             334.02414
+             329.62756
+             325.00552
+             320.72565
+             317.3529
+             315.3415
+             315.0168
+             316.49652
+             319.6659
+             324.21643
+             329.62756
+             336.33548
+             342.11813
+             345.9283
+             347.01047
+             345.04227
+             340.28772
+             333.46707
+             325.7195
+             318.38596
+             312.78555
+             309.9488
+             311.13248
+             315.42258
+             321.98053
+             329.62756
+             337.0063
+             342.85288
+             346.2418
+             346.6825
+             344.18588
+             339.3186
+             332.98712
+             326.33655
+             320.51798
+             316.49652
+             314.8685
+             315.83463
+             319.09628
+             323.99292
+             329.62756
+             334.9939
+             339.17917
+             341.53964
+             341.5843
+             339.0525
+             338.0222
+             333.98032
+             332.68597
+             327.63107
+             326.22714
+             320.74762
+             319.3906
+             314.08185
+             312.89832
+             308.23874
+             307.30603
+             303.58438
+             302.9194
+             300.1966
+             299.76645
+             297.91754
+             297.64392
+             296.37463
+             296.1606
+             295.11578
+             294.86774
+             293.7072
+             293.34973
+             291.8102
+             291.30258
+             289.2483
+             288.5896
+             286.03812
+             285.26248
+             282.35352
+             281.51953
+             278.47153
+             277.6499
+             274.72208
+             273.97867
+             271.39227
+             270.77585
+             268.6711
+             268.20236
+             266.625
+             266.2988
+             265.39124
+             265.2301
+             264.56418
+             264.4478
+             263.70816
+             263.55148
+             262.41617
+             262.1394
+             260.3265
+             259.86398
+             257.19092
+             256.51248
+             252.92278
+             252.57118
+             250.01262
+             246.94165
+             243.71709
+             240.73477
+             238.38759
+             236.99114
+             236.76988
+             237.80432
+             240.01296
+             243.17949
+             246.94165
+             251.3266
+             255.19493
+             257.9355
+             259.06427
+             258.35034
+             255.82982
+             251.84246
+             246.94165
+             241.86873
+             237.4186
+             234.28836
+             233.02303
+             233.8735
+             236.7837
+             241.35288
+             246.94165
+             253.27448
+             258.177
+             260.7311
+             260.51233
+             257.65027
+             252.7875
+             246.94165
+             241.29064
+             236.93508
+             234.68445
+             234.90325
+             237.4618
+             241.77785
+             246.94165
+             251.60144
+             255.28162
+             257.40283
+             257.66336
+             256.07898
+             253.0137
+             249.04288
+             244.8871
+             241.2657
+             238.7765
+             237.78357
+             238.40192
+             240.43647
+             243.46965
+             246.94165
+             250.23091
+             252.7796
+             254.2005
+             254.25669
+             256.43448
+             258.0312
+             259.67987
+             260.93372
+             262.25705
+             263.40836
+             264.62805
+             265.901
+             267.22293
+             268.77942
+             270.35007
+             272.26532
+             274.1494
+             276.4033
+             278.58035
+             281.08304
+             283.4714
+             286.0801
+             288.55225
+             291.11572
+             293.54526
+             295.94165
+             298.2311
+             300.45145
+             302.61288
+             304.53937
+             306.4825
+             308.17642
+             309.9786
+             311.5792
+             313.37976
+             315.0667
+             317.0274
+             318.97
+             321.23816
+             323.5664
+             326.23395
+             329.0056
+             332.08185
+             335.2713
+             338.7022
+             342.22907
+             346.09964
+             350.04718
+             353.94522
+             355.4466
+             357.83603
+             359.28323
+             359.54794
+             358.53378
+             356.31024
+             353.08685
+             349.22824
+             345.1859
+             341.4551
+             338.52686
+             336.79153
+             336.52716
+             337.82874
+             340.5915
+             344.54263
+             349.22824
+             354.3682
+             359.0056
+             362.45178
+             364.21188
+             363.95868
+             361.6618
+             357.565
+             352.19388
+             346.213
+             340.4675
+             335.7229
+             332.68878
+             331.83667
+             333.36
+             337.0971
+             342.63376
+             349.22824
+             356.8816
+             363.39957
+             367.62244
+             368.74066
+             366.44345
+             361.0751
+             353.47485
+             344.92575
+             336.90747
+             331.31494
+             328.91397
+             330.06784
+             334.45798
+             341.24664
+             349.22824
+             357.506
+             363.93353
+             367.3008
+             367.03888
+             363.3032
+             356.92313
+             349.22824
+             341.76663
+             335.99353
+             332.9891
+             333.25104
+             336.6239
+             342.34946
+             349.22824
+             355.4602
+             360.40564
+             361.84253
+             365.53775
+             368.0033
+             370.48496
+             371.79807
+             373.15234
+             373.6153
+             374.13174
+             374.14642
+             374.21283
+             374.2281
+             374.27896
+             374.69778
+             375.12344
+             376.2356
+             377.31998
+             379.25443
+             381.12778
+             383.86554
+             386.51517
+             389.87674
+             393.14035
+             396.85922
+             400.48752
+             404.26413
+             407.98074
+             411.5349
+             415.07587
+             418.20236
+             421.37857
+             423.9924
+             426.72333
+             428.8529
+             431.16052
+             432.9336
+             434.934
+             436.56223
+             438.44244
+             440.15384
+             442.1058
+             444.10297
+             446.3058
+             448.73697
+             451.39545
+             454.4096
+             457.43152
+             460.85434
+             464.14124
+             467.80414
+             471.1801
+             474.84045
+             478.09076
+             481.49857
+             484.3994
+             487.32196
+             489.71024
+             491.9667
+             493.7211
+             495.3017
+             496.4837
+             497.45483
+             498.177
+             498.6855
+             499.16394
+             499.4593
+             499.94452
+             500.29822
+             501.0758
+             501.78464
+             503.11285
+             504.43262
+             506.5227
+             508.65588
+             511.60797
+             514.6388
+             518.4684
+             522.39405
+             526.98505
+             531.6745
+             536.8235
+             542.06244
+             547.7898
+             553.599
+             559.1406
+             564.7435
+             569.6049
+             571.8766
+             574.17774
+             573.8152
+             570.7595
+             565.34284
+             558.26526
+             550.4049
+             542.87275
+             536.67
+             532.71955
+             531.62964
+             533.6437
+             538.5404
+             545.77155
+             554.3653
+             563.7324
+             571.88715
+             577.5666
+             579.80066
+             578.1692
+             572.8096
+             564.48194
+             554.3653
+             543.9992
+             534.9991
+             528.7536
+             526.32105
+             528.151
+             534.07666
+             543.24964
+             554.3653
+             566.4427
+             576.65577
+             583.20624
+             584.86536
+             581.19324
+             572.773
+             560.9445
+             547.7179
+             535.3827
+             526.12537
+             521.594
+             522.7332
+             529.8939
+             541.09327
+             554.3653
+             568.235
+             579.1011
+             584.8881
+             584.5699
+             578.33606
+             567.52704
+             554.3653
+             541.48627
+             531.41456
+             526.0683
+             526.3859
+             532.17957
+             542.1942
+             554.3653
+             565.51416
+             574.47547
+             579.79517
+             580.6472
+             576.95734
+             569.5133
+             559.6561
+             549.14264
+             539.7927
+             533.18525
+             530.3546
+             531.7267
+             536.92054
+             544.9422
+             554.3653
+             563.5228
+             566.2224
+             565.7838
+             561.7645
+             554.3367
+             544.2949
+             532.77027
+             521.0812
+             510.46774
+             501.8901
+             495.85757
+             492.44342
+             491.21896
+             491.4391
+             492.1937
+             492.55063
+             491.7458
+             489.32272
+             485.16034
+             479.45874
+             472.71198
+             465.54675
+             458.79584
+             452.77716
+             447.74966
+             443.7185
+             440.46957
+             437.5994
+             434.64523
+             431.1789
+             426.76947
+             421.51703
+             415.57056
+             409.23907
+             402.93414
+             397.10266
+             392.1408
+             388.29746
+             385.65887
+             384.08276
+             383.68195
+             383.35217
+             382.352
+             379.9799
+             375.74905
+             369.46002
+             361.51324
+             351.91632
+             341.54443
+             331.55872
+             323.05866
+             316.87894
+             313.3835
+             317.00415
+             322.68396
+             329.62756
+             337.22977
+             343.7099
+             347.91367
+             349.03308
+             346.755
+             341.0953
+             333.62692
+             325.6852
+             318.64438
+             313.68942
+             311.58868
+             312.6478
+             316.5654
+             322.58408
+             329.62756
+             336.8998
+             342.516
+             345.42892
+             345.16126
+             341.87158
+             336.3035
+             329.62756
+             323.18994
+             318.2429
+             315.7008
+             315.96845
+             318.8873
+             323.7859
+             329.62756
+             334.5723
+             338.56113
+             341.04916
+             341.71402
+             340.54153
+             337.7842
+             333.94107
+             329.62756
+             325.52435
+             322.24786
+             320.23648
+             319.73874
+             320.7441
+             323.02448
+             326.1556
+             329.62756
+             333.09326
+             335.7504
+             337.2034
+             337.28052
+             336.05035
+             333.82703
+             331.05585
+             328.25632
+             325.91266
+             324.39407
+             323.88776
+             324.40295
+             325.74982
+             327.61517
+             329.62756
+             333.06458
+             333.64505
+             331.29648
+             328.07767
+             326.4137))))
+         (:add-slots
+          ((:decimals 6)
+           (:color (:color 0.0 0.0 0.0 1.0))
+           (:name "BPF")
+           (:action nil)
+           (:interpol
+            (:number-or-nil (:number 50) (:t-or-nil nil)))))))))))
+   (:id 31))
+  (:box
+   (:reference bpf)
+   (:type :object)
+   (:group-id nil)
+   (:name nil)
+   (:x 429)
+   (:y 190)
+   (:w 80)
+   (:h 40)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align :center)
+   (:name nil)
+   (:display :mini-view)
+   (:showname nil)
+   (:show-markers t)
+   (:group-id nil)
+   (:lock :locked)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SELF")
+     (:value nil)
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "X-POINTS")
+     (:value (:list 0 2000))
+     (:reactive nil))
+    (:input
+     (:type :standard)
+     (:name "Y-POINTS")
+     (:value (:list 0 100))
+     (:reactive nil)))
+   (:outputs
+    (:output (:name "SELF") (:reactive nil))
+    (:output (:name "X-POINTS") (:reactive nil))
+    (:output (:name "Y-POINTS") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
+   (:edition-params)
+   (:value
+    (:object
+     (:class bpf)
+     (:slots
+      ((:onset 0)
+       (:duration 6.88)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
+       (:action nil)
+       (:color (:color 0.0 0.0 0.0 1.0))
+       (:decimals 6)
+       (:x-points
+        (:list
+         0.0
+         0.01
+         0.02
+         0.03
+         0.04
+         0.05
+         0.06
+         0.07
+         0.08
+         0.09
+         0.1
+         0.11
+         0.12
+         0.13
+         0.14
+         0.15
+         0.16
+         0.17
+         0.18
+         0.19
+         0.2
+         0.21
+         0.22
+         0.23
+         0.24
+         0.25
+         0.26
+         0.27
+         0.28
+         0.29
+         0.3
+         0.31
+         0.32
+         0.33
+         0.34
+         0.35
+         0.36
+         0.37
+         0.38
+         0.39
+         0.4
+         0.41
+         0.42
+         0.43
+         0.44
+         0.45
+         0.46
+         0.47
+         0.48
+         0.49
+         0.5
+         0.51
+         0.52
+         0.53
+         0.54
+         0.55
+         0.56
+         0.57
+         0.58
+         0.59
+         0.6
+         0.61
+         0.62
+         0.63
+         0.64
+         0.65
+         0.66
+         0.67
+         0.68
+         0.69
+         0.7
+         0.71
+         0.72
+         0.73
+         0.74
+         0.75
+         0.76
+         0.77
+         0.78
+         0.79
+         0.8
+         0.81
+         0.82
+         0.83
+         0.84
+         0.85
+         0.86
+         0.87
+         0.88
+         0.888
+         0.89
+         0.898
+         0.9
+         0.908
+         0.91
+         0.918
+         0.92
+         0.928
+         0.93
+         0.938
+         0.94
+         0.948
+         0.95
+         0.958
+         0.96
+         0.968
+         0.97
+         0.978
+         0.98
+         0.988
+         0.99
+         0.998
+         1.0
+         1.008
+         1.01
+         1.018
+         1.02
+         1.028
+         1.03
+         1.038
+         1.04
+         1.048
+         1.05
+         1.058
+         1.06
+         1.068
+         1.07
+         1.078
+         1.08
+         1.088
+         1.09
+         1.098
+         1.1
+         1.108
+         1.11
+         1.118
+         1.12
+         1.128
+         1.13
+         1.138
+         1.14
+         1.148
+         1.15
+         1.158
+         1.16
+         1.168
+         1.17
+         1.178
+         1.18
+         1.188
+         1.19
+         1.198
+         1.2
+         1.208
+         1.21
+         1.218
+         1.22
+         1.228
+         1.23
+         1.238
+         1.24
+         1.248
+         1.25
+         1.258
+         1.26
+         1.268
+         1.27
+         1.278
+         1.28
+         1.288
+         1.29
+         1.298
+         1.3
+         1.308
+         1.318
+         1.328
+         1.338
+         1.348
+         1.358
+         1.368
+         1.378
+         1.388
+         1.398
+         1.408
+         1.418
+         1.428
+         1.438
+         1.448
+         1.458
+         1.468
+         1.478
+         1.488
+         1.498
+         1.508
+         1.514
+         1.518
+         1.524
+         1.528
+         1.534
+         1.538
+         1.544
+         1.548
+         1.554
+         1.558
+         1.564
+         1.568
+         1.574
+         1.578
+         1.584
+         1.588
+         1.594
+         1.598
+         1.604
+         1.608
+         1.614
+         1.618
+         1.624
+         1.628
+         1.634
+         1.638
+         1.644
+         1.648
+         1.654
+         1.658
+         1.664
+         1.668
+         1.674
+         1.678
+         1.684
+         1.688
+         1.694
+         1.698
+         1.704
+         1.708
+         1.714
+         1.718
+         1.724
+         1.728
+         1.734
+         1.738
+         1.744
+         1.748
+         1.754
+         1.758
+         1.764
+         1.768
+         1.774
+         1.778
+         1.784
+         1.788
+         1.794
+         1.804
+         1.814
+         1.824
+         1.834
+         1.844
+         1.854
+         1.864
+         1.874
+         1.884
+         1.894
+         1.904
+         1.914
+         1.924
+         1.934
+         1.944
+         1.954
+         1.964
+         1.974
+         1.984
+         1.994
+         2.004
+         2.014
+         2.024
+         2.028
+         2.034
+         2.038
+         2.044
+         2.048
+         2.054
+         2.058
+         2.064
+         2.068
+         2.074
+         2.078
+         2.084
+         2.088
+         2.094
+         2.098
+         2.104
+         2.108
+         2.114
+         2.118
+         2.124
+         2.128
+         2.134
+         2.138
+         2.144
+         2.148
+         2.154
+         2.158
+         2.164
+         2.168
+         2.174
+         2.178
+         2.184
+         2.188
+         2.194
+         2.198
+         2.204
+         2.208
+         2.214
+         2.218
+         2.224
+         2.228
+         2.234
+         2.238
+         2.244
+         2.248
+         2.254
+         2.258
+         2.264
+         2.268
+         2.274
+         2.278
+         2.284
+         2.288
+         2.294
+         2.298
+         2.304
+         2.308
+         2.314
+         2.318
+         2.328
+         2.338
+         2.348
+         2.358
+         2.368
+         2.378
+         2.388
+         2.398
+         2.408
+         2.418
+         2.428
+         2.438
+         2.448
+         2.458
+         2.468
+         2.478
+         2.488
+         2.498
+         2.508
+         2.518
+         2.528
+         2.538
+         2.548
+         2.558
+         2.568
+         2.578
+         2.588
+         2.598
+         2.608
+         2.618
+         2.628
+         2.638
+         2.648
+         2.658
+         2.668
+         2.678
+         2.688
+         2.698
+         2.708
+         2.718
+         2.728
+         2.738
+         2.748
+         2.75
+         2.758
+         2.76
+         2.768
+         2.77
+         2.778
+         2.78
+         2.788
+         2.79
+         2.798
+         2.8
+         2.808
+         2.81
+         2.818
+         2.82
+         2.828
+         2.83
+         2.838
+         2.84
+         2.848
+         2.85
+         2.858
+         2.86
+         2.868
+         2.87
+         2.878
+         2.88
+         2.888
+         2.89
+         2.898
+         2.9
+         2.908
+         2.91
+         2.918
+         2.92
+         2.928
+         2.93
+         2.938
+         2.94
+         2.948
+         2.95
+         2.958
+         2.96
+         2.968
+         2.97
+         2.978
+         2.98
+         2.988
+         2.99
+         2.998
+         3.0
+         3.008
+         3.01
+         3.018
+         3.02
+         3.028
+         3.03
+         3.04
+         3.05
+         3.06
+         3.07
+         3.08
+         3.09
+         3.1
+         3.11
+         3.12
+         3.13
+         3.14
+         3.15
+         3.16
+         3.17
+         3.18
+         3.19
+         3.2
+         3.21
+         3.22
+         3.23
+         3.24
+         3.25
+         3.26
+         3.27
+         3.28
+         3.29
+         3.3
+         3.31
+         3.32
+         3.33
+         3.34
+         3.35
+         3.36
+         3.37
+         3.38
+         3.39
+         3.4
+         3.41
+         3.42
+         3.43
+         3.44
+         3.45
+         3.46
+         3.47
+         3.48
+         3.49
+         3.5
+         3.51
+         3.52
+         3.53
+         3.54
+         3.55
+         3.56
+         3.57
+         3.58
+         3.59
+         3.6
+         3.61
+         3.62
+         3.625
+         3.63
+         3.635
+         3.64
+         3.645
+         3.65
+         3.655
+         3.66
+         3.665
+         3.67
+         3.675
+         3.68
+         3.685
+         3.69
+         3.695
+         3.7
+         3.705
+         3.71
+         3.715
+         3.72
+         3.725
+         3.73
+         3.735
+         3.74
+         3.745
+         3.75
+         3.755
+         3.76
+         3.765
+         3.77
+         3.775
+         3.78
+         3.785
+         3.79
+         3.795
+         3.8
+         3.805
+         3.81
+         3.815
+         3.82
+         3.825
+         3.83
+         3.835
+         3.84
+         3.845
+         3.85
+         3.855
+         3.865
+         3.875
+         3.885
+         3.895
+         3.905
+         3.915
+         3.925
+         3.935
+         3.945
+         3.955
+         3.965
+         3.975
+         3.985
+         3.995
+         4.005
+         4.015
+         4.025
+         4.035
+         4.045
+         4.055
+         4.065
+         4.075
+         4.085
+         4.095
+         4.105
+         4.115
+         4.125
+         4.135
+         4.145
+         4.155
+         4.165
+         4.175
+         4.185
+         4.195
+         4.205
+         4.215
+         4.225
+         4.235
+         4.245
+         4.255
+         4.265
+         4.275
+         4.285
+         4.295
+         4.305
+         4.315
+         4.325
+         4.335
+         4.345
+         4.355
+         4.365
+         4.375
+         4.385
+         4.395
+         4.405
+         4.415
+         4.425
+         4.435
+         4.445
+         4.455
+         4.465
+         4.475
+         4.485
+         4.495
+         4.5
+         4.505
+         4.51
+         4.515
+         4.52
+         4.525
+         4.53
+         4.535
+         4.54
+         4.545
+         4.55
+         4.555
+         4.56
+         4.565
+         4.57
+         4.575
+         4.58
+         4.585
+         4.59
+         4.595
+         4.6
+         4.605
+         4.61
+         4.615
+         4.62
+         4.625
+         4.63
+         4.635
+         4.64
+         4.645
+         4.65
+         4.655
+         4.66
+         4.665
+         4.67
+         4.675
+         4.68
+         4.685
+         4.69
+         4.695
+         4.7
+         4.705
+         4.71
+         4.715
+         4.72
+         4.725
+         4.73
+         4.735
+         4.74
+         4.745
+         4.75
+         4.755
+         4.76
+         4.765
+         4.77
+         4.775
+         4.78
+         4.785
+         4.79
+         4.795
+         4.8
+         4.805
+         4.81
+         4.815
+         4.82
+         4.825
+         4.83
+         4.835
+         4.84
+         4.845
+         4.85
+         4.855
+         4.86
+         4.865
+         4.87
+         4.875
+         4.88
+         4.885
+         4.89
+         4.895
+         4.9
+         4.905
+         4.91
+         4.915
+         4.92
+         4.925
+         4.93
+         4.94
+         4.95
+         4.96
+         4.97
+         4.98
+         4.99
+         5.0
+         5.01
+         5.02
+         5.03
+         5.04
+         5.05
+         5.06
+         5.07
+         5.08
+         5.09
+         5.1
+         5.11
+         5.12
+         5.13
+         5.14
+         5.15
+         5.16
+         5.17
+         5.18
+         5.19
+         5.2
+         5.21
+         5.22
+         5.23
+         5.24
+         5.25
+         5.26
+         5.27
+         5.28
+         5.29
+         5.3
+         5.31
+         5.32
+         5.33
+         5.34
+         5.35
+         5.36
+         5.37
+         5.38
+         5.39
+         5.4
+         5.41
+         5.42
+         5.43
+         5.44
+         5.45
+         5.46
+         5.47
+         5.48
+         5.49
+         5.5
+         5.51
+         5.52
+         5.53
+         5.54
+         5.55
+         5.56
+         5.57
+         5.58
+         5.59
+         5.6
+         5.61
+         5.62
+         5.63
+         5.64
+         5.65
+         5.66
+         5.67
+         5.68
+         5.69
+         5.7
+         5.71
+         5.72
+         5.73
+         5.74
+         5.75
+         5.76
+         5.77
+         5.78
+         5.79
+         5.8
+         5.81
+         5.82
+         5.83
+         5.84
+         5.85
+         5.86
+         5.87
+         5.88
+         5.89
+         5.9
+         5.91
+         5.92
+         5.93
+         5.94
+         5.95
+         5.96
+         5.97
+         5.98
+         5.99
+         6.0
+         6.01
+         6.02
+         6.03
+         6.04
+         6.05
+         6.06
+         6.07
+         6.08
+         6.09
+         6.1
+         6.11
+         6.12
+         6.13
+         6.14
+         6.15
+         6.16
+         6.17
+         6.18
+         6.19
+         6.2
+         6.21
+         6.22
+         6.23
+         6.24
+         6.25
+         6.26
+         6.27
+         6.28
+         6.29
+         6.3
+         6.31
+         6.32
+         6.33
+         6.34
+         6.35
+         6.36
+         6.37
+         6.38
+         6.39
+         6.4
+         6.41
+         6.42
+         6.43
+         6.44
+         6.45
+         6.46
+         6.47
+         6.48
+         6.49
+         6.5
+         6.51
+         6.52
+         6.53
+         6.54
+         6.55
+         6.56
+         6.57
+         6.58
+         6.59
+         6.6
+         6.61
+         6.62
+         6.63
+         6.64
+         6.65
+         6.66
+         6.67
+         6.68
+         6.69
+         6.7
+         6.71
+         6.72
+         6.73
+         6.74
+         6.75
+         6.76
+         6.77
+         6.78
+         6.79
+         6.8
+         6.81
+         6.82
+         6.83
+         6.84
+         6.85
+         6.86
+         6.87
+         6.88))
+       (:y-points
+        (:list
+         311.12698
+         312.11545
+         313.14807
+         314.12158
+         314.91495
+         315.4221
+         315.56055
+         315.27213
+         314.5447
+         313.4122
+         311.9471
+         310.27106
+         308.5303
+         306.89566
+         305.53107
+         304.59332
+         304.2072
+         304.4424
+         305.32507
+         306.8154
+         308.79727
+         311.12698
+         313.99185
+         316.6669
+         318.79565
+         320.08496
+         320.3208
+         319.41727
+         317.43634
+         314.56464
+         311.12698
+         307.5257
+         304.20194
+         301.5931
+         300.04712
+         299.8116
+         300.9712
+         303.4325
+         306.9526
+         311.12698
+         315.70615
+         319.8376
+         322.9078
+         324.4759
+         324.2503
+         322.20404
+         318.5542
+         313.76907
+         308.4407
+         303.32205
+         299.0951
+         296.392
+         295.63287
+         296.99
+         300.31937
+         305.25195
+         311.12698
+         317.94534
+         323.7522
+         327.51434
+         328.5106
+         326.464
+         321.68134
+         314.91028
+         307.29388
+         300.15042
+         295.16803
+         293.02905
+         294.057
+         297.96817
+         304.01617
+         311.12698
+         318.50162
+         324.2279
+         327.2278
+         326.99445
+         323.66632
+         317.98236
+         311.12698
+         304.47943
+         299.3362
+         296.65958
+         296.8929
+         299.8978
+         304.99872
+         311.12698
+         316.67905
+         321.0849
+         323.64517
+         323.91797
+         324.31757
+         324.20483
+         324.19272
+         322.84387
+         322.53104
+         320.55322
+         320.08548
+         318.15067
+         317.68945
+         316.3946
+         316.08313
+         315.85373
+         315.7938
+         316.80808
+         317.0428
+         319.254
+         319.77332
+         322.89603
+         323.63284
+         327.24622
+         328.10306
+         331.74326
+         332.61255
+         335.84424
+         336.62677
+         339.14
+         339.76517
+         341.42972
+         341.87088
+         342.74136
+         343.01364
+         343.3062
+         343.4598
+         343.51657
+         343.63156
+         343.8338
+         343.99432
+         344.69632
+         344.97577
+         346.42578
+         346.8758
+         349.1945
+         349.92035
+         353.43347
+         354.301
+         358.34937
+         359.26248
+         363.35773
+         364.20383
+         367.83957
+         368.5045
+         371.20663
+         371.60504
+         373.00565
+         373.08463
+         373.13303
+         372.9252
+         371.76276
+         371.33545
+         369.28577
+         368.7617
+         366.3711
+         365.89157
+         363.76147
+         363.4826
+         362.25958
+         362.3156
+         362.53638
+         363.02042
+         365.04523
+         365.9841
+         369.89432
+         371.25504
+         376.8875
+         378.55475
+         385.41806
+         387.31293
+         395.07434
+         396.87485
+         404.21472
+         405.67984
+         411.62058
+         412.53592
+         414.20862
+         412.92288
+         408.31577
+         401.00348
+         391.99542
+         383.32095
+         376.2909
+         371.8731
+         370.65363
+         372.6779
+         377.52255
+         384.32172
+         391.99542
+         400.31277
+         406.64114
+         409.8312
+         409.40668
+         405.61963
+         399.36768
+         391.99542
+         385.00143
+         381.84082
+         381.83905
+         383.531
+         384.72656
+         388.3029
+         390.7092
+         395.834
+         399.21918
+         405.28455
+         409.244
+         415.51608
+         419.56952
+         425.1847
+         428.77463
+         433.47452
+         436.4397
+         439.98084
+         442.1775
+         444.52353
+         445.9455
+         447.24796
+         448.01798
+         448.59308
+         448.93698
+         449.1659
+         449.35385
+         449.6386
+         449.94308
+         450.63245
+         451.29065
+         452.65048
+         453.8331
+         456.0202
+         457.81238
+         460.87796
+         463.29675
+         467.20657
+         470.1957
+         474.84918
+         478.29456
+         483.53342
+         487.30527
+         493.18158
+         497.642
+         504.11234
+         508.33887
+         514.50306
+         518.2071
+         523.7483
+         526.7422
+         531.3456
+         533.4406
+         536.69556
+         537.73096
+         539.2802
+         539.16596
+         535.6365
+         527.704
+         518.67786
+         509.8339
+         502.37338
+         497.45325
+         495.8903
+         498.0796
+         503.8542
+         512.626
+         523.2511
+         535.7626
+         546.57764
+         552.48566
+         553.1873
+         548.7397
+         540.17304
+         529.1011
+         517.5372
+         507.48294
+         500.59433
+         497.87027
+         499.6148
+         505.2701
+         508.6293
+         509.82034
+         510.96967
+         512.5178
+         513.23395
+         514.14075
+         513.8953
+         513.3907
+         511.89658
+         509.56418
+         506.77643
+         502.55316
+         498.64584
+         492.7865
+         488.11795
+         481.1471
+         476.13675
+         468.66812
+         463.73538
+         456.38107
+         451.8595
+         445.11148
+         441.20618
+         435.3683
+         432.1324
+         427.2931
+         424.664
+         420.7398
+         418.55176
+         415.315
+         413.37265
+         410.54773
+         408.6723
+         405.99884
+         404.1101
+         401.46808
+         399.412
+         396.56958
+         394.35455
+         391.29477
+         388.9933
+         385.8016
+         383.5223
+         380.5304
+         378.514
+         375.5381
+         373.63162
+         370.59174
+         368.69522
+         365.43533
+         363.39258
+         359.6938
+         357.31677
+         352.96417
+         350.08807
+         344.93753
+         341.46802
+         335.4872
+         334.02414
+         329.62756
+         325.00552
+         320.72565
+         317.3529
+         315.3415
+         315.0168
+         316.49652
+         319.6659
+         324.21643
+         329.62756
+         336.33548
+         342.11813
+         345.9283
+         347.01047
+         345.04227
+         340.28772
+         333.46707
+         325.7195
+         318.38596
+         312.78555
+         309.9488
+         311.13248
+         315.42258
+         321.98053
+         329.62756
+         337.0063
+         342.85288
+         346.2418
+         346.6825
+         344.18588
+         339.3186
+         332.98712
+         326.33655
+         320.51798
+         316.49652
+         314.8685
+         315.83463
+         319.09628
+         323.99292
+         329.62756
+         334.9939
+         339.17917
+         341.53964
+         341.5843
+         339.0525
+         338.0222
+         333.98032
+         332.68597
+         327.63107
+         326.22714
+         320.74762
+         319.3906
+         314.08185
+         312.89832
+         308.23874
+         307.30603
+         303.58438
+         302.9194
+         300.1966
+         299.76645
+         297.91754
+         297.64392
+         296.37463
+         296.1606
+         295.11578
+         294.86774
+         293.7072
+         293.34973
+         291.8102
+         291.30258
+         289.2483
+         288.5896
+         286.03812
+         285.26248
+         282.35352
+         281.51953
+         278.47153
+         277.6499
+         274.72208
+         273.97867
+         271.39227
+         270.77585
+         268.6711
+         268.20236
+         266.625
+         266.2988
+         265.39124
+         265.2301
+         264.56418
+         264.4478
+         263.70816
+         263.55148
+         262.41617
+         262.1394
+         260.3265
+         259.86398
+         257.19092
+         256.51248
+         252.92278
+         252.57118
+         250.01262
+         246.94165
+         243.71709
+         240.73477
+         238.38759
+         236.99114
+         236.76988
+         237.80432
+         240.01296
+         243.17949
+         246.94165
+         251.3266
+         255.19493
+         257.9355
+         259.06427
+         258.35034
+         255.82982
+         251.84246
+         246.94165
+         241.86873
+         237.4186
+         234.28836
+         233.02303
+         233.8735
+         236.7837
+         241.35288
+         246.94165
+         253.27448
+         258.177
+         260.7311
+         260.51233
+         257.65027
+         252.7875
+         246.94165
+         241.29064
+         236.93508
+         234.68445
+         234.90325
+         237.4618
+         241.77785
+         246.94165
+         251.60144
+         255.28162
+         257.40283
+         257.66336
+         256.07898
+         253.0137
+         249.04288
+         244.8871
+         241.2657
+         238.7765
+         237.78357
+         238.40192
+         240.43647
+         243.46965
+         246.94165
+         250.23091
+         252.7796
+         254.2005
+         254.25669
+         256.43448
+         258.0312
+         259.67987
+         260.93372
+         262.25705
+         263.40836
+         264.62805
+         265.901
+         267.22293
+         268.77942
+         270.35007
+         272.26532
+         274.1494
+         276.4033
+         278.58035
+         281.08304
+         283.4714
+         286.0801
+         288.55225
+         291.11572
+         293.54526
+         295.94165
+         298.2311
+         300.45145
+         302.61288
+         304.53937
+         306.4825
+         308.17642
+         309.9786
+         311.5792
+         313.37976
+         315.0667
+         317.0274
+         318.97
+         321.23816
+         323.5664
+         326.23395
+         329.0056
+         332.08185
+         335.2713
+         338.7022
+         342.22907
+         346.09964
+         350.04718
+         353.94522
+         355.4466
+         357.83603
+         359.28323
+         359.54794
+         358.53378
+         356.31024
+         353.08685
+         349.22824
+         345.1859
+         341.4551
+         338.52686
+         336.79153
+         336.52716
+         337.82874
+         340.5915
+         344.54263
+         349.22824
+         354.3682
+         359.0056
+         362.45178
+         364.21188
+         363.95868
+         361.6618
+         357.565
+         352.19388
+         346.213
+         340.4675
+         335.7229
+         332.68878
+         331.83667
+         333.36
+         337.0971
+         342.63376
+         349.22824
+         356.8816
+         363.39957
+         367.62244
+         368.74066
+         366.44345
+         361.0751
+         353.47485
+         344.92575
+         336.90747
+         331.31494
+         328.91397
+         330.06784
+         334.45798
+         341.24664
+         349.22824
+         357.506
+         363.93353
+         367.3008
+         367.03888
+         363.3032
+         356.92313
+         349.22824
+         341.76663
+         335.99353
+         332.9891
+         333.25104
+         336.6239
+         342.34946
+         349.22824
+         355.4602
+         360.40564
+         361.84253
+         365.53775
+         368.0033
+         370.48496
+         371.79807
+         373.15234
+         373.6153
+         374.13174
+         374.14642
+         374.21283
+         374.2281
+         374.27896
+         374.69778
+         375.12344
+         376.2356
+         377.31998
+         379.25443
+         381.12778
+         383.86554
+         386.51517
+         389.87674
+         393.14035
+         396.85922
+         400.48752
+         404.26413
+         407.98074
+         411.5349
+         415.07587
+         418.20236
+         421.37857
+         423.9924
+         426.72333
+         428.8529
+         431.16052
+         432.9336
+         434.934
+         436.56223
+         438.44244
+         440.15384
+         442.1058
+         444.10297
+         446.3058
+         448.73697
+         451.39545
+         454.4096
+         457.43152
+         460.85434
+         464.14124
+         467.80414
+         471.1801
+         474.84045
+         478.09076
+         481.49857
+         484.3994
+         487.32196
+         489.71024
+         491.9667
+         493.7211
+         495.3017
+         496.4837
+         497.45483
+         498.177
+         498.6855
+         499.16394
+         499.4593
+         499.94452
+         500.29822
+         501.0758
+         501.78464
+         503.11285
+         504.43262
+         506.5227
+         508.65588
+         511.60797
+         514.6388
+         518.4684
+         522.39405
+         526.98505
+         531.6745
+         536.8235
+         542.06244
+         547.7898
+         553.599
+         559.1406
+         564.7435
+         569.6049
+         571.8766
+         574.17774
+         573.8152
+         570.7595
+         565.34284
+         558.26526
+         550.4049
+         542.87275
+         536.67
+         532.71955
+         531.62964
+         533.6437
+         538.5404
+         545.77155
+         554.3653
+         563.7324
+         571.88715
+         577.5666
+         579.80066
+         578.1692
+         572.8096
+         564.48194
+         554.3653
+         543.9992
+         534.9991
+         528.7536
+         526.32105
+         528.151
+         534.07666
+         543.24964
+         554.3653
+         566.4427
+         576.65577
+         583.20624
+         584.86536
+         581.19324
+         572.773
+         560.9445
+         547.7179
+         535.3827
+         526.12537
+         521.594
+         522.7332
+         529.8939
+         541.09327
+         554.3653
+         568.235
+         579.1011
+         584.8881
+         584.5699
+         578.33606
+         567.52704
+         554.3653
+         541.48627
+         531.41456
+         526.0683
+         526.3859
+         532.17957
+         542.1942
+         554.3653
+         565.51416
+         574.47547
+         579.79517
+         580.6472
+         576.95734
+         569.5133
+         559.6561
+         549.14264
+         539.7927
+         533.18525
+         530.3546
+         531.7267
+         536.92054
+         544.9422
+         554.3653
+         563.5228
+         566.2224
+         565.7838
+         561.7645
+         554.3367
+         544.2949
+         532.77027
+         521.0812
+         510.46774
+         501.8901
+         495.85757
+         492.44342
+         491.21896
+         491.4391
+         492.1937
+         492.55063
+         491.7458
+         489.32272
+         485.16034
+         479.45874
+         472.71198
+         465.54675
+         458.79584
+         452.77716
+         447.74966
+         443.7185
+         440.46957
+         437.5994
+         434.64523
+         431.1789
+         426.76947
+         421.51703
+         415.57056
+         409.23907
+         402.93414
+         397.10266
+         392.1408
+         388.29746
+         385.65887
+         384.08276
+         383.68195
+         383.35217
+         382.352
+         379.9799
+         375.74905
+         369.46002
+         361.51324
+         351.91632
+         341.54443
+         331.55872
+         323.05866
+         316.87894
+         313.3835
+         317.00415
+         322.68396
+         329.62756
+         337.22977
+         343.7099
+         347.91367
+         349.03308
+         346.755
+         341.0953
+         333.62692
+         325.6852
+         318.64438
+         313.68942
+         311.58868
+         312.6478
+         316.5654
+         322.58408
+         329.62756
+         336.8998
+         342.516
+         345.42892
+         345.16126
+         341.87158
+         336.3035
+         329.62756
+         323.18994
+         318.2429
+         315.7008
+         315.96845
+         318.8873
+         323.7859
+         329.62756
+         334.5723
+         338.56113
+         341.04916
+         341.71402
+         340.54153
+         337.7842
+         333.94107
+         329.62756
+         325.52435
+         322.24786
+         320.23648
+         319.73874
+         320.7441
+         323.02448
+         326.1556
+         329.62756
+         333.09326
+         335.7504
+         337.2034
+         337.28052
+         336.05035
+         333.82703
+         331.05585
+         328.25632
+         325.91266
+         324.39407
+         323.88776
+         324.40295
+         325.74982
+         327.61517
+         329.62756
+         333.06458
+         333.64505
+         331.29648
+         328.07767
+         326.4137))))
+     (:add-slots
+      ((:decimals 6)
+       (:color (:color 0.0 0.0 0.0 1.0))
+       (:name "BPF")
+       (:action nil)
+       (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
+   (:id 32))
+  (:box
+   (:reference length)
+   (:type :function)
+   (:group-id nil)
+   (:name "length")
+   (:x 454)
+   (:y 240)
+   (:w 69)
+   (:h 30)
+   (:color nil)
+   (:border nil)
+   (:roundness nil)
+   (:text-font nil)
+   (:align nil)
+   (:lock nil)
+   (:lambda nil)
+   (:inputs
+    (:input
+     (:type :standard)
+     (:name "SEQUENCE")
+     (:value nil)
+     (:reactive nil)))
+   (:outputs (:output (:name "out") (:reactive nil)))
+   (:id 33)))
  (:connections
   (:connection
    (:from (:box 0 :out 0))
@@ -11311,6 +15032,10 @@ This process can be applied on FOFs and F0s")
   (:connection
    (:from (:box 10 :out 0))
    (:to (:box 13 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 10 :out 0))
+   (:to (:box 30 :in 0))
    (:attributes (:color nil :style nil :modif nil)))
   (:connection
    (:from (:box 11 :out 0))
@@ -11395,4 +15120,8 @@ This process can be applied on FOFs and F0s")
   (:connection
    (:from (:box 29 :out 0))
    (:to (:box 14 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
+   (:from (:box 32 :out 2))
+   (:to (:box 33 :in 0))
    (:attributes (:color nil :style nil :modif nil)))))

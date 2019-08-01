@@ -5,8 +5,8 @@
  (:doc "")
  (:info
   (:created "2019/07/31 18:26:37")
-  (:modified "2019/07/31 18:44:46"))
- (:window (:size (995 745)) (:position (746 241)))
+  (:modified "2019/08/01 15:21:33"))
+ (:window (:size (995 745)) (:position (925 118)))
  (:grid nil)
  (:lock nil)
  (:boxes
@@ -28,7 +28,7 @@
    (:lock nil)
    (:inputs)
    (:outputs (:output (:name "value") (:reactive nil)))
-   (:value "ch_31-ch-transitions-1_trans")
+   (:value "ch_29-ch-transitions-1_trans")
    (:id 0))
   (:box
    (:reference simple-base-string)
@@ -48,7 +48,7 @@
    (:lock nil)
    (:inputs)
    (:outputs (:output (:name "value") (:reactive nil)))
-   (:value "ch_31-ch-transitions-1_notrans")
+   (:value "ch_29-ch-transitions-1_notrans")
    (:id 1))
   (:comment
    (:x 394)
@@ -107,6 +107,77 @@
      (:grid nil)
      (:lock nil)
      (:boxes
+      (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "input 2") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "input 2")
+       (:x 88)
+       (:y 31)
+       (:w 59)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference
+        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
+       (:type :io)
+       (:group-id nil)
+       (:name nil)
+       (:x 173)
+       (:y 496)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 1))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 2) (:name "FADE-IN-OUT") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "FADE-IN-OUT")
+       (:x 400)
+       (:y 151.0)
+       (:w 93)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 2))
       (:comment
        (:x 397)
        (:y 394)
@@ -122,7 +193,7 @@
         "By cutting-off durations according to the non-overlapping durations, and adding a fade in/out, FOFs shut down during th eoverlapping intervals
 
 ")
-       (:id 0))
+       (:id 3))
       (:comment
        (:x 435)
        (:y 285)
@@ -138,7 +209,7 @@
        (:text
         "- Set the durations and action times to the new values.
 - Applies fade-in/out")
-       (:id 1))
+       (:id 4))
       (:box
        (:library "OM-Chant")
        (:reference ch-fof)
@@ -198,7 +269,7 @@
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -213,7 +284,7 @@
            (:user-fun nil)
            (:action-time 0)))
          (:add-slots ((:data nil)))))
-       (:id 2))
+       (:id 5))
       (:box
        (:library "OM-Chant")
        (:reference ch-fof)
@@ -273,7 +344,7 @@
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -288,7 +359,7 @@
            (:user-fun nil)
            (:action-time 0)))
          (:add-slots ((:data nil)))))
-       (:id 3))
+       (:id 6))
       (:box
        (:reference list)
        (:type :function)
@@ -317,7 +388,7 @@
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 4))
+       (:id 7))
       (:box
        (:reference single-float)
        (:type :value)
@@ -339,7 +410,7 @@
        (:inputs)
        (:outputs (:output (:name "value") (:reactive nil)))
        (:value 0.1)
-       (:id 5))
+       (:id 8))
       (:box
        (:reference ch-fof)
        (:type :slots)
@@ -395,7 +466,7 @@
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:id 6))
+       (:id 9))
       (:box
        (:reference list)
        (:type :function)
@@ -429,7 +500,7 @@
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 7))
+       (:id 10))
       (:box
        (:reference ch-fof)
        (:type :slots)
@@ -485,7 +556,7 @@
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:id 8))
+       (:id 11))
       (:box
        (:reference list)
        (:type :function)
@@ -519,7 +590,7 @@
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 9))
+       (:id 12))
       (:comment
        (:x 351)
        (:y 83)
@@ -534,7 +605,7 @@
        (:align nil)
        (:text
         "Information about the \"current\" transition (event 1, event 2, rank, start/end times, overlapping duration, etc.) ")
-       (:id 10))
+       (:id 13))
       (:box
        (:library "OM-Chant")
        (:reference transition-info)
@@ -630,7 +701,7 @@
         (:output (:name "END2") (:reactive nil))
         (:output (:name "DUR2") (:reactive nil))
         (:output (:name "DUR-INTER") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -647,146 +718,75 @@
            (:end2 nil)
            (:dur2 nil)
            (:dur-inter nil)))))
-       (:id 11))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 1) (:name "input 2") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "input 2")
-       (:x 88)
-       (:y 31)
-       (:w 59)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 12))
-      (:box
-       (:reference
-        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
-       (:type :io)
-       (:group-id nil)
-       (:name nil)
-       (:x 173)
-       (:y 496)
-       (:w 40)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
-       (:id 13))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 2) (:name "FADE-IN-OUT") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "FADE-IN-OUT")
-       (:x 400)
-       (:y 151.0)
-       (:w 93)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
        (:id 14)))
      (:connections
       (:connection
+       (:from (:box 0 :out 0))
+       (:to (:box 14 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
        (:from (:box 2 :out 0))
-       (:to (:box 6 :in 0))
+       (:to (:box 10 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 3 :out 0))
-       (:to (:box 8 :in 0))
+       (:from (:box 2 :out 0))
+       (:to (:box 10 :in 2))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 4 :out 0))
-       (:to (:box 13 :in 0))
+       (:from (:box 2 :out 0))
+       (:to (:box 12 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 6 :out 0))
-       (:to (:box 4 :in 1))
+       (:from (:box 2 :out 0))
+       (:to (:box 12 :in 2))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 7 :out 0))
-       (:to (:box 6 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 8 :out 0))
-       (:to (:box 4 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 9 :out 0))
-       (:to (:box 8 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 11 :out 2))
-       (:to (:box 3 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 11 :out 3))
-       (:to (:box 2 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 11 :out 6))
-       (:to (:box 6 :in 2))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 11 :out 7))
+       (:from (:box 5 :out 0))
        (:to (:box 9 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 11 :out 10))
+       (:from (:box 6 :out 0))
+       (:to (:box 11 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 7 :out 0))
+       (:to (:box 1 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 9 :out 0))
+       (:to (:box 7 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 0))
+       (:to (:box 9 :in 3))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 0))
        (:to (:box 7 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 12 :out 0))
-       (:to (:box 11 :in 0))
+       (:to (:box 11 :in 3))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 14 :out 0))
-       (:to (:box 7 :in 1))
+       (:from (:box 14 :out 2))
+       (:to (:box 6 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 14 :out 0))
-       (:to (:box 7 :in 2))
+       (:from (:box 14 :out 3))
+       (:to (:box 5 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 14 :out 0))
-       (:to (:box 9 :in 1))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 14 :out 0))
+       (:from (:box 14 :out 6))
        (:to (:box 9 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 7))
+       (:to (:box 12 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 10))
+       (:to (:box 10 :in 0))
        (:attributes (:color nil :style nil :modif nil))))))
    (:type :patch)
    (:group-id nil)
@@ -898,7 +898,7 @@
      (:value nil)
      (:reactive nil)))
    (:outputs (:output (:name "SELF") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -910,30 +910,17 @@
        (:default-frame-type marker-frame)
        (:frames nil)
        (:buffer nil)
-       (:n-samples 303409)
-       (:n-channels 1)
-       (:sample-rate 44100)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
        (:smpl-type :float)
        (:sample-size 16)))
      (:add-slots
       ((:markers nil)
-       (:file-pathname
-        (:pathname
-         (:directory
-          (:absolute
-           "Users"
-           "bresson"
-           "_SHARED-FILES"
-           "WORKSPACES"
-           "my-workspace"
-           "out-files"))
-         (:device nil)
-         (:host nil)
-         (:name "ch_31-ch-transitions-1_trans")
-         (:type "aiff")))
-       (:sample-rate 44100)
-       (:n-channels 1)
-       (:n-samples 303409)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
        (:gain 1.0)
        (:access-from-file nil)))))
    (:id 9))
@@ -973,10 +960,59 @@
      (:name "fof-transition-handler-1")
      (:doc "")
      (:info (:created nil) (:modified nil))
-     (:window (:size (691 556)) (:position (163 115)))
+     (:window (:size (691 556)) (:position (978 209)))
      (:grid nil)
      (:lock nil)
      (:boxes
+      (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "input 2") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "input 2")
+       (:x 55)
+       (:y 45)
+       (:w 59)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference
+        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
+       (:type :io)
+       (:group-id nil)
+       (:name nil)
+       (:x 209)
+       (:y 439)
+       (:w 40)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 1))
       (:comment
        (:x 278)
        (:y 373)
@@ -992,7 +1028,7 @@
         "By cutting-off durations according to the non-overlapping durations, CHANT perfoms linear interpolations by itself
 
 This process can be applied on FOFs and F0s")
-       (:id 0))
+       (:id 2))
       (:comment
        (:x 387)
        (:y 296)
@@ -1007,7 +1043,7 @@ This process can be applied on FOFs and F0s")
        (:align nil)
        (:text
         "- Set the durations and action times to the new values.")
-       (:id 1))
+       (:id 3))
       (:box
        (:library "OM-Chant")
        (:reference ch-fof)
@@ -1067,7 +1103,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -1082,7 +1118,7 @@ This process can be applied on FOFs and F0s")
            (:user-fun nil)
            (:action-time 0)))
          (:add-slots ((:data nil)))))
-       (:id 2))
+       (:id 4))
       (:box
        (:library "OM-Chant")
        (:reference ch-fof)
@@ -1142,7 +1178,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -1157,7 +1193,7 @@ This process can be applied on FOFs and F0s")
            (:user-fun nil)
            (:action-time 0)))
          (:add-slots ((:data nil)))))
-       (:id 3))
+       (:id 5))
       (:box
        (:reference list)
        (:type :function)
@@ -1186,7 +1222,7 @@ This process can be applied on FOFs and F0s")
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 4))
+       (:id 6))
       (:box
        (:reference ch-fof)
        (:type :slots)
@@ -1242,7 +1278,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:id 5))
+       (:id 7))
       (:box
        (:reference ch-fof)
        (:type :slots)
@@ -1298,7 +1334,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "KT") (:reactive nil))
         (:output (:name "USER-FUN") (:reactive nil)))
-       (:id 6))
+       (:id 8))
       (:comment
        (:x 360)
        (:y 120)
@@ -1313,7 +1349,7 @@ This process can be applied on FOFs and F0s")
        (:align nil)
        (:text
         "Information about the \"current\" transition (event 1, event 2, rank, start/end times, overlapping duration, etc.) ")
-       (:id 7))
+       (:id 9))
       (:box
        (:library "OM-Chant")
        (:reference transition-info)
@@ -1409,7 +1445,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "END2") (:reactive nil))
         (:output (:name "DUR2") (:reactive nil))
         (:output (:name "DUR-INTER") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -1426,106 +1462,57 @@ This process can be applied on FOFs and F0s")
            (:end2 nil)
            (:dur2 nil)
            (:dur-inter nil)))))
-       (:id 8))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 1) (:name "input 2") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "input 2")
-       (:x 55)
-       (:y 45)
-       (:w 59)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 9))
-      (:box
-       (:reference
-        (:out (:type omout) (:name nil) (:index 1) (:doc nil)))
-       (:type :io)
-       (:group-id nil)
-       (:name nil)
-       (:x 209)
-       (:y 439)
-       (:w 40)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
        (:id 10)))
      (:connections
       (:connection
-       (:from (:box 2 :out 0))
-       (:to (:box 5 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 3 :out 0))
-       (:to (:box 6 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 4 :out 0))
+       (:from (:box 0 :out 0))
        (:to (:box 10 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
+       (:from (:box 4 :out 0))
+       (:to (:box 7 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
        (:from (:box 5 :out 0))
-       (:to (:box 4 :in 1))
+       (:to (:box 8 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 6 :out 0))
+       (:to (:box 1 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 7 :out 0))
+       (:to (:box 6 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 8 :out 0))
+       (:to (:box 6 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 2))
+       (:to (:box 5 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 3))
        (:to (:box 4 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 8 :out 2))
-       (:to (:box 3 :in 0))
+       (:from (:box 10 :out 6))
+       (:to (:box 7 :in 2))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 8 :out 3))
-       (:to (:box 2 :in 0))
+       (:from (:box 10 :out 7))
+       (:to (:box 8 :in 3))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 8 :out 6))
-       (:to (:box 5 :in 2))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 8 :out 7))
-       (:to (:box 6 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 8 :out 10))
-       (:to (:box 5 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 9 :out 0))
-       (:to (:box 8 :in 0))
+       (:from (:box 10 :out 10))
+       (:to (:box 7 :in 3))
        (:attributes (:color nil :style nil :modif nil))))))
    (:type :patch)
    (:group-id nil)
    (:name "fof-transition-handler-1")
-   (:x 610)
-   (:y 267)
+   (:x 612)
+   (:y 292)
    (:w 153)
    (:h 28)
    (:color nil)
@@ -1561,8 +1548,8 @@ This process can be applied on FOFs and F0s")
     "CH-TRANSITION applies the patch \"transition-handler\" to each successive pair of events of a same type and returns a list of transformed  instances")
    (:id 12))
   (:comment
-   (:x 618)
-   (:y 186)
+   (:x 610)
+   (:y 194)
    (:w 183)
    (:h 41)
    (:fgcolor (:color 0 0 0 1.0))
@@ -1708,7 +1695,7 @@ This process can be applied on FOFs and F0s")
     (:output (:name "X-POINTS") (:reactive nil))
     (:output (:name "Y-POINTS") (:reactive nil))
     (:output (:name "decimals") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -2214,6 +2201,7 @@ This process can be applied on FOFs and F0s")
          3.6
          3.61
          3.62
+         3.62
          3.63
          3.63
          3.64
@@ -2238,7 +2226,6 @@ This process can be applied on FOFs and F0s")
          3.73
          3.74
          3.74
-         3.75
          3.75
          3.76
          3.76
@@ -2263,6 +2250,7 @@ This process can be applied on FOFs and F0s")
          3.86
          3.87
          3.88
+         3.88
          3.89
          3.9
          3.91
@@ -2272,75 +2260,74 @@ This process can be applied on FOFs and F0s")
          3.95
          3.96
          3.97
-         3.98
          3.99
-         4.0
+         3.99
          4.01
-         4.02
+         4.01
          4.03
-         4.04
+         4.03
          4.05
-         4.06
+         4.05
          4.07
-         4.08
+         4.07
          4.09
-         4.1
+         4.09
+         4.11
          4.11
          4.12
-         4.12
+         4.14
          4.14
          4.15
          4.16
-         4.17
          4.18
-         4.19
+         4.18
          4.2
-         4.21
+         4.2
          4.22
-         4.23
+         4.22
          4.24
-         4.25
+         4.24
          4.26
-         4.27
+         4.26
          4.28
-         4.29
+         4.28
          4.3
-         4.31
+         4.3
          4.32
-         4.33
+         4.32
          4.34
          4.35
          4.36
-         4.37
+         4.36
          4.38
+         4.39
          4.39
          4.4
          4.41
-         4.42
          4.43
-         4.44
+         4.43
          4.45
-         4.46
+         4.45
          4.47
-         4.48
+         4.47
+         4.49
          4.49
          4.5
-         4.5
+         4.51
          4.51
          4.51
          4.52
-         4.52
+         4.53
          4.53
          4.53
          4.54
-         4.54
+         4.55
          4.55
          4.55
          4.56
-         4.56
          4.57
          4.57
-         4.58
+         4.57
          4.58
          4.59
          4.59
@@ -2348,49 +2335,49 @@ This process can be applied on FOFs and F0s")
          4.6
          4.61
          4.61
-         4.62
+         4.61
          4.62
          4.62
          4.63
          4.64
          4.64
+         4.64
          4.65
          4.65
-         4.66
          4.66
          4.66
          4.67
          4.68
          4.68
-         4.69
+         4.68
          4.69
          4.7
          4.7
-         4.71
+         4.7
          4.71
          4.72
          4.72
-         4.73
+         4.72
          4.73
          4.74
          4.74
-         4.75
+         4.74
          4.75
          4.76
          4.76
-         4.77
+         4.76
          4.77
          4.78
          4.78
-         4.79
+         4.78
          4.79
          4.8
          4.8
-         4.81
+         4.8
          4.81
          4.82
          4.82
-         4.83
+         4.82
          4.83
          4.84
          4.84
@@ -2398,15 +2385,15 @@ This process can be applied on FOFs and F0s")
          4.85
          4.86
          4.86
-         4.87
+         4.86
          4.87
          4.88
          4.88
          4.89
          4.89
+         4.89
          4.9
          4.9
-         4.91
          4.91
          4.91
          4.92
@@ -3503,7 +3490,7 @@ This process can be applied on FOFs and F0s")
      (:add-slots
       ((:decimals 2)
        (:color (:color 0.0 0.0 0.0 1.0))
-       (:name "BPF 3")
+       (:name "BPF")
        (:action nil)
        (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
    (:id 17))
@@ -3627,10 +3614,152 @@ This process can be applied on FOFs and F0s")
      (:name "OMLOOP")
      (:doc "")
      (:info (:created nil) (:modified nil))
-     (:window (:size (714 689)) (:position (948 303)))
+     (:window (:size (714 689)) (:position (1087 716)))
      (:grid nil)
      (:lock nil)
      (:boxes
+      (:box
+       (:reference
+        (:in (:type omin) (:index 1) (:name "freqs") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "freqs")
+       (:x 29)
+       (:y 42)
+       (:w 49)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 0))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "F0s") (:index 1) (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "F0s")
+       (:x 358)
+       (:y 471)
+       (:w 68)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 1))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 2) (:name "onsets") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "onsets")
+       (:x 294)
+       (:y 118)
+       (:w 57)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 2))
+      (:box
+       (:reference
+        (:out (:type omout) (:name "FOFs") (:index 2) (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "FOFs")
+       (:x 495)
+       (:y 466)
+       (:w 68)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs
+        (:input
+         (:type :standard)
+         (:name "out-value")
+         (:value nil)
+         (:reactive nil)))
+       (:outputs)
+       (:id 3))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 3) (:name "durs") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "durs")
+       (:x 370)
+       (:y 109)
+       (:w 45)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 4))
+      (:box
+       (:reference
+        (:in (:type omin) (:index 4) (:name "vowels") (:doc "")))
+       (:type :io)
+       (:group-id nil)
+       (:name "vowels")
+       (:x 526)
+       (:y 141)
+       (:w 59)
+       (:h 42)
+       (:color
+        (:color-or-nil
+         (:color (:color 1.0 1.0 1.0 0.0))
+         (:t-or-nil t)))
+       (:border 0)
+       (:roundness 0)
+       (:text-font nil)
+       (:align :center)
+       (:icon :top)
+       (:inputs)
+       (:outputs (:output (:name "out") (:reactive nil)))
+       (:id 5))
       (:box
        (:reference
         (:object
@@ -3672,7 +3801,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "collect") (:reactive nil))
         (:output (:name "data-out") (:reactive nil))
         (:output (:name "init") (:reactive nil)))
-       (:id 0))
+       (:id 6))
       (:box
        (:reference length)
        (:type :function)
@@ -3696,7 +3825,7 @@ This process can be applied on FOFs and F0s")
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 1))
+       (:id 7))
       (:comment
        (:x 4)
        (:y 320)
@@ -3711,7 +3840,7 @@ This process can be applied on FOFs and F0s")
        (:align nil)
        (:text
         "Generate a CH-FOF and a CH-F0 for each note in the CHORD-SEQ")
-       (:id 2))
+       (:id 8))
       (:box
        (:library "OM-Chant")
        (:reference ch-fof)
@@ -3789,7 +3918,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "freq") (:reactive nil))
         (:output (:name "amp") (:reactive nil))
         (:output (:name "bw") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -3804,7 +3933,7 @@ This process can be applied on FOFs and F0s")
            (:user-fun nil)
            (:action-time 0)))
          (:add-slots ((:data nil)))))
-       (:id 3))
+       (:id 9))
       (:box
        (:library "OM-Chant")
        (:reference vowel-formants)
@@ -3838,7 +3967,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "out1") (:reactive nil))
         (:output (:name "out2") (:reactive nil))
         (:output (:name "out3") (:reactive nil)))
-       (:id 4))
+       (:id 10))
       (:box
        (:reference bpf)
        (:type :object)
@@ -3886,7 +4015,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "X-POINTS") (:reactive nil))
         (:output (:name "Y-POINTS") (:reactive nil))
         (:output (:name "decimals") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -3903,11 +4032,11 @@ This process can be applied on FOFs and F0s")
          (:add-slots
           ((:decimals 4)
            (:color (:color 0 0 0 1.0))
-           (:name nil)
+           (:name "BPF")
            (:action nil)
            (:interpol
             (:number-or-nil (:number 50) (:t-or-nil nil)))))))
-       (:id 5))
+       (:id 11))
       (:box
        (:reference bpf)
        (:type :object)
@@ -3955,7 +4084,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "X-POINTS") (:reactive nil))
         (:output (:name "Y-POINTS") (:reactive nil))
         (:output (:name "decimals") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
@@ -3972,11 +4101,11 @@ This process can be applied on FOFs and F0s")
          (:add-slots
           ((:decimals 3)
            (:color (:color 0 0 0 1.0))
-           (:name nil)
+           (:name "BPF")
            (:action nil)
            (:interpol
             (:number-or-nil (:number 50) (:t-or-nil nil)))))))
-       (:id 6))
+       (:id 12))
       (:box
        (:library "OM-Chant")
        (:reference ch-f0)
@@ -4024,13 +4153,13 @@ This process can be applied on FOFs and F0s")
         (:output (:name "ACTION-TIME") (:reactive nil))
         (:output (:name "DUR") (:reactive nil))
         (:output (:name "F0") (:reactive nil)))
-       (:window (:size nil) (:position nil))
+       (:window (:size (nil nil)) (:position (nil nil)))
        (:edition-params)
        (:value
         (:object
          (:class ch-f0)
          (:slots ((:onset 0) (:action-time 0) (:dur 0) (:f0 110.0)))))
-       (:id 7))
+       (:id 13))
       (:box
        (:reference
         (:object
@@ -4072,7 +4201,7 @@ This process can be applied on FOFs and F0s")
         (:output (:name "collect") (:reactive nil))
         (:output (:name "data-out") (:reactive nil))
         (:output (:name "init") (:reactive nil)))
-       (:id 8))
+       (:id 14))
       (:box
        (:reference param-process)
        (:type :function)
@@ -4116,7 +4245,7 @@ This process can be applied on FOFs and F0s")
          (:value a)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 9))
+       (:id 15))
       (:box
        (:reference vibrato)
        (:type :function)
@@ -4145,7 +4274,7 @@ This process can be applied on FOFs and F0s")
          (:value 0.06)
          (:reactive nil)))
        (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 10))
+       (:id 16))
       (:box
        (:reference
         (:object
@@ -4183,7 +4312,7 @@ This process can be applied on FOFs and F0s")
          (:value nil)
          (:reactive nil)))
        (:outputs)
-       (:id 11))
+       (:id 17))
       (:box
        (:reference
         (:object
@@ -4216,7 +4345,7 @@ This process can be applied on FOFs and F0s")
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 12))
+       (:id 18))
       (:box
        (:reference
         (:object
@@ -4249,7 +4378,7 @@ This process can be applied on FOFs and F0s")
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 13))
+       (:id 19))
       (:box
        (:reference
         (:object
@@ -4282,7 +4411,7 @@ This process can be applied on FOFs and F0s")
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 14))
+       (:id 20))
       (:box
        (:reference
         (:object
@@ -4315,249 +4444,107 @@ This process can be applied on FOFs and F0s")
          (:value nil)
          (:reactive nil)))
        (:outputs (:output (:name "i") (:reactive nil)))
-       (:id 15))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 1) (:name "freqs") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "freqs")
-       (:x 29)
-       (:y 42)
-       (:w 49)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 16))
-      (:box
-       (:reference
-        (:out (:type omout) (:name "F0s") (:index 1) (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "F0s")
-       (:x 358)
-       (:y 471)
-       (:w 68)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
-       (:id 17))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 2) (:name "onsets") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "onsets")
-       (:x 294)
-       (:y 118)
-       (:w 57)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 18))
-      (:box
-       (:reference
-        (:out (:type omout) (:name "FOFs") (:index 2) (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "FOFs")
-       (:x 495)
-       (:y 466)
-       (:w 68)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs
-        (:input
-         (:type :standard)
-         (:name "out-value")
-         (:value nil)
-         (:reactive nil)))
-       (:outputs)
-       (:id 19))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 3) (:name "durs") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "durs")
-       (:x 370)
-       (:y 109)
-       (:w 45)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
-       (:id 20))
-      (:box
-       (:reference
-        (:in (:type omin) (:index 4) (:name "vowels") (:doc "")))
-       (:type :io)
-       (:group-id nil)
-       (:name "vowels")
-       (:x 526)
-       (:y 141)
-       (:w 59)
-       (:h 42)
-       (:color
-        (:color-or-nil
-         (:color (:color 1.0 1.0 1.0 0.0))
-         (:t-or-nil t)))
-       (:border 0)
-       (:roundness 0)
-       (:text-font nil)
-       (:align :center)
-       (:icon :top)
-       (:inputs)
-       (:outputs (:output (:name "out") (:reactive nil)))
        (:id 21)))
      (:connections
       (:connection
        (:from (:box 0 :out 0))
-       (:to (:box 11 :in 1))
+       (:to (:box 21 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
-       (:from (:box 0 :out 1))
-       (:to (:box 19 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 1 :out 0))
-       (:to (:box 3 :in 1))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 3 :out 0))
-       (:to (:box 0 :in 0))
+       (:from (:box 2 :out 0))
+       (:to (:box 20 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 4 :out 0))
-       (:to (:box 1 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 4 :out 1))
-       (:to (:box 3 :in 6))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 4 :out 2))
-       (:to (:box 3 :in 7))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 4 :out 3))
-       (:to (:box 3 :in 8))
+       (:to (:box 19 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 5 :out 0))
-       (:to (:box 10 :in 1))
+       (:to (:box 18 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 6 :out 0))
-       (:to (:box 10 :in 0))
+       (:to (:box 17 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 6 :out 1))
+       (:to (:box 3 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 7 :out 0))
-       (:to (:box 8 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 8 :out 0))
-       (:to (:box 11 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 8 :out 1))
-       (:to (:box 17 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 9 :out 0))
-       (:to (:box 7 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 10 :out 0))
        (:to (:box 9 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
+       (:from (:box 9 :out 0))
+       (:to (:box 6 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 0))
+       (:to (:box 7 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 1))
+       (:to (:box 9 :in 6))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 2))
+       (:to (:box 9 :in 7))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 10 :out 3))
+       (:to (:box 9 :in 8))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 11 :out 0))
+       (:to (:box 16 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
        (:from (:box 12 :out 0))
-       (:to (:box 4 :in 0))
+       (:to (:box 16 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 13 :out 0))
-       (:to (:box 3 :in 3))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 13 :out 0))
-       (:to (:box 9 :in 2))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 14 :out 0))
-       (:to (:box 3 :in 2))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 14 :out 0))
-       (:to (:box 7 :in 1))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 15 :out 0))
-       (:to (:box 9 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 16 :out 0))
-       (:to (:box 15 :in 0))
-       (:attributes (:color nil :style nil :modif nil)))
-      (:connection
-       (:from (:box 18 :out 0))
        (:to (:box 14 :in 0))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
+       (:from (:box 14 :out 0))
+       (:to (:box 17 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 14 :out 1))
+       (:to (:box 1 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 15 :out 0))
+       (:to (:box 13 :in 3))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 16 :out 0))
+       (:to (:box 15 :in 1))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 18 :out 0))
+       (:to (:box 10 :in 0))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 19 :out 0))
+       (:to (:box 9 :in 3))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 19 :out 0))
+       (:to (:box 15 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
        (:from (:box 20 :out 0))
-       (:to (:box 13 :in 0))
+       (:to (:box 9 :in 2))
+       (:attributes (:color nil :style nil :modif nil)))
+      (:connection
+       (:from (:box 20 :out 0))
+       (:to (:box 13 :in 1))
        (:attributes (:color nil :style nil :modif nil)))
       (:connection
        (:from (:box 21 :out 0))
-       (:to (:box 12 :in 0))
+       (:to (:box 15 :in 0))
        (:attributes (:color nil :style nil :modif nil))))))
    (:type :patch)
    (:group-id nil)
@@ -4692,7 +4679,7 @@ This process can be applied on FOFs and F0s")
     (:output (:name "loffset") (:reactive nil))
     (:output (:name "lchan") (:reactive nil))
     (:output (:name "llegato") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -4810,7 +4797,7 @@ This process can be applied on FOFs and F0s")
    (:type :value)
    (:group-id nil)
    (:name "aux 4")
-   (:x 107)
+   (:x 108)
    (:y 404)
    (:w 27)
    (:h 30)
@@ -4852,7 +4839,7 @@ This process can be applied on FOFs and F0s")
      (:value nil)
      (:reactive nil)))
    (:outputs (:output (:name "SELF") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (736 500)) (:position (157 461)))
    (:edition-params)
    (:value
     (:object
@@ -4863,7 +4850,7 @@ This process can be applied on FOFs and F0s")
         (:pathname
          (:directory (:absolute "Users" "bresson" "OM" "temp-files"))
          (:device :unspecific)
-         (:host :unspecific)
+         (:host nil)
          (:name "my-synth")
          (:type "sdif")))))))
    (:id 28))
@@ -4920,7 +4907,7 @@ This process can be applied on FOFs and F0s")
      (:value nil)
      (:reactive nil)))
    (:outputs (:output (:name "SELF") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -4932,30 +4919,17 @@ This process can be applied on FOFs and F0s")
        (:default-frame-type marker-frame)
        (:frames nil)
        (:buffer nil)
-       (:n-samples 303409)
-       (:n-channels 1)
-       (:sample-rate 44100)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
        (:smpl-type :float)
        (:sample-size 16)))
      (:add-slots
       ((:markers nil)
-       (:file-pathname
-        (:pathname
-         (:directory
-          (:absolute
-           "Users"
-           "bresson"
-           "_SHARED-FILES"
-           "WORKSPACES"
-           "my-workspace"
-           "out-files"))
-         (:device nil)
-         (:host nil)
-         (:name "ch_31-ch-transitions-1_notrans")
-         (:type "aiff")))
-       (:sample-rate 44100)
-       (:n-channels 1)
-       (:n-samples 303409)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
        (:gain 1.0)
        (:access-from-file nil)))))
    (:id 30))
@@ -4998,10 +4972,6 @@ This process can be applied on FOFs and F0s")
    (:to (:box 5 :in 1))
    (:attributes (:color nil :style nil :modif nil)))
   (:connection
-   (:from (:box 5 :out 0))
-   (:to (:box 14 :in 1))
-   (:attributes (:color nil :style nil :modif nil)))
-  (:connection
    (:from (:box 8 :out 0))
    (:to (:box 9 :in 0))
    (:attributes (:color nil :style nil :modif nil)))
@@ -5010,16 +4980,20 @@ This process can be applied on FOFs and F0s")
    (:to (:box 8 :in 0))
    (:attributes (:color nil :style nil :modif nil)))
   (:connection
+   (:from (:box 11 :out 0))
+   (:to (:box 14 :in 1))
+   (:attributes (:color nil :style nil :modif nil)))
+  (:connection
    (:from (:box 14 :out 0))
    (:to (:box 10 :in 1))
    (:attributes (:color nil :style nil :modif nil)))
   (:connection
    (:from (:box 15 :out 0))
-   (:to (:box 29 :in 0))
+   (:to (:box 31 :in 0))
    (:attributes (:color nil :style nil :modif nil)))
   (:connection
    (:from (:box 15 :out 0))
-   (:to (:box 31 :in 0))
+   (:to (:box 29 :in 0))
    (:attributes (:color nil :style nil :modif nil)))
   (:connection
    (:from (:box 16 :out 0))

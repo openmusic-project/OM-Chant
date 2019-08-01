@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/07/31 17:10:19")
-  (:modified "2019/07/31 17:14:52"))
+  (:modified "2019/08/01 10:55:50"))
  (:window (:size (821 891)) (:position (100 92)))
  (:grid nil)
  (:lock nil)
@@ -136,7 +136,7 @@
     (:output (:name "X-POINTS") (:reactive nil))
     (:output (:name "Y-POINTS") (:reactive nil))
     (:output (:name "decimals") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -153,7 +153,7 @@
      (:add-slots
       ((:decimals 0)
        (:color (:color 0 0 0 1.0))
-       (:name nil)
+       (:name "BPF")
        (:action nil)
        (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
    (:id 4))
@@ -228,7 +228,7 @@
     (:output (:name "X-POINTS") (:reactive nil))
     (:output (:name "Y-POINTS") (:reactive nil))
     (:output (:name "decimals") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -245,7 +245,7 @@
      (:add-slots
       ((:decimals 0)
        (:color (:color 0 0 0 1.0))
-       (:name nil)
+       (:name "BPF")
        (:action nil)
        (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
    (:id 6))
@@ -396,9 +396,9 @@
    (:type :value)
    (:group-id nil)
    (:name "aux 6")
-   (:x 290)
+   (:x 308)
    (:y 509)
-   (:w 209)
+   (:w 185)
    (:h 30)
    (:color
     (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
@@ -458,7 +458,7 @@
     (:output (:name "X-POINTS") (:reactive nil))
     (:output (:name "Y-POINTS") (:reactive nil))
     (:output (:name "decimals") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -475,7 +475,7 @@
      (:add-slots
       ((:decimals 0)
        (:color (:color 0 0 0 1.0))
-       (:name nil)
+       (:name "BPF")
        (:action nil)
        (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
    (:id 15))
@@ -550,7 +550,7 @@
     (:output (:name "X-POINTS") (:reactive nil))
     (:output (:name "Y-POINTS") (:reactive nil))
     (:output (:name "decimals") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -567,7 +567,7 @@
      (:add-slots
       ((:decimals 0)
        (:color (:color 0 0 0 1.0))
-       (:name nil)
+       (:name "BPF")
        (:action nil)
        (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))))))
    (:id 17))
@@ -675,7 +675,7 @@
     (:output (:name "ACTION-TIME") (:reactive nil))
     (:output (:name "DUR") (:reactive nil))
     (:output (:name "F0") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -689,7 +689,7 @@
          (:class bpf)
          (:slots
           ((:onset 0)
-           (:duration 0)
+           (:duration 5.0)
            (:interpol (:number-or-nil (:number 50) (:t-or-nil nil)))
            (:action nil)
            (:color (:color 0.0 0.0 0.0 1.0))
@@ -1743,7 +1743,7 @@
    (:outputs
     (:output (:name "SELF") (:reactive nil))
     (:output (:name "markers") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -1755,30 +1755,17 @@
        (:default-frame-type marker-frame)
        (:frames nil)
        (:buffer nil)
-       (:n-samples 220501)
-       (:n-channels 4)
-       (:sample-rate 44100)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
        (:smpl-type :float)
        (:sample-size 16)))
      (:add-slots
       ((:markers nil)
-       (:file-pathname
-        (:pathname
-         (:directory
-          (:absolute
-           "Users"
-           "bresson"
-           "_SHARED-FILES"
-           "WORKSPACES"
-           "my-workspace"
-           "out-files"))
-         (:device nil)
-         (:host nil)
-         (:name "ch_24-channels-continuous_4ch")
-         (:type "aiff")))
-       (:sample-rate 44100)
-       (:n-channels 4)
-       (:n-samples 220501)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
        (:gain 1.0)
        (:access-from-file nil)))))
    (:id 22))
@@ -1892,7 +1879,7 @@
     (:output (:name "channel2") (:reactive nil))
     (:output (:name "channel3") (:reactive nil))
     (:output (:name "channel4") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object

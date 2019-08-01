@@ -5,7 +5,7 @@
  (:doc "")
  (:info
   (:created "2019/07/31 15:46:36")
-  (:modified "2019/07/31 15:48:29"))
+  (:modified "2019/08/01 15:31:39"))
  (:window (:size (806 584)) (:position (142 138)))
  (:grid nil)
  (:lock nil)
@@ -105,14 +105,7 @@
     (:object
      (:class sdiffile)
      (:slots nil)
-     (:add-slots
-      ((:file-pathname
-        (:pathname
-         (:directory (:absolute "Users" "bresson" "OM" "temp-files"))
-         (:device :unspecific)
-         (:host :unspecific)
-         (:name "ch_12a-fadeinout-f0")
-         (:type "sdif")))))))
+     (:add-slots ((:file-pathname nil)))))
    (:id 3))
   (:box
    (:reference null)
@@ -300,7 +293,7 @@
     (:output (:name "freq") (:reactive nil))
     (:output (:name "amp") (:reactive nil))
     (:output (:name "bw") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -393,7 +386,7 @@
    (:type :object)
    (:group-id nil)
    (:name "ch_12a-fadeinout.aiff")
-   (:x 198)
+   (:x 182)
    (:y 464)
    (:w 295)
    (:h 81)
@@ -414,16 +407,9 @@
      (:type :standard)
      (:name "SELF")
      (:value nil)
-     (:reactive nil))
-    (:input
-     (:type :key)
-     (:name "markers")
-     (:value nil)
      (:reactive nil)))
-   (:outputs
-    (:output (:name "SELF") (:reactive nil))
-    (:output (:name "markers") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:outputs (:output (:name "SELF") (:reactive nil)))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -435,30 +421,17 @@
        (:default-frame-type marker-frame)
        (:frames nil)
        (:buffer nil)
-       (:n-samples 176401)
-       (:n-channels 1)
-       (:sample-rate 44100)
+       (:n-samples nil)
+       (:n-channels nil)
+       (:sample-rate nil)
        (:smpl-type :float)
        (:sample-size 16)))
      (:add-slots
       ((:markers nil)
-       (:file-pathname
-        (:pathname
-         (:directory
-          (:absolute
-           "Users"
-           "bresson"
-           "_SHARED-FILES"
-           "WORKSPACES"
-           "my-workspace"
-           "out-files"))
-         (:device nil)
-         (:host nil)
-         (:name "ch_12a-fadeinout-f0")
-         (:type "aiff")))
-       (:sample-rate 44100)
-       (:n-channels 1)
-       (:n-samples 176401)
+       (:file-pathname nil)
+       (:sample-rate nil)
+       (:n-channels nil)
+       (:n-samples nil)
        (:gain 1.0)
        (:access-from-file nil)))))
    (:id 13))
@@ -648,7 +621,7 @@
     (:output (:name "ACTION-TIME") (:reactive nil))
     (:output (:name "DUR") (:reactive nil))
     (:output (:name "F0") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -702,7 +675,7 @@
     (:output (:name "ACTION-TIME") (:reactive nil))
     (:output (:name "DUR") (:reactive nil))
     (:output (:name "F0") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
@@ -890,7 +863,7 @@
     (:output (:name "ACTION-TIME") (:reactive nil))
     (:output (:name "DUR") (:reactive nil))
     (:output (:name "F0") (:reactive nil)))
-   (:window (:size nil) (:position nil))
+   (:window (:size (nil nil)) (:position (nil nil)))
    (:edition-params)
    (:value
     (:object
