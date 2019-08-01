@@ -28,7 +28,7 @@
 			      "chant-evts-om6"
 			      "transitions"
 			      "transition-viewer"
-			      "morphing"
+			      "morphing-om6"
                               "chant-maquette"
                               ))
 

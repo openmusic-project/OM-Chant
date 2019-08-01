@@ -43,7 +43,7 @@ OM-CHANT also provides higher-level control structures under the form of matrice
  "sources/impulse"
  "sources/chant-evts-om7"
  "sources/transitions"
- ;"sources/morphing"
+ "sources/morphing-om7"
  ;"sources/chant-maquette"
  )
 

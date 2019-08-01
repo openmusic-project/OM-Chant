@@ -1105,8 +1105,10 @@ All non-specified transitions are linear.
                                                  (if (bpf-p v2) (car (y-points v2)) v2)
                                                  nil ;;; HERE WILL BE STORED THE RESULT OF THE RULE
                                                  ))))
-                       (print (format nil "RULE(S) for ~A:" (string slot)))
-                       (loop for r in slotrules do (print r))
+                       (when slotrules
+                         (print (format nil "RULE(S) for ~A:" (string slot)))
+                         (loop for r in slotrules do (print r)))
+
                        ;;; at this point slotvals = ((f1a f1b) (f2a f2b) ...)
                        (loop for slotrule in slotrules do
                              (if (listp (car slotrule)) ;;; Ex. ((:freq 2) ...) 

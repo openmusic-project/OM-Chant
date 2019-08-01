@@ -1203,7 +1203,6 @@ All non-specified transitions are linear.
                                                                   (= (ftime f1) (ftime f2))
                                                                   (string-equal (matrixtype (car (lmatrix f1))) (matrixtype (car (lmatrix f2))))
                                                                   )))))
-                   ;(when (= 1.6 (ftime fr)) (print (signature (car (lmatrix fr)))))
                    (when duplicate 
                      (om-beep-msg (format nil "WARNING: duplicate time for ~A at ~D" (matrixtype (car (lmatrix fr))) (ftime fr)))
                      ;(print (list (ftime fr) (signature (car (lmatrix fr))) (signature (car (lmatrix duplicate)))))

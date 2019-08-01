@@ -350,7 +350,10 @@ The morphing profiles are represented by BPFs.
 The y-values of each BPF define the 'morphing coefficient'.
 The BPFs will be rescaled, thus there are no constraints concerning the values, which will be normalized."
 
-  (let* ((ctrl (if sr (if (integerp sr) sr (round (/ dur sr))) 50)) ;; contrainte : nombre pair ! (division par deux ci-dessous)
+  (let* ((dur (- (abs (- (action-time (car (last fofs))) 
+                         (+ (action-time (car fofs)) (event-dur (car fofs)))))
+                 (* 2 *min-delta-frames*)))
+         (ctrl (if sr (if (integerp sr) sr (round (/ dur sr))) 50)) ;; contrainte : nombre pair ! (division par deux ci-dessous)
          (bpf1 (bpf-scale (first morph-prof) :y1 0 :y2 1))
          (bpf2 (bpf-scale (second morph-prof) :y1 0 :y2 1))
          (morph2D (third (multiple-value-list (om-sample bpf1 ctrl))))
@@ -447,7 +450,6 @@ The BPFs will be rescaled, thus there are no constraints concerning the values, 
     ))
 
 
-
 (defmethod! fof-morph ((fofs list) (morph-prof bpf) &optional sr)
-   (fof-morph fofs (list morph-prof morph-prof)))
+  (fof-morph fofs (list morph-prof morph-prof)))
 
