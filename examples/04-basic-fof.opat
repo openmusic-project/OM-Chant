@@ -5,8 +5,8 @@
  (:doc "")
  (:info
   (:created "2019/07/31 13:09:19")
-  (:modified "2019/07/31 15:34:53"))
- (:window (:size (699 700)) (:position (323 166)))
+  (:modified "2019/08/01 16:30:30"))
+ (:window (:size (699 700)) (:position (846 119)))
  (:grid nil)
  (:lock nil)
  (:boxes
@@ -250,7 +250,7 @@
    (:name "aux 6")
    (:x 420)
    (:y 433)
-   (:w 137)
+   (:w 98)
    (:h 30)
    (:color
     (:color-or-nil (:color (:color 1.0 1.0 1.0 1.0)) (:t-or-nil t)))
@@ -261,7 +261,7 @@
    (:lock nil)
    (:inputs)
    (:outputs (:output (:name "value") (:reactive nil)))
-   (:value "ch_04-basic-fof.aiff")
+   (:value "ch_04-basic-fof")
    (:id 14))
   (:box
    (:reference fixnum)
