@@ -44,7 +44,7 @@
 (defun om-make-sdifmatrix (type data)
   (om-init-instance 
    (make-instance 'sdifmatrix :matrixtype type 
-                  :elts (length data)
+                  ;; :elts (length data)
                   :data (mat-trans data))))
 
 #-om7
