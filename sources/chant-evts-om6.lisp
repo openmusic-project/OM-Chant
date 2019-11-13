@@ -123,6 +123,8 @@ Note that CH-F0 MUST BE USED ALONG WITH AT LEAST ONE CH-FOF OBJECT, which determ
 (defmethod continuous-event-p ((self Ch-F0))
   (bpf-p (f0 self)))
 
+(defmethod fixed-slots-list ((self Ch-F0)) '(action-time dur f0))
+
 
 (defmethod evt-to-sdif ((self Ch-F0))
   ;(let ((duree (* 1000 (dur self)))) ; (extent->ms self)
@@ -227,6 +229,8 @@ Represents the evolution of the noise amplitude during the interval determined b
 
 (defmethod noi-p ((self ch-noise)) t)
 (defmethod noi-p ((self t)) nil)
+
+(defmethod fixed-slots-list ((self ch-noise)) '(action-time dur amp))
 
 
 (defmethod event-dur ((self ch-noise))
