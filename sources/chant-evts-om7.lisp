@@ -1205,7 +1205,6 @@ All non-specified transitions are linear.
                                                                   )))))
                    (when duplicate 
                      (om-beep-msg (format nil "WARNING: duplicate time for ~A at ~D" (matrixtype (car (lmatrix fr))) (ftime fr)))
-                     ;(print (list (ftime fr) (signature (car (lmatrix fr))) (signature (car (lmatrix duplicate)))))
                      (setf (ftime fr) (+ (ftime fr) *min-delta-frames*)))
                    (setf newlist (append newlist (list fr)))))
         newlist)
@@ -1246,15 +1245,9 @@ All non-specified transitions are linear.
    (remove-if 'null (loop for object in self collect (collect-chant-events object num))))
 
 
-;; A utiliser avec les objets identifiés, juste avant l'envoi à synthesize
-;; renvoie les fofs et les f0s
-;; trie les elements entrants, et élimine les doublons
-
-;(let ((list '("a" "b" "c" "d" "ca" "bc")))
-;  (remove-if #'(lambda (x) 
-;                 (find x list :test #'(lambda (x y) (and (search x y) (not (string-equal x y)))))
-;                 ) list))
-
+;; Call this with identified objects, before to send to synthesize
+;; Returns FOFs and F0s
+;; sorts input items, removes duplicates.
 (defmethod filter-ch-ids ((elts list))
   (let* ((fofs nil) (f0s nil) (others nil))
     (loop for elt in elts do
