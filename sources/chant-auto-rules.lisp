@@ -76,7 +76,7 @@ The result is a list of calculated formant bandwidths.
 The result will be a list of list of bandwidth.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) ('atb' flag) and in the chant_autobw object for Max by F. Iovino and, G. Eckel (1994).
-Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
+Documentation adapted from the CHANT manual, P.-F. BaisnÃ©e and the Chant group, 1985.
 "
     
     (cond ((listp (car freqlist))
@@ -168,7 +168,7 @@ The result is a list of calculated formant amplitudes.
 The result will be a list of lists of amplitudes or of BPFs.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) ('ata' flag) and in the chant_autoamp object for Max by F. Iovino and, G. Eckel (1994).
-Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
+Documentation adapted from the CHANT manual, P.-F. BaisnÃ©e and the Chant group, 1985.
 "
    (cond 
     ((and (bpf-p (car freqlist)) (bpf-p (car bwlist)))
@@ -251,7 +251,7 @@ The result is a list with (<frcomp> calculated-amplitude <bwcomp>)
 Note: the amplitude is computed following the rules in AUTOAMP.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) ('atc' flag) and in the chant_fcomp object for Max by F. Iovino and, G. Eckel (1994).
-Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
+Documentation adapted from the CHANT manual, P.-F. BaisnÃ©e and the Chant group, 1985.
 "
    (let* ((Ind (GetIndex frcomp))
           (chp (InitChp))
@@ -336,7 +336,7 @@ Notes:
 2) a1 a2 and a3 are the element of parameter <ajus> corresponding to standard CHANT parmeters.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) and in the chant_cslope object for Max by F. Iovino and, G. Eckel (1994).
-Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
+Documentation adapted from the CHANT manual, P.-F. BaisnÃ©e and the Chant group, 1985.
 "
    
    (let* ((epsilon 0.00000001)
@@ -382,7 +382,7 @@ The result is a list of calculated formant frequencies.
 Note : only the first and second frequencies are modified.
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) and in the chant_autobend object for Max by F. Iovino and, G. Eckel (1994).
-Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
+Documentation adapted from the CHANT manual, P.-F. BaisnÃ©e and the Chant group, 1985.
 "
    (let* ((freqlist (if (listp (car lfreqs)) (extract-freqlist lfreqs) lfreqs))
           (bendfreqs (copy-list freqlist)))
@@ -455,7 +455,7 @@ When the formants have different bandwidths and skirt-widths (skirt-width is dir
 
 
 This function is adapted from the original CHANT rules as implemented in CHANT by X. Rodet and Y. Potard (1984) and in the chant_spcor object for Max by F. Iovino and, G. Eckel (1994).
-Documentation adapted from the CHANT manual, P.-F. Baisnée and the Chant group, 1985.
+Documentation adapted from the CHANT manual, P.-F. BaisnÃ©e and the Chant group, 1985.
 "
    
      (loop for amp in amplist 
