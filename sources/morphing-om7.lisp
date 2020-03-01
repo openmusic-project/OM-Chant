@@ -48,7 +48,7 @@ Add/remove kewords with k/K and name them after the parameter(s) to which the tr
    ))
 
 
-;;trouver l'entrée correspondante à la clef 'phon' dans dico, renvoyer les trajectoires
+;;trouver l'entrÃ©e correspondante Ã  la clef 'phon' dans dico, renvoyer les trajectoires
 (defmethod! find-phoneme ((phon string) (dico list))
             :indoc '("phoneme symbol or list" "dictionnary")
             :doc "Finds entries in a trajectories dictionnary.
@@ -74,7 +74,7 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
      (cadr (find phon dic :key 'car :test 'string-equal))))
 
 
-;;idem, mais morphe deux phonemes entrés (liste : phon1 phon2 coeff-morph)
+;;idem, mais morphe deux phonemes entrÃ©s (liste : phon1 phon2 coeff-morph)
 (defmethod! find-phoneme ((phon list) (dico list))
   (let* ((ctrl 50)
          (phon1 (first phon))
@@ -128,7 +128,7 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
 ;;; FOF MORPHING
 ;;;===================
 
-;; cree autant de bpfs que d'élements dans les listes y1 et y2, en réalisant les trajets y1
+;; cree autant de bpfs que d'Ã©lements dans les listes y1 et y2, en rÃ©alisant les trajets y1
 (defmethod! make-bpfs ((x-list list) (y1 list) (y2 list) (ctrl real))
     (loop for yy1 in y1
           for yy2 in y2 
@@ -139,7 +139,7 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
 
 ;;morphing d'une ou deux valeurs selon un profil (bpf)
 ;; ctrl : nombre de points de sampling
-;; renvoie une bpf ; on donne en entrée la liste des abscisses
+;; renvoie une bpf ; on donne en entrÃ©e la liste des abscisses
 (defmethod! morphed-val ((val1 bpf) (morph bpf) (ctrl real) (x-list list))
   (let* ((x-list (or x-list (third (multiple-value-list (om-sample (list 0 1) ctrl)))))
          (morph-vals (third (multiple-value-list (om-sample morph ctrl)))))
@@ -174,7 +174,7 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
     ))
 
 
-;; recupère les valeurs de slot d'abscisses situées entre start et end, et les ajoute à xs et ys. renvoie le résultat
+;; recupÃ¨re les valeurs de slot d'abscisses situÃ©es entre start et end, et les ajoute Ã  xs et ys. renvoie le rÃ©sultat
 (defmethod! append-vals ((slots list) (start float) (end float) (xss list) (yss list))
   (mat-trans
    
@@ -234,7 +234,7 @@ Each trajectory is defined by a BPF, which values will be multiplied with the fo
 ;;; MORPHING FUNCTIONS
 ;;;=========================
 
-;; crée le morphing entre a et b (listes de flottants ou de bpf!)
+;; crÃ©e le morphing entre a et b (listes de flottants ou de bpf!)
 (defmethod! inter-trans ((a list) (b list) (morph-curve bpf) (ctrl real))
   (loop for aa in a
         for bb in b collect
@@ -286,7 +286,7 @@ The transition follows individual profiles fro frequencies, amplitudes and bandw
 
 
 
-;; prend une liste de fof (ordonnée) et renvoie la liste des fof morphées (sans overlap)
+;; prend une liste de fof (ordonnÃ©e) et renvoie la liste des fof morphÃ©es (sans overlap)
 ;; 3D : (morph-profile list)
 (defmethod! fof-morph ((fofs list) (morph-prof list) &optional sr)
   :indoc '("list of FOF events to morph" "list of morphing profiles (one or two BPFs)")
@@ -327,7 +327,7 @@ The BPFs will be rescaled, thus there are no constraints concerning the values, 
          (yslots (list nil nil nil))
          (no-overlap nil)
          (tmp nil)
-         (epsilon 0.00002) ;; evite que deux points soient superposés dans les bpf
+         (epsilon 0.00002) ;; evite que deux points soient superposÃ©s dans les bpf
          (notfirstloop nil))
        
     (append
