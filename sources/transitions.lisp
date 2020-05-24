@@ -39,10 +39,10 @@
   (dur-inter :accessor dur-inter :initarg :dur-inter :initform nil))
  (:icon 668))
 
-#-om7
+#-om-sharp
 (defmethod spec-obj-icon-size ((self transition-info)) '(300 36))
 
-#+om7
+#+om-sharp
 (defun arglist (fun) (function-arg-list fun))
 
 

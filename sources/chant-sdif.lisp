@@ -20,15 +20,15 @@
 ;;;============================================================
 ;;; COMPAT: OM6 FUNCTIONS IN OM7
 ;;;============================================================
-#+om7
+#+om-sharp
 (defun write-sdif-types (file str)
   (sdif-write-types-string file str))
 
-#+om7
+#+om-sharp
 (defun write-1nvt-table (thefile namelist vallist)
   (sdif-write-nvt thefile (mapcar #'list namelist vallist)))
 
-#+om7
+#+om-sharp
 (defmethod save-sdif ((self sdifframe) fileptr)
   (sdif-write self fileptr))
 
@@ -40,14 +40,14 @@
 ;;; OM7 requires transposing the list
 ;;; OM6 requires flattening the list
 
-#+om7
+#+om-sharp
 (defun om-make-sdifmatrix (type data)
   (om-init-instance 
    (make-instance 'sdifmatrix :matrixtype type 
                   ;; :elts (length data)
                   :data (mat-trans data))))
 
-#-om7
+#-om-sharp
 (defun om-make-sdifmatrix (type data)
   (make-instance 'raw-sdifmatrix  
                  :signature type 
@@ -180,7 +180,7 @@ The output is the written file parthname (connect to an SDIFFILE object or to CH
                         (t nil))
                         ))
      (when outfile
-       (let ((thefile (sdif::sdif-open-file outfile #+om7 sdif::eWriteFile #-om7 :eWriteFile)))
+       (let ((thefile (sdif::sdif-open-file outfile #+om-sharp sdif::eWriteFile #-om-sharp :eWriteFile)))
          (sdif::SdifFWriteGeneralHeader thefile)
          (chant-write-sdif-NVT thefile dur channels sr)
          (chant-write-sdif-typedefs thefile channels)
