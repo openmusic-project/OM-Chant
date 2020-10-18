@@ -101,5 +101,5 @@ See the <a href=\"../OM-Chant-2.0-UserManual.pdf\">OM-Chant User Manual</a>
 ;;; 2.3 
 ;;; - fix audio format issues
 ;;; 3.0
-;;; - Compatibility OM7
+;;; - Compatibility OM#
 ;;; - Chant synth included

@@ -18,7 +18,7 @@
 (in-package :om)
 
 ;;;============================================================
-;;; COMPAT: OM6 FUNCTIONS IN OM7
+;;; COMPAT: OM6 FUNCTIONS IN OM#
 ;;;============================================================
 #+om-sharp
 (defun write-sdif-types (file str)
@@ -34,10 +34,10 @@
 
 
 ;;;============================================================
-;;; Compatibility function to generate SDIF matrices in OM6/OM7
+;;; Compatibility function to generate SDIF matrices in OM6/OM#
 ;;;============================================================
 ;;; Data is a list of SDIF components 
-;;; OM7 requires transposing the list
+;;; OM# requires transposing the list
 ;;; OM6 requires flattening the list
 
 #+om-sharp
