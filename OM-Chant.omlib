@@ -35,15 +35,15 @@ OM-CHANT also provides higher-level control structures under the form of matrice
 
 ;;; SOURCE FILES TO LOAD
 (:source-files
- "sources/om7-chant-prefs" 
+ "sources/omsharp-chant-prefs" 
  "sources/chant-sdif" 
  "sources/chant-synth"
  "sources/formants"
  "sources/chant-auto-rules"
  "sources/impulse"
- "sources/chant-evts-om7"
+ "sources/chant-evts-omsharp"
  "sources/transitions"
- "sources/morphing-om7"
+ "sources/morphing-omsharp"
  ;"sources/chant-maquette"
  )
 

@@ -11,7 +11,7 @@
 ;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 ;
 ;============================================================================
-;;; CHANT path / OM7 preferences
+;;; CHANT path / om# preferences
 ;;; Jean Bresson, IRCAM 2019
 ;;;===================================================
 
@@ -29,7 +29,7 @@
 ;(add-preference-section :externals "OM-Chant" nil '(:chant-path))
 ;(add-preference :externals :pm2-path "Chant exec" :file 'default-chant-path)
 
-;;; redefined form OM6/om7
+;;; redefined form OM6/om#
 
 (defun get-chant-exec-path ()
   ;(om::real-exec-pathname (om::get-pref-value :externals :chant-path))
