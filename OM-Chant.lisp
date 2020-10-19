@@ -69,12 +69,12 @@ See the <a href=\"../OM-Chant-2.0-UserManual.pdf\">OM-Chant User Manual</a>
 (unless (fboundp 'om::set-lib-release) (defmethod om::set-lib-release (version &optional lib) nil))
 
 
-(om::set-lib-release 3.0)
+(om::set-lib-release 3.1)
 
 
 (om::om-print "
 =======================================
- OM-CHANT 3.0 (c) IRCAM 2010-2019
+ OM-CHANT 3.1 (c) IRCAM 2010-2019
  Control of CHANT in OpenMusic
 =======================================
 ")

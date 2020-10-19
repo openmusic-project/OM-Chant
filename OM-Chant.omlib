@@ -16,7 +16,7 @@
 
 (:om-lib
  
- (:version 3.0)
+ (:version 3.1)
 
  (:doc "OM-CHANT is a library for the control of CHANT synthesis from OpenMusic.
 
