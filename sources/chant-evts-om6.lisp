@@ -248,7 +248,7 @@ Represents the evolution of the noise amplitude during the interval determined b
 
 
 (defmethod evt-to-sdif ((self ch-noise))
-  (let ((duree (* 1000 (ch-evt-duration self)))) ; (extent->ms self)
+  (let ((duree (* 1000 (ch-evt-duration self))))
     (cond ((numberp (amp self))
            (remove nil
                    (append 
@@ -396,20 +396,7 @@ Instanciates a sound file player in the interval determined by <action-time> and
          (setf (dur copy) ',(dur self))
          (setf (kt copy) ,(kt self)))
       copy))
-        
-;;; + 2 slots for duration and kr
-;(defmethod matrix-gen-code ((self arrayBox) (val chant-matrix-Evt))
-;   (let* ((params (decode self))
-;          (fixinputs (length (fixed-slots-list val)))
-;          (theval (if (connected? (first (inputs self)))
-;                    `(objFromObjs ,(gen-code (first (inputs self)) (second (inputs self))) ,val)
-;                   `(funcall 'cons-array ,val 
-;                             (list nil ,(second params) ,(third params) ,(fourth params) ,(fifth params))
-;                             (list ,.(nthcdr (1+ fixinputs) params))))))
-;     `(let ((array ,theval))
-;        (set-data array)
-;        array)))
-      
+
 
 (defmethod continuous-event-p ((self chant-matrix-Evt))
   (let ((continuous nil))
@@ -1212,15 +1199,6 @@ All non-specified transitions are linear.
 ;(if (in-chant-patch-p self num) self (om-beep-msg (string+ "Warning: events of type " (evt-type-str self) " are not allowed in CHANT patch " (integer-to-string num))))
                
 
-;; A utiliser avec les objets identifiés, juste avant l'envoi à synthesize
-;; renvoie les fofs et les f0s
-; Trie les elements entrants, et élimine les doublons
-
-;(let ((list '("a" "b" "c" "d" "ca" "bc")))
-;  (remove-if #'(lambda (x) 
-;                 (find x list :test #'(lambda (x y) (and (search x y) (not (string-equal x y)))))
-;                 ) list))
-
 (defmethod filter-ch-ids ((elts list))
   (let* ((fofs nil) (f0s nil) (others nil))
     (loop for elt in elts do
@@ -1243,7 +1221,6 @@ All non-specified transitions are linear.
                              ) f0s))
     (sort (append fofs f0s others) '< :key 'get-absolute-time)
     ))
-
 
 
 (defmethod! ch-synthesize ((events t) &key 
