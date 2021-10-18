@@ -1,6 +1,6 @@
 # OM-Chant
 
-OM-Chant is an OpenMusic library for the control of the Chant synthesizer. The Chant synthesiser allows to simulate and reproduce sung voice sounds, but also to create more abstract sounds using the FOF synthesis technique.
+OM-Chant is an OpenMusic library for the control of the Chant synthesizer. The Chant synthesiser allows simulating and reproducing sung voice sounds, but also creates more abstract sounds using the FOF synthesis technique.
 
 <img src="docs/images/om-chant.png">
 
