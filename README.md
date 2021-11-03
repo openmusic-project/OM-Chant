@@ -18,7 +18,6 @@ This program is free software. It is distributed in the hope that it will be use
 
 _This repository does not include Chant sources or binaries._
 
-Get the full OM-Chant package (including Chant binaries) via [Ircam ForumNet](http://forumnet.ircam.fr/shop/fr/forumnet/57-libraries-openmusic.html) or on the **[releases](https://github.com/openmusic-project/OM-Chant/releases)** tab of this project.
 
 ### Credits
 
