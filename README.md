@@ -16,8 +16,6 @@ The OM-Chant library also contains a full set of tutorial patches.
 
 This program is free software. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY, without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
 
-_This repository does not include Chant sources or binaries._
-
 
 ### Credits
 
