@@ -33,13 +33,14 @@
 (defun chant-get-default-audio-sr () *audio-sr*)
 (defun chant-get-default-audio-normalization () (and *normalize* *normalize-level*))
 
-#|
-;; no real need to make CHANT-PATH A user preference...
-;; (pushr 'chant *external-prefs*)
+
+
+
 
 (defvar *chant-path* nil)
 
 (defmethod get-external-name ((module (eql 'chant))) "CHANT")
+(defmethod get-external-icon ((module (eql 'chant))) (list 600 (find-library "OM-Chant")))
 
 (defmethod get-external-module-vals ((module (eql 'chant)) modulepref) (get-pref modulepref :chant-options))
 (defmethod get-external-module-path ((module (eql 'chant)) modulepref) (get-pref modulepref :chant-path))
@@ -59,6 +60,9 @@
     (when (get-pref moduleprefs :chant-path)
       (setf *chant-path* (find-true-external (get-pref moduleprefs :chant-path))))
     ))
-|#
 
+;(put-external-pref-values 'chant)
 
+(when (find-pref-module :externals)
+  (put-external-preferences 'chant (find-pref-module :externals)))
+(pushr 'chant *external-prefs*)

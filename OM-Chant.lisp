@@ -19,7 +19,7 @@
 
 (in-package :om)
 
-(defparameter *chant-files* '("om6-chant-prefs"
+(defparameter *chant-files* '("om-chant-prefs"
                               "chant-sdif" 
                               "chant-synth"
                               "formants"
