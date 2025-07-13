@@ -13,12 +13,9 @@
 ;============================================================================
 ; CHANT path / OM preferences
 ; Jean Bresson, IRCAM 2010
-;===================================================
+;===================================================(in-package :om)
 
-
-(in-package :om)
-
-
+#|
 (defun get-chant-exec-path ()
   (let ((libpath (lib-pathname (find-library "OM-Chant"))))
     (om-make-pathname :directory (append (pathname-directory libpath) 
@@ -26,12 +23,9 @@
                       :host (pathname-host libpath) :device (pathname-device libpath)
                       :name "chant" #+win32 :type #+win32  "exe")
     ))
+|#
 
 
-(defun chant-get-default-audio-format () *def-snd-format*)
-(defun chant-get-default-audio-res () *audio-res*)
-(defun chant-get-default-audio-sr () *audio-sr*)
-(defun chant-get-default-audio-normalization () (and *normalize* *normalize-level*))
 
 
 
@@ -61,6 +55,13 @@
       (setf *chant-path* (find-true-external (get-pref moduleprefs :chant-path))))
     ))
 
+(defun get-chant-exec-path () *chant-path*)
+
+(defun chant-get-default-audio-format () *def-snd-format*)
+(defun chant-get-default-audio-res () *audio-res*)
+(defun chant-get-default-audio-sr () *audio-sr*)
+(defun chant-get-default-audio-normalization () (and *normalize* *normalize-level*))
+  
 ;(put-external-pref-values 'chant)
 
 (when (find-pref-module :externals)
